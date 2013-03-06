@@ -6,9 +6,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MasterSuboutput','url'=>array('index')),
 	array('label'=>'Create MasterSuboutput','url'=>array('create')),
-	array('label'=>'View MasterSuboutput','url'=>array('view','id'=>$model->id)),
 	array('label'=>'Manage MasterSuboutput','url'=>array('admin')),
 );
 ?>

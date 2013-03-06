@@ -2,6 +2,16 @@
 
 class RevisionBehavior extends CActiveRecordBehavior {
 
+    public function lastRevision($condition = "") {
+        $model = $this->getOwner();
+        $last = $model->find(array('order'=>'version desc','condition'=>'trash = 0'));
+        if ($last != null) {
+            return $last->version;
+        } else {
+            return 0;
+        }
+    }
+    
     public function beforeSave() {
         $model = $this->getOwner();
         $model_class = get_class($model);

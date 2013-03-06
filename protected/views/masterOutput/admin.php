@@ -5,18 +5,16 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MasterOutput','url'=>array('index')),
 	array('label'=>'Create MasterOutput','url'=>array('create')),
 );
 
 ?>
 
-<h1 style="">Manage Master Outputs</h1>
+<h1 style="">Master Output</h1>
 
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php $this->widget('ext.apben.RevisionGridView',array(
 	'id'=>'master-output-grid',
-    'type' => 'striped, bordered, condensed',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(

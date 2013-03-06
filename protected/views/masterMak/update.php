@@ -6,9 +6,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MasterMak','url'=>array('index')),
 	array('label'=>'Create MasterMak','url'=>array('create')),
-	array('label'=>'View MasterMak','url'=>array('view','id'=>$model->id)),
 	array('label'=>'Manage MasterMak','url'=>array('admin')),
 );
 ?>

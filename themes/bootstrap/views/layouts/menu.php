@@ -7,11 +7,28 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
             'class' => 'bootstrap.widgets.TbMenu',
             'items' => array(
                 array(
+                    'visible' => !Yii::app()->user->isGuest,
                     'label' => 'Data Anggaran',
                     'icon' => 'briefcase',
-                    'url' => '#'
+                    'url' => '#',
+                    'items' => array(
+                        array(
+                            'label' => 'Edit DIPA Terbaru',
+                            'url' => array('/dipa/view/0')
+                        ),
+                        '---',
+                        array(
+                            'label' => 'Buat DIPA Baru',
+                            'url' => array('/dipa/create')
+                        ),
+                        array(
+                            'label' => 'Manage DIPA',
+                            'url' => array('/dipa/admin')
+                        )
+                    )
                 ),
                 array(
+                    'visible' => !Yii::app()->user->isGuest,
                     'label' => 'Data Master',
                     'icon' => 'book',
                     'items' => array(
@@ -27,7 +44,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                             'label' => 'Master MAK',
                             'url' => array('/masterMak/admin')
                         ),
-                    )
+                    ),
                 ),
             ),
         ),

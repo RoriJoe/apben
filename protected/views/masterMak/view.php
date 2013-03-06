@@ -5,7 +5,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MasterMak','url'=>array('index')),
 	array('label'=>'Create MasterMak','url'=>array('create')),
 	array('label'=>'Update MasterMak','url'=>array('update','id'=>$model->id)),
 	array('label'=>'Delete MasterMak','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),

@@ -5,7 +5,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MasterMak','url'=>array('index')),
 	array('label'=>'Manage MasterMak','url'=>array('admin')),
 );
 ?>

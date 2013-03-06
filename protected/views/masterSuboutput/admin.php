@@ -5,18 +5,16 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MasterSuboutput','url'=>array('index')),
 	array('label'=>'Create MasterSuboutput','url'=>array('create')),
 );
 
 ?>
 
-<h1>Manage Master Suboutputs</h1>
+<h1>Master Suboutput</h1>
 
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php $this->widget('ext.apben.RevisionGridView',array(
 	'id'=>'master-suboutput-grid',
-    'type' => 'striped, bordered, condensed',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(

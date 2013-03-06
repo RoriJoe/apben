@@ -5,7 +5,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MasterOutput','url'=>array('index')),
 	array('label'=>'Create MasterOutput','url'=>array('create')),
 	array('label'=>'Update MasterOutput','url'=>array('update','id'=>$model->id)),
 	array('label'=>'Delete MasterOutput','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),

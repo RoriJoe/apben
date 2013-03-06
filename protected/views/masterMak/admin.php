@@ -5,18 +5,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MasterMak','url'=>array('index')),
 	array('label'=>'Create MasterMak','url'=>array('create')),
 );
 
 ?>
 
-<h1>Manage Master Maks</h1>
+<h1>Master MAK</h1>
 
-
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php $this->widget('ext.apben.RevisionGridView',array(
 	'id'=>'master-mak-grid',
-    'type' => 'striped, bordered, condensed',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(

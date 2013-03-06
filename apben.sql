@@ -8,6 +8,8 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 DROP TABLE IF EXISTS `detail_input`;
 CREATE TABLE `detail_input` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `dipa_id` bigint(20) NOT NULL,
+  `dipa_version` int(11) NOT NULL,
   `mak_uid` bigint(20) NOT NULL,
   `uraian` varchar(255) NOT NULL,
   `volume` bigint(20) NOT NULL,
@@ -22,12 +24,30 @@ CREATE TABLE `detail_input` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `detail_input` (`id`, `mak_uid`, `uraian`, `volume`, `satuan_volume`, `frequensi`, `satuan_frequensi`, `tarif`, `jumlah`, `uid`, `version`, `trash`) VALUES
-(1,	0,	'',	0,	'',	0,	'',	0,	9223372036854775807,	0,	1,	0);
+INSERT INTO `detail_input` (`id`, `dipa_id`, `dipa_version`, `mak_uid`, `uraian`, `volume`, `satuan_volume`, `frequensi`, `satuan_frequensi`, `tarif`, `jumlah`, `uid`, `version`, `trash`) VALUES
+(1,	0,	0,	0,	'',	0,	'',	0,	'',	0,	9223372036854775807,	0,	1,	0);
+
+DROP TABLE IF EXISTS `dipa`;
+CREATE TABLE `dipa` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `tahun_anggaran` int(11) NOT NULL,
+  `satker` varchar(255) NOT NULL,
+  `kode_kegiatan` varchar(25) NOT NULL,
+  `kegiatan` varchar(255) NOT NULL,
+  `tanggal_dipa` varchar(20) NOT NULL,
+  `nomor_dipa` varchar(30) NOT NULL,
+  `version` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `dipa` (`id`, `tahun_anggaran`, `satker`, `kode_kegiatan`, `kegiatan`, `tanggal_dipa`, `nomor_dipa`, `version`) VALUES
+(1,	2013,	'Pusat Pendidikan dan Pelatihan Pengembangan Sumber Daya Manusia - BPPK',	'1737',	'Pengembangan SDM Melalui Penyelenggaran Diklat Kepemimpinan dan Manajemen Serta Pendidikan Pascasarjana Bagi Pegawai Departemen Keuangan',	'13 Desember 2012',	'015.11.1.675709/2013',	1);
 
 DROP TABLE IF EXISTS `mak`;
 CREATE TABLE `mak` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `dipa_id` bigint(20) NOT NULL,
+  `dipa_version` int(11) NOT NULL,
   `suboutput_uid` bigint(20) NOT NULL,
   `kode` varchar(25) NOT NULL,
   `sumber_dana` varchar(25) NOT NULL,
@@ -36,7 +56,9 @@ CREATE TABLE `mak` (
   `version` int(11) NOT NULL DEFAULT '1',
   `trash` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `suboutput_id` (`suboutput_uid`)
+  KEY `suboutput_id` (`suboutput_uid`),
+  KEY `dipa_id` (`dipa_id`),
+  CONSTRAINT `mak_ibfk_1` FOREIGN KEY (`dipa_id`) REFERENCES `dipa` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -51,6 +73,31 @@ CREATE TABLE `master_mak` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `master_mak` (`id`, `kode`, `uraian`, `uid`, `version`, `trash`) VALUES
+(3,	'521211',	'Belanja Bahan',	3,	1,	0),
+(4,	'521219',	'Belanja Barang Non Operasional Lainnya',	4,	1,	0),
+(5,	'522191',	'Belanja Jasa Lainnya',	5,	1,	0),
+(6,	'524119',	'Belanja Perjalanan Lainnya',	6,	1,	0),
+(7,	'522151',	'Belanja Jasa Profesi',	7,	1,	0),
+(8,	'521213',	'Honor Output Kegiatan',	8,	1,	0),
+(9,	'522141',	'Belanja Sewa',	9,	1,	0),
+(10,	'511111',	'Belanja Gaji Pokok PNS',	10,	1,	0),
+(11,	'511119',	'Belanja Pembulatan Gaji PNS',	11,	1,	0),
+(12,	'511121',	'Belanja Tunj. Suami/Istri PNS',	12,	1,	0),
+(13,	'511122',	'Belanja Tunj. Anak PNS',	13,	1,	0),
+(14,	'511123',	'Belanja Tunj. Struktural PNS',	14,	1,	0),
+(15,	'511124',	'Belanja Tunj. Fungsional PNS',	15,	1,	0),
+(16,	'511125',	'Belanja Tunj. PPh PNS',	16,	1,	0),
+(17,	'511126',	'Belanja Tunj. Beras PNS',	17,	1,	0),
+(18,	'511129',	'Belanja Uang Makan PNS',	18,	1,	0),
+(19,	'511151',	'Belanja Tunjangan Umum PNS',	19,	1,	0),
+(20,	'512211',	'Belanja uang lembur',	20,	1,	0),
+(21,	'521111',	'Belanja Keperluan Perkantoran',	21,	1,	0),
+(22,	'522111',	'Belanja Langganan Listrik',	22,	1,	0),
+(23,	'522112',	'Belanja Langganan Telepon',	23,	1,	0),
+(24,	'521114',	'Belanja pengiriman surat dinas pos pusat',	24,	1,	0),
+(25,	'521119',	'Belanja Barang Operasional Lainnya',	25,	1,	0),
+(26,	'521115',	'Honor Operasional Satuan Kerja',	26,	1,	0);
 
 DROP TABLE IF EXISTS `master_output`;
 CREATE TABLE `master_output` (
@@ -64,30 +111,12 @@ CREATE TABLE `master_output` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `master_output` (`id`, `kode`, `uraian`, `uid`, `version`, `trash`) VALUES
-(28,	'123123',	'123123',	28,	1,	0),
-(29,	'123123',	'abcd',	28,	2,	0),
-(30,	'bcdef',	'abcd',	28,	3,	0),
-(38,	'bcdef',	'ini bisa di rubah',	28,	4,	0),
-(39,	'bcdef',	'masih bisa di rubah',	28,	5,	0),
-(40,	'123123',	'sebelum di hapus',	28,	3,	0),
-(41,	'bcdef',	'test',	28,	6,	0),
-(43,	'09123',	'qiwpdjqiowjd',	43,	1,	0),
-(44,	'09123',	'jossss',	43,	2,	0),
-(45,	'12380172',	'qwdqwdqw',	45,	1,	0),
-(47,	'josss',	'jummm\r\n',	47,	1,	0),
-(48,	'josss',	'bisa ter trackk',	47,	2,	0),
-(49,	'josss',	'mulai dari awal',	47,	3,	0),
-(50,	'09123',	'jossss',	43,	3,	0),
-(52,	'12380172',	'harusnya bisa di rubah',	45,	2,	0),
-(53,	'wewew',	'harusnya bisa di rubah',	45,	3,	0),
-(54,	'12312412',	'jossss',	43,	4,	0),
-(55,	'qweqw',	'harusnya bisa di rubah',	45,	4,	0),
-(56,	'qweqw',	'harusnya bisa di rubah',	45,	5,	1),
-(57,	'bcdef',	'test',	28,	7,	0),
-(58,	'12312412',	'jossss',	43,	5,	0),
-(59,	'bcdef',	'test',	28,	8,	0),
-(60,	'12312412',	'jossss',	43,	6,	0),
-(61,	'josss',	'mulai dari awal',	47,	4,	1);
+(64,	'003',	'Laporan Keuangan dan Kegiatan',	64,	1,	0),
+(65,	'004',	'Jumlah Peserta Diklat',	65,	1,	0),
+(66,	'994',	'Layanan Perkantoran',	66,	1,	0),
+(67,	'996',	'Perangkat Pengolah Data dan Komunikasi',	67,	1,	0),
+(68,	'997',	'Peralatan dan Fasilitas Perkantoran',	68,	1,	0),
+(69,	'998',	'Gedung/Bangunan',	69,	1,	0);
 
 DROP TABLE IF EXISTS `master_suboutput`;
 CREATE TABLE `master_suboutput` (
@@ -101,45 +130,42 @@ CREATE TABLE `master_suboutput` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `master_suboutput` (`id`, `kode`, `uraian`, `uid`, `version`, `trash`) VALUES
-(1,	'qweqwe',	'qweqw',	1,	1,	0),
-(2,	'qwe',	'qweqwe',	2,	1,	0),
-(3,	'qweqwe',	'qweqw',	1,	2,	0),
-(4,	'qweqwe',	'qweqw',	1,	3,	0),
-(5,	'qweqwe',	'qweqw',	1,	4,	1),
-(6,	'jos',	'godan',	6,	1,	0),
-(7,	'qwdqw',	'qwdqwe',	2,	2,	0),
-(8,	'wefwe',	'wefwefwe',	2,	3,	0),
-(9,	'123123',	'godan',	6,	2,	0);
+(15,	'001',	'DIKLAT UJIAN DINAS',	15,	1,	0),
+(16,	'002',	'DIKLAT UJIAN DINAS MENGULANG',	16,	1,	0),
+(17,	'004',	'Diklat Prajabatan Golongan II',	17,	1,	0),
+(18,	'005',	'Diklat Prajabatan Golongan III',	18,	1,	0),
+(19,	'006',	'DIKLATPIM (ILT) IV PAJAK DAN BEA CUKAI',	19,	1,	0),
+(20,	'007',	'DIKLATPIM (ILT) III PAJAK',	20,	1,	0),
+(21,	'016',	'DIKLAT PRAJABATAN GOLONGAN II DAERAH',	21,	1,	0),
+(22,	'024',	'PROGRAM PHRDP III (JICA)',	22,	1,	0),
+(23,	'025',	'PROGRAM SPIRIT (WORLD BANK)',	23,	1,	0),
+(24,	'026',	'Penyelenggaraan Persiapan Beasiswa Luar Negeri',	24,	1,	0),
+(25,	'027',	'EXECUTIVE TRAINING',	25,	1,	0),
+(26,	'001',	'DUKUNGAN MANAJEMEN DAN DUKUNGAN TEKNIS',	26,	1,	0),
+(27,	'002',	'DUKUNGAN Perkantoran Lainnya',	27,	1,	0),
+(28,	'001',	'Perangkat Pengolah Data',	28,	1,	0),
+(29,	'001',	'PENGADAAN FASILITAS PERKANTORAN',	29,	1,	0),
+(30,	'002',	'SARANA PRASARANA INSTANSI',	30,	1,	0);
 
 DROP TABLE IF EXISTS `output`;
 CREATE TABLE `output` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `satker_id` bigint(20) NOT NULL,
+  `dipa_id` bigint(20) NOT NULL,
+  `dipa_version` bigint(20) NOT NULL,
   `kode` varchar(25) NOT NULL,
   `uid` bigint(20) NOT NULL,
   `version` int(11) NOT NULL DEFAULT '1',
   `trash` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `satker_id` (`satker_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-DROP TABLE IF EXISTS `satker`;
-CREATE TABLE `satker` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `kode` varchar(25) NOT NULL,
-  `satker` varchar(255) NOT NULL,
-  `kegiatan` varchar(255) NOT NULL,
-  `tanggal_dipa` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `nomor_dipa` varchar(30) NOT NULL,
-  `version` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  KEY `satker_id` (`dipa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 DROP TABLE IF EXISTS `suboutput`;
 CREATE TABLE `suboutput` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `dipa_id` bigint(20) NOT NULL,
+  `dipa_version` int(11) NOT NULL,
   `output_uid` bigint(20) NOT NULL,
   `kode` varchar(25) NOT NULL,
   `uid` bigint(20) NOT NULL,
@@ -150,4 +176,4 @@ CREATE TABLE `suboutput` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2013-03-06 00:25:06
+-- 2013-03-06 12:19:10
