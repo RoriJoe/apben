@@ -69,6 +69,13 @@ class DetailInput extends CActiveRecord {
         parent::beforeSave();
         return true;
     }
+    
+    public function afterSave() {
+        parent::afterSave();
+        
+        $this->mak->recalculate();
+        return true;
+    }
 
     /**
      * @return array relational rules.
@@ -77,6 +84,7 @@ class DetailInput extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
+            'mak' => array(self::BELONGS_TO, 'Mak', array('mak_uid' => 'uid'), 'scopes' => array('lastRevisionScope')),
         );
     }
 

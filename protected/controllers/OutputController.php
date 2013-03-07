@@ -78,7 +78,7 @@ class OutputController extends Controller
 
 		$this->renderPartial('create',array(
 			'model'=>$model,
-		));
+		),false,true);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class OutputController extends Controller
 
 		$this->renderPartial('update',array(
 			'model'=>$model,
-		));
+		),false,true);
 	}
 
 	/**

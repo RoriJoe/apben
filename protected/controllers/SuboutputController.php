@@ -79,7 +79,7 @@ class SuboutputController extends Controller
 
 		$this->renderPartial('create',array(
 			'model'=>$model,
-		));
+		),false,true);
 	}
 
 	/**
@@ -103,7 +103,7 @@ class SuboutputController extends Controller
 
 		$this->renderPartial('update',array(
 			'model'=>$model,
-		));
+		),false,true);
 	}
 
 	/**

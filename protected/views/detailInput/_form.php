@@ -33,14 +33,11 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <div class="form-actions">
     <?php
+    $path = Yii::app()->request->pathInfo;
     $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType' => 'ajaxSubmit',
-        'url' => 'mother',
-        'type' => 'danger',
+        'buttonType' => 'submit',
+        'type' => 'primary',
         'label' => $model->isNewRecord ? 'Rekam Detail Input' : 'Save',
-        'ajaxOptions' => array(
-            'complete' => 'alert("F");'
-        )
     ));
     ?>
 </div>

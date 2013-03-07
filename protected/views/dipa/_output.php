@@ -6,6 +6,7 @@
     </td>
     <td class="uraian">
         <?php
+        
         echo CHtml::link($output->detail->uraian, array('/dipa/update/' . $model->id), array(
             'data-toggle' => 'modal',
             'data-target' => '#OutputDialog',

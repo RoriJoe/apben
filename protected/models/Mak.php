@@ -64,6 +64,17 @@ class Mak extends CActiveRecord {
             array('id, dipa_id, dipa_version, suboutput_uid, kode, sumber_dana, pagu, uid, version, trash', 'safe', 'on' => 'search'),
         );
     }
+    
+    public function recalculate() {
+        $ds = $this->detail_input;
+        $pagu = 0;
+        foreach ($ds as $d) {
+            $pagu += $d->jumlah;
+        }
+        
+        $this->saveAttributes(array('pagu' => $pagu));
+    }
+    
 
     /**
      * @return array relational rules.
