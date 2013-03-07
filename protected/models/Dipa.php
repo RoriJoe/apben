@@ -30,7 +30,41 @@ class Dipa extends CActiveRecord {
         return 'dipa';
     }
 
-
+    public function recalculate() {
+        $ds = $this->output;
+        $pagu = 0;
+        foreach ($ds as $d) {
+            $pagu += $d->pagu;
+        }
+        
+        $this->saveAttributes(array('pagu' => $pagu));
+    }
+    
+    public function calculate() {
+        /*
+        $dets = $this->detail_input;
+        foreach ($dets as $d) {
+            $d->recalculate();
+        }
+         */
+        
+        $maks = $this->mak;
+        foreach ($maks as $mak) {
+            $mak->recalculate();
+        }
+        
+        $suboutput = $this->suboutput;
+        foreach ($suboutput as $su) {
+            $su->recalculate();
+        }
+        
+        $output = $this->output;
+        foreach ($output as $ou) {
+            $ou->recalculate();
+        }
+        
+        $this->recalculate();
+    }
 
     /**
      * @return array validation rules for model attributes.
@@ -59,8 +93,8 @@ class Dipa extends CActiveRecord {
         return array(
             'output' => array(self::HAS_MANY, 'Output', 'dipa_id','scopes'=>array('lastRevisionScope')),
             'suboutput' => array(self::HAS_MANY, 'Suboutput', 'dipa_id','scopes'=>array('lastRevisionScope')),
-            'mak' => array(self::HAS_MANY, 'mak', 'dipa_id','scopes'=>array('lastRevisionScope')),
-            'detail_input' => array(self::HAS_MANY, 'detail_input', 'dipa_id','scopes'=>array('lastRevisionScope')),
+            'mak' => array(self::HAS_MANY, 'Mak', 'dipa_id','scopes'=>array('lastRevisionScope')),
+            'detail_input' => array(self::HAS_MANY, 'DetailInput', 'dipa_id','scopes'=>array('lastRevisionScope')),
         );
     }
 

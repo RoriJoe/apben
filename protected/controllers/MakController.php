@@ -73,6 +73,9 @@ class MakController extends Controller
 		if(isset($_POST['Mak']))
 		{
 			$model->attributes=$_POST['Mak'];
+            $model->kode = Format::kode($_POST['Mak']['kode']);
+            $model->kode_uid = Format::kode_uid($_POST['Mak']['kode']);
+            
 			if($model->save())
 				$this->redirect(array('/dipa/view/' . $model->dipa_id));
 		}
@@ -97,6 +100,9 @@ class MakController extends Controller
 		if(isset($_POST['Mak']))
 		{
 			$model->attributes=$_POST['Mak'];
+            $model->kode = Format::kode($_POST['Mak']['kode']);
+            $model->kode_uid = Format::kode_uid($_POST['Mak']['kode']);
+            
 			if($model->save())
 				$this->redirect(array('/dipa/view/' . $model->dipa_id));
 		}

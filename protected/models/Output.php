@@ -51,7 +51,7 @@ class Output extends CActiveRecord
 		return array(
 			array('dipa_id, dipa_version, kode', 'required'),
 			array('version, trash', 'numerical', 'integerOnly'=>true),
-			array('dipa_id, dipa_version, uid', 'length', 'max'=>20),
+			array('dipa_id, kode_uid,dipa_version, uid', 'length', 'max'=>20),
 			array('kode', 'length', 'max'=>25),
             array('satuan_target','safe'),
 			// The following rule is used by search().
@@ -61,7 +61,21 @@ class Output extends CActiveRecord
 	}
 
     public function getDetail() {
-        return MasterOutput::model()->find(array('condition' => 'kode = ' . $this->kode));
+        if ($this->kode_uid != 0) {
+            return MasterOutput::model()->find(array('condition' => 'kode = ' . $this->kode . " and uid = " . $this->kode_uid));
+        } else {
+            return MasterOutput::model()->find(array('condition' => 'kode = ' . $this->kode));
+        }
+    }
+    
+    public function recalculate() {
+        $ds = $this->suboutput;
+        $pagu = 0;
+        foreach ($ds as $d) {
+            $pagu += $d->pagu;
+        }
+        
+        $this->saveAttributes(array('pagu' => $pagu));
     }
     
 	/**

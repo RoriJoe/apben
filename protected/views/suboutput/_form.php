@@ -8,7 +8,11 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 <?php echo $form->errorSummary($model); ?>
 
 <?php
-echo $form->dropDownListRow($model, 'kode', MasterSuboutput::getDropDownList(), array('class' => 'span5', 'maxlength' => 25));
+echo $form->dropDownListRow($model, 'kode', MasterSuboutput::getDropDownList(), array(
+    'class' => 'span5', 
+    'maxlength' => 25,
+    'options' => array($model->kode_uid . '-' . $model->kode =>array('selected'=>true))
+    ));
 ?>
 <?php
 echo $form->textFieldRow($model, 'target', array(

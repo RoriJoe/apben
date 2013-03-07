@@ -7,6 +7,68 @@ $this->breadcrumbs = array(
 ?>
 <div id="ajax-page">
     <div id="dipa-versi">
+        <?php
+        $this->widget('bootstrap.widgets.TbButton', array(
+            'buttonType' => 'link',
+            'size' => 'small',
+            'url' => array('/dipa/kalkulasi/' . $model->id),
+            'icon' => 'check',
+            'label' => 'Kalkulasi ulang',
+            'htmlOptions' => array(
+                'class' => 'pull-right',
+            )
+        ));
+        ?>
+
+        <div class="pull-right dipa-group" style="padding:0px 0px 3px 3px;">
+            <?php
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'buttonType' => 'link',
+                'size' => 'mini',
+                'label' => 'DTL',
+                'htmlOptions' => array(
+                    'class' => 'pull-right',
+                    'style' => 'margin-right:3px;margin-top:3px;'
+                )
+            ));
+            ?>
+            <?php
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'buttonType' => 'link',
+                'size' => 'mini',
+                'type' => 'danger',
+                'label' => 'MAK',
+                'htmlOptions' => array(
+                    'class' => 'pull-right',
+                    'style' => 'margin-right:3px;margin-top:3px;'
+                )
+            ));
+            ?>
+            <?php
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'buttonType' => 'link',
+                'size' => 'mini',
+                'type' => 'info',
+                'label' => 'SUB',
+                'htmlOptions' => array(
+                    'class' => 'pull-right',
+                    'style' => 'margin-right:3px;margin-top:3px;'
+                )
+            ));
+            ?>
+            <?php
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'buttonType' => 'link',
+                'size' => 'mini',
+                'type' => 'success',
+                'label' => 'OUT',
+                'htmlOptions' => array(
+                    'class' => 'pull-right',
+                    'style' => 'margin-right:3px;margin-top:3px;'
+                )
+            ));
+            ?>
+        </div>
         <div class="dipa-group">
             <div class="pull-left">
                 Revisi: <b><?php echo $model->version; ?></b>
@@ -43,7 +105,7 @@ $this->breadcrumbs = array(
             <td class="volume"></td>
             <td class="freq"></td>
             <td class="tarif"></td>
-            <td class="jumlah"></td>
+            <td class="jumlah"><?php echo Format::currency($model->pagu); ?></td>
         </tr>
         <tr class="dipa">
             <td class="kode"><?php echo $model->kode_kegiatan; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -51,7 +113,7 @@ $this->breadcrumbs = array(
             <td class="volume"></td>
             <td class="freq"></td>
             <td class="tarif"></td>
-            <td class="jumlah"></td>
+            <td class="jumlah"><?php echo Format::currency($model->pagu); ?></td>
         </tr>
 
         <?php include("_dipa_buttons.php"); ?>

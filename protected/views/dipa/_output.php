@@ -6,7 +6,10 @@
     </td>
     <td class="uraian">
         <?php
-        
+        if (!isset($output->detail)) {
+            var_dump($output->detail);
+            die();
+        }
         echo CHtml::link($output->detail->uraian, array('/dipa/update/' . $model->id), array(
             'data-toggle' => 'modal',
             'data-target' => '#OutputDialog',
@@ -18,5 +21,5 @@
     <td class="volume"></td>
     <td class="freq"></td>
     <td class="tarif"></td>
-    <td class="jumlah"></td>
+    <td class="jumlah"><?php echo Format::currency($output->pagu); ?></td>
 </tr>

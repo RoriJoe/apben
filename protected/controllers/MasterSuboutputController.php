@@ -102,6 +102,7 @@ class MasterSuboutputController extends Controller
 		if(isset($_POST['MasterSuboutput']))
 		{
 			$model->attributes=$_POST['MasterSuboutput'];
+            
 			if($model->save())
 				$this->redirect(array('admin'));
 		}

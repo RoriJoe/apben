@@ -20,9 +20,9 @@
         <?php echo $detail->frequensi . " " .$detail->satuan_frequensi; ?>
     </td>
     <td class="tarif">
-        <?php echo $detail->tarif; ?>
+        <?php echo Format::currency($detail->tarif); ?>
     </td>
     <td class="jumlah">
-        <?php echo $detail->jumlah; ?>
+        <?php echo Format::currency($detail->jumlah); ?>
     </td>
 </tr>

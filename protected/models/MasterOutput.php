@@ -26,7 +26,7 @@ class MasterOutput extends ActiveRecord {
         $raw = self::model()->findAll();
         $dropdown = array();
         foreach ($raw as $k=>$r) {
-            $dropdown[$r->kode] = "{$r->kode} - {$r->uraian}";
+            $dropdown[$r->uid . "-" . $r->kode] = "{$r->kode} - {$r->uraian}";
         }
         return $dropdown;
     }

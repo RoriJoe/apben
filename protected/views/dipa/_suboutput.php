@@ -18,5 +18,5 @@
     <td class="volume"></td>
     <td class="freq"></td>
     <td class="tarif"></td>
-    <td class="jumlah"></td>
+    <td class="jumlah"><?php echo Format::currency($suboutput->pagu); ?></td>
 </tr>

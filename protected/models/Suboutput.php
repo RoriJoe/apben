@@ -40,7 +40,21 @@ class Suboutput extends CActiveRecord {
     }
 
     public function getDetail() {
-        return MasterSuboutput::model()->find(array('condition' => 'kode = ' . $this->kode));
+        if ($this->kode_uid != 0) {
+            return MasterSuboutput::model()->find(array('condition' => 'kode = ' . $this->kode . " and uid = " . $this->kode_uid));
+        } else {
+            return MasterSuboutput::model()->find(array('condition' => 'kode = ' . $this->kode));
+        }
+    }
+
+    public function recalculate() {
+        $ds = $this->mak;
+        $pagu = 0;
+        foreach ($ds as $d) {
+            $pagu += $d->pagu;
+        }
+
+        $this->saveAttributes(array('pagu' => $pagu));
     }
 
     /**
@@ -51,7 +65,7 @@ class Suboutput extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('dipa_id, dipa_version, output_uid, kode', 'required'),
-            array('dipa_version, version, trash', 'numerical', 'integerOnly' => true),
+            array('dipa_version, kode_uid, version, trash', 'numerical', 'integerOnly' => true),
             array('dipa_id, output_uid, uid', 'length', 'max' => 20),
             array('kode', 'length', 'max' => 25),
             array('target', 'safe'),

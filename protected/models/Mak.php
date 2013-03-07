@@ -45,7 +45,11 @@ class Mak extends CActiveRecord {
     }
 
     public function getDetail() {
-        return MasterMak::model()->find(array('condition' => 'kode = ' . $this->kode));
+        if ($this->kode_uid != 0) {
+            return MasterMak::model()->find(array('condition' => 'kode = ' . $this->kode . " and uid = " . $this->kode_uid));
+        } else {
+            return MasterMak::model()->find(array('condition' => 'kode = ' . $this->kode));
+        }
     }
 
     /**
@@ -56,7 +60,7 @@ class Mak extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('dipa_id, dipa_version, suboutput_uid, kode, sumber_dana', 'required'),
-            array('dipa_version, version, trash', 'numerical', 'integerOnly' => true),
+            array('dipa_version, kode_uid, version, trash', 'numerical', 'integerOnly' => true),
             array('dipa_id, suboutput_uid, pagu, uid', 'length', 'max' => 20),
             array('kode, sumber_dana', 'length', 'max' => 25),
             // The following rule is used by search().
@@ -71,7 +75,6 @@ class Mak extends CActiveRecord {
         foreach ($ds as $d) {
             $pagu += $d->jumlah;
         }
-        
         $this->saveAttributes(array('pagu' => $pagu));
     }
     

@@ -63,16 +63,21 @@ class DetailInput extends CActiveRecord {
         );
     }
 
+    public function recalculate() {
+        $this->jumlah = $this->volume * $this->frequensi * $this->tarif;
+        $this->saveAttributes(array('jumlah' => $this->jumlah));
+    }
+
     public function beforeSave() {
         $this->jumlah = $this->volume * $this->frequensi * $this->tarif;
-        
+
         parent::beforeSave();
         return true;
     }
-    
+
     public function afterSave() {
         parent::afterSave();
-        
+
         $this->mak->recalculate();
         return true;
     }

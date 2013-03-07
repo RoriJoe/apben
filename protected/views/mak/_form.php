@@ -8,7 +8,11 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 <?php echo $form->errorSummary($model); ?>
 
 <?php
-echo $form->dropDownListRow($model, 'kode', MasterMak::getDropDownList(), array('class' => 'span5', 'maxlength' => 25));
+echo $form->dropDownListRow($model, 'kode', MasterMak::getDropDownList(), array(
+    'class' => 'span5', 
+    'maxlength' => 25,
+    'options' => array($model->kode_uid . '-' . $model->kode =>array('selected'=>true))
+    ));
 ?>
 <div class="row span2" style="margin-left:0px;width:100px;">
     <?php echo $form->dropDownListRow($model, 'sumber_dana',MasterMak::sumberDanaList(), array('class' => 'span2', 'maxlength' => 25)); ?>
