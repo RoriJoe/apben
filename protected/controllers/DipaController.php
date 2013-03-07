@@ -25,7 +25,7 @@ class DipaController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update','index', 'view', 'kalkulasi'),
+                'actions' => array('create', 'update', 'index', 'view', 'kalkulasi', 'saverev'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -37,11 +37,18 @@ class DipaController extends Controller {
             ),
         );
     }
-    
+
     public function actionKalkulasi($id) {
         $model = $this->loadModel($id);
         $model->calculate();
-        
+
+        $this->redirect(array('/dipa/view/' . $model->id));
+    }
+
+    public function actionSaverev($id) {
+        $model = $this->loadModel($id);
+        $model->saveRev();
+
         $this->redirect(array('/dipa/view/' . $model->id));
     }
 
@@ -52,23 +59,27 @@ class DipaController extends Controller {
     public function actionView($id) {
 
         if ($id == 0) {
-            $terbaru = Dipa::model()->find(array('order' => 'id desc'));
-            $id = $terbaru->id;
-            $this->redirect(array('/dipa/view/' . $id));
+            $terbaru = Dipa::model()->find(array('order' => 'uid desc'));
+            $this->redirect(array('/dipa/view/' . $terbaru->uid));
+        }
+
+        $model = $this->loadModel($id);
+
+        $readonly = false;
+        if (isset($_GET['rev']) && is_numeric($_GET['rev']) && $_GET['rev'] < $model->version) {
+            $model->version = @$_GET['rev'];
+            $readonly = true;
         }
 
         if (@$_GET['co'] == 1) {
-            $cs = Yii::app()->clientScript;
-            $cs->scriptMap = array(
-                'jquery.js' => false,
-                'jquery.ui.js' => false,
-            );
             $this->renderPartial('view', array(
-                'model' => $this->loadModel($id),
+                'model' => $model,
+                'readonly' => $readonly,
                     ), false, true);
         } else {
             $this->render('view', array(
-                'model' => $this->loadModel($id),
+                'model' => $model,
+                'readonly' => $readonly,
             ));
         }
     }
@@ -164,7 +175,8 @@ class DipaController extends Controller {
      * @param integer the ID of the model to be loaded
      */
     public function loadModel($id) {
-        $model = Dipa::model()->findByPk($id);
+        $model = Dipa::model()->find(array('condition' => 'uid = ' . $id));
+        
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;

@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'mak':
  * @property string $id
- * @property string $dipa_id
+ * @property string $dipa_uid
  * @property integer $dipa_version
  * @property string $suboutput_uid
  * @property string $kode
@@ -36,20 +36,8 @@ class Mak extends CActiveRecord {
         return 'mak';
     }
 
-    public function behaviors() {
-        return array(
-            'Revision' => array(
-                'class' => 'application.components.RevisionBehavior',
-            )
-        );
-    }
-
     public function getDetail() {
-        if ($this->kode_uid != 0) {
-            return MasterMak::model()->find(array('condition' => 'kode = ' . $this->kode . " and uid = " . $this->kode_uid));
-        } else {
-            return MasterMak::model()->find(array('condition' => 'kode = ' . $this->kode));
-        }
+        return MasterMak::model()->find(array('condition' => 'kode = ' . $this->kode));
     }
 
     /**
@@ -59,26 +47,28 @@ class Mak extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('dipa_id, dipa_version, suboutput_uid, kode, sumber_dana', 'required'),
-            array('dipa_version, kode_uid, version, trash', 'numerical', 'integerOnly' => true),
-            array('dipa_id, suboutput_uid, pagu, uid', 'length', 'max' => 20),
+            array('dipa_uid, dipa_version, suboutput_uid, kode, sumber_dana', 'required'),
+            array('dipa_version, kode_uid', 'numerical', 'integerOnly' => true),
+            array('dipa_uid, suboutput_uid, pagu', 'length', 'max' => 20),
             array('kode, sumber_dana', 'length', 'max' => 25),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, dipa_id, dipa_version, suboutput_uid, kode, sumber_dana, pagu, uid, version, trash', 'safe', 'on' => 'search'),
+            array('id, dipa_uid, dipa_version, suboutput_uid, kode, sumber_dana, pagu', 'safe', 'on' => 'search'),
         );
     }
-    
-    public function recalculate() {
-        $ds = $this->detail_input;
-        $pagu = 0;
-        foreach ($ds as $d) {
-            $pagu += $d->jumlah;
+
+
+    public function afterFind() {
+
+        if ($this->uid == 0) {
+            $this->saveAttributes(array(
+                'uid' => $this->id
+            ));
         }
-        $this->saveAttributes(array('pagu' => $pagu));
+        
+        return true;
     }
     
-
     /**
      * @return array relational rules.
      */
@@ -86,8 +76,8 @@ class Mak extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'dipa' => array(self::BELONGS_TO, 'Dipa', 'dipa_id'),
-            'detail_input' => array(self::HAS_MANY, 'DetailInput', array('mak_uid' => 'uid'), 'scopes' => array('lastRevisionScope')),
+            'dipa' => array(self::BELONGS_TO, 'Dipa', 'dipa_uid'),
+            'detail_input' => array(self::HAS_MANY, 'DetailInput', array('mak_uid' => 'uid')),
         );
     }
 
@@ -97,15 +87,12 @@ class Mak extends CActiveRecord {
     public function attributeLabels() {
         return array(
             'id' => 'ID',
-            'dipa_id' => 'Dipa',
+            'dipa_uid' => 'Dipa',
             'dipa_version' => 'Dipa Version',
             'suboutput_uid' => 'Suboutput Uid',
             'kode' => 'Kode',
             'sumber_dana' => 'Sumber Dana',
             'pagu' => 'Pagu',
-            'uid' => 'Uid',
-            'version' => 'Version',
-            'trash' => 'Trash',
         );
     }
 
@@ -120,15 +107,12 @@ class Mak extends CActiveRecord {
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id, true);
-        $criteria->compare('dipa_id', $this->dipa_id, true);
+        $criteria->compare('dipa_uid', $this->dipa_uid, true);
         $criteria->compare('dipa_version', $this->dipa_version);
         $criteria->compare('suboutput_uid', $this->suboutput_uid, true);
         $criteria->compare('kode', $this->kode, true);
         $criteria->compare('sumber_dana', $this->sumber_dana, true);
         $criteria->compare('pagu', $this->pagu, true);
-        $criteria->compare('uid', $this->uid, true);
-        $criteria->compare('version', $this->version);
-        $criteria->compare('trash', $this->trash);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

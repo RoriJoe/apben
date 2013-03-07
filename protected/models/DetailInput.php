@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'detail_input':
  * @property string $id
- * @property string $dipa_id
+ * @property string $dipa_uid
  * @property integer $dipa_version
  * @property string $mak_uid
  * @property string $uraian
@@ -37,14 +37,6 @@ class DetailInput extends CActiveRecord {
         return 'detail_input';
     }
 
-    public function behaviors() {
-        return array(
-            'Revision' => array(
-                'class' => 'application.components.RevisionBehavior',
-            )
-        );
-    }
-
     /**
      * @return array validation rules for model attributes.
      */
@@ -52,33 +44,31 @@ class DetailInput extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('dipa_id, dipa_version, mak_uid, uraian, volume, satuan_volume, frequensi, satuan_frequensi, tarif', 'required'),
-            array('dipa_version, version, trash', 'numerical', 'integerOnly' => true),
-            array('dipa_id, mak_uid, volume, frequensi, tarif, jumlah, uid', 'length', 'max' => 20),
+            array('dipa_uid, dipa_version, mak_uid, uraian, volume, satuan_volume, frequensi, satuan_frequensi, tarif', 'required'),
+            array('dipa_version', 'numerical', 'integerOnly' => true),
+            array('dipa_uid, mak_uid, volume, frequensi, tarif, jumlah', 'length', 'max' => 20),
             array('uraian', 'length', 'max' => 255),
             array('satuan_volume, satuan_frequensi', 'length', 'max' => 25),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, dipa_id, dipa_version, mak_uid, uraian, volume, satuan_volume, frequensi, satuan_frequensi, tarif, jumlah, uid, version, trash', 'safe', 'on' => 'search'),
+            array('id, dipa_uid, dipa_version, mak_uid, uraian, volume, satuan_volume, frequensi, satuan_frequensi, tarif, jumlah', 'safe', 'on' => 'search'),
         );
-    }
-
-    public function recalculate() {
-        $this->jumlah = $this->volume * $this->frequensi * $this->tarif;
-        $this->saveAttributes(array('jumlah' => $this->jumlah));
     }
 
     public function beforeSave() {
         $this->jumlah = $this->volume * $this->frequensi * $this->tarif;
 
-        parent::beforeSave();
         return true;
     }
 
-    public function afterSave() {
-        parent::afterSave();
+    public function afterFind() {
 
-        $this->mak->recalculate();
+        if ($this->uid == 0) {
+            $this->saveAttributes(array(
+                'uid' => $this->id
+            ));
+        }
+        
         return true;
     }
 
@@ -89,7 +79,7 @@ class DetailInput extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'mak' => array(self::BELONGS_TO, 'Mak', array('mak_uid' => 'uid'), 'scopes' => array('lastRevisionScope')),
+            'mak' => array(self::BELONGS_TO, 'Mak', array('mak_uid' => 'uid')),
         );
     }
 
@@ -99,7 +89,7 @@ class DetailInput extends CActiveRecord {
     public function attributeLabels() {
         return array(
             'id' => 'ID',
-            'dipa_id' => 'Dipa',
+            'dipa_uid' => 'Dipa',
             'dipa_version' => 'Dipa Version',
             'mak_uid' => 'Mak Uid',
             'uraian' => 'Uraian',
@@ -109,9 +99,6 @@ class DetailInput extends CActiveRecord {
             'satuan_frequensi' => 'Satuan Frequensi',
             'tarif' => 'Tarif',
             'jumlah' => 'Jumlah',
-            'uid' => 'Uid',
-            'version' => 'Version',
-            'trash' => 'Trash',
         );
     }
 
@@ -126,7 +113,7 @@ class DetailInput extends CActiveRecord {
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id, true);
-        $criteria->compare('dipa_id', $this->dipa_id, true);
+        $criteria->compare('dipa_uid', $this->dipa_uid, true);
         $criteria->compare('dipa_version', $this->dipa_version);
         $criteria->compare('mak_uid', $this->mak_uid, true);
         $criteria->compare('uraian', $this->uraian, true);
@@ -136,9 +123,6 @@ class DetailInput extends CActiveRecord {
         $criteria->compare('satuan_frequensi', $this->satuan_frequensi, true);
         $criteria->compare('tarif', $this->tarif, true);
         $criteria->compare('jumlah', $this->jumlah, true);
-        $criteria->compare('uid', $this->uid, true);
-        $criteria->compare('version', $this->version);
-        $criteria->compare('trash', $this->trash);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

@@ -27,7 +27,7 @@ class MasterMak extends ActiveRecord
         $raw = self::model()->findAll();
         $dropdown = array();
         foreach ($raw as $k=>$r) {
-            $dropdown[$r->uid . "-" . $r->kode] = "{$r->kode} - {$r->uraian}";
+            $dropdown[$r->id . "-" . $r->kode] = "{$r->kode} - {$r->uraian}";
         }
         return $dropdown;
     }
@@ -58,23 +58,14 @@ class MasterMak extends ActiveRecord
 		// will receive user inputs.
 		return array(
 			array('kode, uraian', 'required'),
-			array('uid, version, trash', 'numerical', 'integerOnly'=>true),
 			array('kode', 'length', 'max'=>25),
 			array('uraian', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, kode, uraian, uid, version, trash', 'safe', 'on'=>'search'),
+			array('id, kode, uraian', 'safe', 'on'=>'search'),
 		);
 	}
 
-    public function behaviors() {
-        return array(
-            'Revision' => array(
-                'class' => 'application.components.RevisionBehavior',
-            )
-        );
-    }
-    
 	/**
 	 * @return array relational rules.
 	 */
@@ -95,9 +86,6 @@ class MasterMak extends ActiveRecord
 			'id' => 'ID',
 			'kode' => 'Kode',
 			'uraian' => 'Uraian',
-			'uid' => 'Uid',
-			'version' => 'Version',
-			'trash' => 'Trash',
 		);
 	}
 
@@ -115,9 +103,6 @@ class MasterMak extends ActiveRecord
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('kode',$this->kode,true);
 		$criteria->compare('uraian',$this->uraian,true);
-		$criteria->compare('uid',$this->uid);
-		$criteria->compare('version',$this->version);
-		$criteria->compare('trash',$this->trash);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

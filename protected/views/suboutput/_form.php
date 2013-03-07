@@ -15,6 +15,7 @@ echo $form->dropDownListRow($model, 'kode', MasterSuboutput::getDropDownList(), 
     ));
 ?>
 <?php
+
 echo $form->textFieldRow($model, 'target', array(
     'class' => 'span2 pull-left',
     'append' => "<div>{$model->output->satuan_target}</div>"

@@ -19,13 +19,6 @@ $this->menu=array(
 	'filter'=>$model,
 	'columns'=>array(
         array(
-            'name' => 'version',
-            'header' => 'Rev.',
-            'headerHtmlOptions' => array(
-                'style' => 'width:50px;'
-            )
-        ),
-        array(
             'name' => 'kode',
             'headerHtmlOptions' => array(
                 'style' => 'width:100px;'
