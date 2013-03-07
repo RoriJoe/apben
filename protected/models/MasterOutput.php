@@ -21,6 +21,15 @@ class MasterOutput extends ActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
+    
+    public static function getDropDownList() {
+        $raw = self::model()->findAll();
+        $dropdown = array();
+        foreach ($raw as $k=>$r) {
+            $dropdown[$r->kode] = "{$r->kode} - {$r->uraian}";
+        }
+        return $dropdown;
+    }
 
     /**
      * @return string the associated database table name

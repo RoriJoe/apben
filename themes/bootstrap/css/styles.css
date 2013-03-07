@@ -12,12 +12,21 @@
 }
 
 #dipa-table .kode a,
-#dipa-table .uraian a,
+#dipa-table .uraian a.link,
 #dipa-table .volume a,
 #dipa-table .freq a,
 #dipa-table .tarif a,
 #dipa-table .jumlah a {
     color:#000;
+}
+#dipa-table .kode {
+    cursor:pointer;
+}
+#dipa-table .volume,
+#dipa-table .freq,
+#dipa-table .tarif,
+#dipa-table .jumlah {
+    text-align:right;
 }
 
 #dipa-versi {
@@ -35,3 +44,45 @@
 #dipa-table .kode {
     text-align:right;
 }
+
+#dipa-table tr:hover td {
+    background:#FFFFE8;
+}
+
+.modal-content .form-actions {
+    margin:0px -20px -15px -20px;
+}
+
+.dipa .kode,.dipa .uraian {
+    background:#d0d0d0;
+}
+
+.output .kode,.output .uraian {
+    background:#ddd;
+}
+.suboutput .kode,.suboutput .uraian {
+    background:#eaeaea;
+}
+.mak .kode,.mak .uraian {
+    background:#f2f2f2;
+}
+
+.newbtn {
+    display:none;
+}
+
+#dipa-table tr.active td {
+    background:#FDFFBA;
+}
+
+.detail-input .kode .label { display:none; }
+.detail-input:hover .kode .label { display:block; }
+
+.mak .kode .label { display:none; }
+.mak:hover .kode .label { display:block; }
+
+.suboutput .kode .label { display:none; }
+.suboutput:hover .kode .label { display:block; }
+
+.output .kode .label { display:none; }
+.output:hover .kode .label { display:block; }

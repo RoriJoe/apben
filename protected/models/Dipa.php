@@ -30,6 +30,8 @@ class Dipa extends CActiveRecord {
         return 'dipa';
     }
 
+
+
     /**
      * @return array validation rules for model attributes.
      */
@@ -55,10 +57,10 @@ class Dipa extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'output' => array(self::HAS_MANY, 'Output', 'satker_id'),
-            'suboutput' => array(self::HAS_MANY, 'Suboutput', 'satker_id'),
-            'mak' => array(self::HAS_MANY, 'mak', 'satker_id'),
-            'detail_input' => array(self::HAS_MANY, 'detail_input', 'satker_id'),
+            'output' => array(self::HAS_MANY, 'Output', 'dipa_id','scopes'=>array('lastRevisionScope')),
+            'suboutput' => array(self::HAS_MANY, 'Suboutput', 'dipa_id','scopes'=>array('lastRevisionScope')),
+            'mak' => array(self::HAS_MANY, 'mak', 'dipa_id','scopes'=>array('lastRevisionScope')),
+            'detail_input' => array(self::HAS_MANY, 'detail_input', 'dipa_id','scopes'=>array('lastRevisionScope')),
         );
     }
 

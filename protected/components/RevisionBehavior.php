@@ -4,16 +4,17 @@ class RevisionBehavior extends CActiveRecordBehavior {
 
     public function lastRevision($condition = "") {
         $model = $this->getOwner();
-        $last = $model->find(array('order'=>'version desc','condition'=>'trash = 0'));
+        $last = $model->find(array('order' => 'version desc', 'condition' => 'trash = 0'));
         if ($last != null) {
             return $last->version;
         } else {
             return 0;
         }
     }
-    
-    public function beforeSave() {
+
+    public function beforeSave($event) {
         $model = $this->getOwner();
+        
         $model_class = get_class($model);
 
         if (!$model->isNewRecord) {
@@ -30,7 +31,8 @@ class RevisionBehavior extends CActiveRecordBehavior {
 
     private $original_attributes = array();
 
-    public function afterFind() {
+    public function afterFind($event) {
+        
         $model = $this->getOwner();
         $this->original_attributes = $model->attributes;
 
@@ -48,6 +50,19 @@ class RevisionBehavior extends CActiveRecordBehavior {
             'condition' => 'trash = 0 and version=(SELECT MAX(version) FROM ' . $model->tableName() . ' i where i.uid = t.uid)',
             'order' => 'uid'
         );
+    }
+
+    public function lastRevisionScope() {
+        $model = $this->getOwner();
+
+        $kode_key = (array_key_exists('kode',$model->attributes) ? "kode," : "");
+        
+        $this->Owner->getDbCriteria()->mergeWith(array(
+            'condition' =>
+            'trash = 0 and version=(SELECT MAX(version) FROM ' . $model->tableName() . ' i where i.uid = ' . $model->tableName() . '.uid)',
+            'order' => $kode_key . 'uid'
+        ));
+        return $this->Owner;
     }
 
     public function getLatest() {

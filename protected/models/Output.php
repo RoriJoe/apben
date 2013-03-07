@@ -1,71 +1,37 @@
 <?php
 
 /**
- * This is the model class for table "master_mak".
+ * This is the model class for table "output".
  *
- * The followings are the available columns in table 'master_mak':
+ * The followings are the available columns in table 'output':
  * @property string $id
+ * @property string $dipa_id
+ * @property string $dipa_version
  * @property string $kode
- * @property string $uraian
- * @property integer $uid
+ * @property string $uid
  * @property integer $version
  * @property integer $trash
  */
-class MasterMak extends ActiveRecord
+class Output extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return MasterMak the static model class
+	 * @return Output the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-    
-    public static function getDropDownList() {
-        $raw = self::model()->findAll();
-        $dropdown = array();
-        foreach ($raw as $k=>$r) {
-            $dropdown[$r->kode] = "{$r->kode} - {$r->uraian}";
-        }
-        return $dropdown;
-    }
 
-    public static function sumberDanaList() {
-        return array(
-            "JC" => "JC",
-            "WB" => "WB",
-            "RM" => "RM",
-            "RMP" => "RMP"
-        );
-    }
-    
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'master_mak';
+		return 'output';
 	}
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('kode, uraian', 'required'),
-			array('uid, version, trash', 'numerical', 'integerOnly'=>true),
-			array('kode', 'length', 'max'=>25),
-			array('uraian', 'length', 'max'=>255),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, kode, uraian, uid, version, trash', 'safe', 'on'=>'search'),
-		);
-	}
 
     public function behaviors() {
         return array(
@@ -76,6 +42,29 @@ class MasterMak extends ActiveRecord
     }
     
 	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('dipa_id, dipa_version, kode', 'required'),
+			array('version, trash', 'numerical', 'integerOnly'=>true),
+			array('dipa_id, dipa_version, uid', 'length', 'max'=>20),
+			array('kode', 'length', 'max'=>25),
+            array('satuan_target','safe'),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('id, dipa_id, dipa_version, kode, uid, version, trash', 'safe', 'on'=>'search'),
+		);
+	}
+
+    public function getDetail() {
+        return MasterOutput::model()->find(array('condition' => 'kode = ' . $this->kode));
+    }
+    
+	/**
 	 * @return array relational rules.
 	 */
 	public function relations()
@@ -83,6 +72,7 @@ class MasterMak extends ActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'suboutput' => array(self::HAS_MANY, 'Suboutput', array('output_uid'=>'uid'),'scopes'=>array('lastRevisionScope')),
 		);
 	}
 
@@ -93,11 +83,13 @@ class MasterMak extends ActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'dipa_id' => 'Dipa',
+			'dipa_version' => 'Dipa Version',
 			'kode' => 'Kode',
-			'uraian' => 'Uraian',
 			'uid' => 'Uid',
 			'version' => 'Version',
 			'trash' => 'Trash',
+            'satuan_target' => 'Satuan Target'
 		);
 	}
 
@@ -113,9 +105,10 @@ class MasterMak extends ActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
+		$criteria->compare('dipa_id',$this->dipa_id,true);
+		$criteria->compare('dipa_version',$this->dipa_version,true);
 		$criteria->compare('kode',$this->kode,true);
-		$criteria->compare('uraian',$this->uraian,true);
-		$criteria->compare('uid',$this->uid);
+		$criteria->compare('uid',$this->uid,true);
 		$criteria->compare('version',$this->version);
 		$criteria->compare('trash',$this->trash);
 
