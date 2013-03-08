@@ -33,11 +33,62 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <div class="form-actions">
     <?php
-    $path = Yii::app()->request->pathInfo;
+    $path = Yii::app()->request->pathInfo . "?dpid=" . $model->dipa_uid . "&dpv=" . $model->dipa_version . "&mid=" . $model->mak_uid;
+    $id = 'DetailInput-' . Helper::rand();
     $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType' => 'submit',
+        'buttonType' => 'ajaxSubmit',
+        'url' => array($path),
         'type' => 'primary',
         'label' => $model->isNewRecord ? 'Rekam Detail Input' : 'Save',
+        'htmlOptions' => array(
+            'id' => $id,
+        ),
+        'ajaxOptions' => array(
+            'complete' => 'js:function(data) {
+               item = $.parseJSON(data.responseText);
+               
+               if (!item.isnew) { 
+                    row = $("#template .detailinput-table").clone();
+                    row.find(".newbtn").remove().end();
+                    row = row.find("tbody");
+               } else {
+                    row = $("#template .detailinput-table").clone();
+               }
+               
+               row = row.html()
+               .replace("[item-id]",item.id)
+               .replace("[item-uid]",item.uid)
+               .replace("[item-kode]",item.kode)
+               .replace("[item-uraian]",item.uraian)
+               .replace("[mak_uid]",item.uid)
+               .replace("[item-volume]",item.volume)
+               .replace("[item-tarif]",item.tarif)
+               .replace("[item-freq]",item.freq)
+               .replace("[item-jumlah]",item.jumlah);
+               
+               if (item.isnew) {
+                   $anc = $(".item.mak[item-uid="+item.mak_uid+"]");
+                   $anc = $anc.next();
+                   while (($anc.hasClass("newbtn") || $anc.hasClass("detail-input")) && $anc.next().length > 0) {
+                        $anc = $anc.next();
+                   }
+                   
+                   if ($anc.next().length != 0) {
+                        $anc = $anc.prev();
+                   }
+                   
+                   $(row).find("tr").each(function(i,item) {
+                        if (i == 0) $(this).show();
+                        $(this).insertAfter($anc);
+                        $anc = $(this);
+                   });
+               } else {
+                    $(".detail-input[item-id=" + item.id + "]").replaceWith($(row));
+               }
+
+               $(".modal-backdrop").click();
+            }'
+        )
     ));
     ?>
 </div>

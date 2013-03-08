@@ -64,8 +64,9 @@ echo $form->dropDownListRow($model, 'kode', MasterMak::getDropDownList(), array(
                         $anc = $anc.prev();
                    }
                    
-                   $(row).find("tr").each(function() {
-                        $(this).show().insertAfter($anc);
+                   $(row).find("tr").each(function(i,item) {
+                        if (i == 0) $(this).show();
+                        $(this).insertAfter($anc);
                         $anc = $(this);
                    });
                } else {

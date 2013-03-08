@@ -52,6 +52,24 @@ class DetailInputController extends Controller {
         ));
     }
 
+    public function generateJSON($model, $isnew) {
+        $array = $model->attributes;
+        $array['isnew'] = $isnew;
+        $array['uraian'] = CHtml::link($model->uraian, array('#'), array(
+                    'data-toggle' => 'modal',
+                    'data-target' => '#DetailInputDialog',
+                    'onclick' => "window.data_id = {$model->id}; window.data_table = 'DetailInput';",
+                    'class' => 'link'
+        ));
+        $array['freq'] = $model->frequensi . " " . $model->satuan_frequensi;
+        $array['volume'] = $model->volume . " " . $model->satuan_volume;            
+        $array['jumlah'] = Format::currency($model->jumlah);          
+        $array['tarif'] = Format::currency($model->tarif);
+
+        echo CJSON::encode($array);
+        Yii::app()->end();
+    }
+
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -68,8 +86,9 @@ class DetailInputController extends Controller {
 
         if (isset($_POST['DetailInput'])) {
             $model->attributes = $_POST['DetailInput'];
-            if ($model->save())
-                $this->redirect(array('/dipa/view/' . $model->dipa_uid));
+            if ($model->save()) {
+                $this->generateJSON($model, 1);
+            }
         }
 
         $this->renderPartial('create', array(
@@ -90,8 +109,9 @@ class DetailInputController extends Controller {
 
         if (isset($_POST['DetailInput'])) {
             $model->attributes = $_POST['DetailInput'];
-            if ($model->save())
-                $this->redirect(array('/dipa/view/' . $model->dipa_uid));
+            if ($model->save()) {
+                $this->generateJSON($model, 0);
+            }
         }
 
 

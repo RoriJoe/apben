@@ -1802,3 +1802,239 @@ Stack trace:
 REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
 HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
 ---
+2013/03/08 06:51:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 06:51:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 06:53:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:00:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:02:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:02:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:05:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:06:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:10:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:11:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:11:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:13:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:13:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\apben\protected\controllers\MakController.php:188
+Stack trace:
+#0 C:\wamp\www\apben\protected\controllers\MakController.php(142): MakController->loadModel('724')
+#1 [internal function]: MakController->actionDelete('724')
+#2 C:\wamp\www\apben\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(MakController), Array)
+#3 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MakController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('delete')
+#13 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('Mak/delete')
+#14 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\wamp\www\apben\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/apben/Mak/delete/724
+HTTP_REFERER=http://localhost/apben/dipa/view/1
+---
+2013/03/08 07:13:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\apben\protected\controllers\MakController.php:188
+Stack trace:
+#0 C:\wamp\www\apben\protected\controllers\MakController.php(142): MakController->loadModel('740')
+#1 [internal function]: MakController->actionDelete('740')
+#2 C:\wamp\www\apben\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(MakController), Array)
+#3 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MakController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('delete')
+#13 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('Mak/delete')
+#14 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\wamp\www\apben\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/apben/Mak/delete/740
+HTTP_REFERER=http://localhost/apben/dipa/view/1
+---
+2013/03/08 07:13:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\apben\protected\controllers\MakController.php:188
+Stack trace:
+#0 C:\wamp\www\apben\protected\controllers\MakController.php(142): MakController->loadModel('741')
+#1 [internal function]: MakController->actionDelete('741')
+#2 C:\wamp\www\apben\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(MakController), Array)
+#3 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MakController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('delete')
+#13 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('Mak/delete')
+#14 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\wamp\www\apben\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/apben/Mak/delete/741
+HTTP_REFERER=http://localhost/apben/dipa/view/1
+---
+2013/03/08 07:13:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\apben\protected\controllers\SuboutputController.php:187
+Stack trace:
+#0 C:\wamp\www\apben\protected\controllers\SuboutputController.php(143): SuboutputController->loadModel('128')
+#1 [internal function]: SuboutputController->actionDelete('128')
+#2 C:\wamp\www\apben\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SuboutputController), Array)
+#3 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SuboutputController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('delete')
+#13 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('Suboutput/delet...')
+#14 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\wamp\www\apben\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/apben/Suboutput/delete/128
+HTTP_REFERER=http://localhost/apben/dipa/view/1
+---
+2013/03/08 07:13:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\apben\protected\controllers\SuboutputController.php:187
+Stack trace:
+#0 C:\wamp\www\apben\protected\controllers\SuboutputController.php(143): SuboutputController->loadModel('129')
+#1 [internal function]: SuboutputController->actionDelete('129')
+#2 C:\wamp\www\apben\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SuboutputController), Array)
+#3 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SuboutputController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('delete')
+#13 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('Suboutput/delet...')
+#14 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\wamp\www\apben\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/apben/Suboutput/delete/129
+HTTP_REFERER=http://localhost/apben/dipa/view/1
+---
+2013/03/08 07:13:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/08 07:17:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---

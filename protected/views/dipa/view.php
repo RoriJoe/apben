@@ -64,6 +64,7 @@ $this->breadcrumbs = array(
                 'label' => 'Mode Hapus',
                 'toggle' => true,
                 'htmlOptions' => array(
+                    'id' => 'mode-hapus',
                     'class' => 'pull-right',
                     'style' => 'margin:0px 5px 0px 0px;',
                     'onclick' => ' $(".hapus").toggle(); '
@@ -246,6 +247,9 @@ $this->breadcrumbs = array(
         <table class="mak-table">
             <?php include("_mak.php"); ?>
         </table>
+        <table class="detailinput-table">
+            <?php include("_detailinput.php"); ?>
+        </table>
     </div>
 
 
@@ -267,7 +271,7 @@ $this->breadcrumbs = array(
          });
          }
          */
-        
+
         function getTreeClass($class) {
             switch ($class) {
                 case "detail-input":
@@ -314,21 +318,26 @@ $this->breadcrumbs = array(
             });
 
             $(".kode .label").click(function(e) {
-                $parent = $(this).parent().parent();
-                $class = $parent.attr('class').replace('item', '').trim();
-                $icon = $(this).find('i');
-                $icon_class = $icon.attr('class').replace('icon-white','').trim();
-                
-                $childs = $parent.nextUntil(getTreeClass($class),'.item');
-                
-                if ($icon_class == "icon-minus") {
-                    $childs.hide();
-                    $icon.removeClass("icon-minus").addClass("icon-plus");
-                } else {
-                    $childs.show();
-                    $icon.removeClass("icon-plus").addClass("icon-minus");
+                if (!$("#mode-hapus").hasClass("active")) {
+                    $parent = $(this).parent().parent();
+                    $class = $parent.attr('class').replace('item', '').trim();
+                    $icon = $(this).find('i');
+
+                    if ($icon.length > 0) {
+                        $icon_class = $icon.attr('class').replace('icon-white', '').trim();
+
+                        $childs = $parent.nextUntil(getTreeClass($class), '.item');
+
+                        if ($icon_class == "icon-minus") {
+                            $childs.hide();
+                            $icon.removeClass("icon-minus").addClass("icon-plus");
+                        } else {
+                            $childs.show();
+                            $icon.removeClass("icon-plus").addClass("icon-minus");
+                        }
+                    }
                 }
-                
+
                 e.preventDefault();
                 return false;
             });

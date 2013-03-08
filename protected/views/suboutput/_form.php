@@ -71,7 +71,8 @@ echo $form->textFieldRow($model, 'target', array(
                         $anc = $anc.prev();
                    }
 
-                   $(row).find("tr").each(function() {
+                   $(row).find("tr").each(function(i,item) {
+                        if (i == 0) $(this).show();
                         $(this).show().insertAfter($anc);
                         $anc = $(this);
                    });
