@@ -9,11 +9,11 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <?php echo $form->errorSummary($model); ?>
 
-<?php echo $form->dropDownListRow($model, 'kode_ouput', MasterOutput::getDropDownList(), array('class' => 'span5', 'maxlength' => 25)); ?>
+<?php echo $form->dropDownListRow($model, 'kode_ouput', MasterOutput::getDropDownList(false), array('class' => 'span5', 'maxlength' => 25)); ?>
 
-<?php echo $form->dropDownListRow($model, 'kode_subouput', MasterSuboutput::getDropDownList(), array('class' => 'span5', 'maxlength' => 25)); ?>
+<?php echo $form->dropDownListRow($model, 'kode_subouput', MasterSuboutput::getDropDownList(false), array('class' => 'span5', 'maxlength' => 25)); ?>
 
-<?php echo $form->dropDownListRow($model, 'kode_mak', MasterMak::getDropDownList(), array('class' => 'span5', 'maxlength' => 25)); ?>
+<?php echo $form->dropDownListRow($model, 'kode_mak', MasterMak::getDropDownList(false), array('class' => 'span5', 'maxlength' => 25)); ?>
 
 <?php echo $form->hiddenField($model, 'id_p_ar', array('class' => 'span5', 'maxlength' => 20)); ?>
 

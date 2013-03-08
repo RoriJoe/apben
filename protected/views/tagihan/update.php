@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Tagihans'=>array('index'),
+	'Tagihans'=>array('admin'),
 	$model->id=>array('view','id'=>$model->id),
 	'Update',
 );

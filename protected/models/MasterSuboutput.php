@@ -22,14 +22,15 @@ class MasterSuboutput extends ActiveRecord {
         return parent::model($className);
     }
 
-    public static function getDropDownList() {
+    public static function getDropDownList($includeid = true) {
         $raw = self::model()->findAll();
         $dropdown = array();
         foreach ($raw as $k=>$r) {
-            $dropdown[$r->id . "-" . $r->kode] = "{$r->kode} - {$r->uraian}";
+            $dropdown[($includeid ? $r->id . "-" . $r->kode : $r->kode)] = "{$r->kode} - {$r->uraian}";
         }
         return $dropdown;
     }
+    
     
     /**
      * @return string the associated database table name
