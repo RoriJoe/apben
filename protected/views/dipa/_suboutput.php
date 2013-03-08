@@ -69,7 +69,7 @@
         <td class="jumlah">[item-jumlah]</td>
     </tr>
     <?php
-    echo str_replace("[mak_uid]", $mak->uid, $detailinput_new);
-    echo str_replace("[suboutput_uid]", $suboutput->uid, str_replace("arrow-right", "arrow-down", $mak_new));
+    echo $mak_new;
+    echo str_replace("arrow-right", "arrow-down", $suboutput_new);
     ?>
 <?php endif; ?>

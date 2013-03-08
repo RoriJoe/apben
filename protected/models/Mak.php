@@ -57,6 +57,16 @@ class Mak extends CActiveRecord {
         );
     }
 
+    public function afterSave() {
+        parent::afterSave();
+        if ($this->uid == 0) {
+            $a = self::model()->findByPk($this->id);
+            $a->saveAttributes(array('uid'=>$this->id));
+            $this->uid = $this->id;
+        }
+        
+        return true;
+    }
 
     public function afterFind() {
 

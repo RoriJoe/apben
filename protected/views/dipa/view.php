@@ -243,6 +243,9 @@ $this->breadcrumbs = array(
         <table class="suboutput-table">
             <?php include("_suboutput.php"); ?>
         </table>
+        <table class="mak-table">
+            <?php include("_mak.php"); ?>
+        </table>
     </div>
 
 

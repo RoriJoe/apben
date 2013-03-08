@@ -55,6 +55,21 @@ class MakController extends Controller
 		));
 	}
 
+    public function generateJSON($model, $isnew) {
+        $array = $model->attributes;
+        $array['isnew'] = $isnew;
+        $array['uraian'] = CHtml::link($model->detail->uraian, array('#'), array(
+                    'data-toggle' => 'modal',
+                    'data-target' => '#MakDialog',
+                    'onclick' => "window.data_id = {$model->id}; window.data_table = 'Mak';",
+                    'class' => 'link'
+        ));
+        $array['jumlah'] = Format::currency($model->pagu);
+
+        echo CJSON::encode($array);
+        Yii::app()->end();
+    }
+    
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -76,8 +91,9 @@ class MakController extends Controller
             $model->kode = Format::kode($_POST['Mak']['kode']);
             $model->kode_uid = Format::kode_uid($_POST['Mak']['kode']);
             
-			if($model->save())
-				$this->redirect(array('/dipa/view/' . $model->dipa_uid));
+            if ($model->save()) {
+                $this->generateJSON($model, 1);
+            }
 		}
 
 		$this->renderPartial('create',array(
@@ -103,8 +119,9 @@ class MakController extends Controller
             $model->kode = Format::kode($_POST['Mak']['kode']);
             $model->kode_uid = Format::kode_uid($_POST['Mak']['kode']);
             
-			if($model->save())
-				$this->redirect(array('/dipa/view/' . $model->dipa_uid));
+            if ($model->save()) {
+                $this->generateJSON($model, 0);
+            }
 		}
 
 		$this->renderPartial('update',array(

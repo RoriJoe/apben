@@ -46,6 +46,7 @@ echo $form->dropDownListRow($model, 'kode', MasterOutput::getDropDownList(), arr
                .replace("[item-kode]",item.kode)
                .replace("[item-uraian]",item.uraian)
                .replace("[item-jumlah]",item.jumlah)
+               .replace("[output_uid]",item.uid)
                .replace("[item-target]","")
                .replace("[item-satuan-target]",item.satuan_target);
                

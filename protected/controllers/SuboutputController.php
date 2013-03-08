@@ -52,6 +52,24 @@ class SuboutputController extends Controller {
         ));
     }
 
+    public function generateJSON($model, $isnew) {
+        $satuan_target = $model->output->satuan_target;
+
+        $array = $model->attributes;
+        $array['isnew'] = $isnew;
+        $array['uraian'] = CHtml::link($model->detail->uraian, array('#'), array(
+                    'data-toggle' => 'modal',
+                    'data-target' => '#SuboutputDialog',
+                    'onclick' => "window.data_id = {$model->id}; window.data_table = 'Suboutput';",
+                    'class' => 'link'
+        ));
+        $array['satuan_target'] = $satuan_target;
+        $array['jumlah'] = Format::currency($model->pagu);
+
+        echo CJSON::encode($array);
+        Yii::app()->end();
+    }
+    
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -86,23 +104,6 @@ class SuboutputController extends Controller {
                 ), false, true);
     }
 
-    public function generateJSON($model, $isnew) {
-        $satuan_target = $model->output->satuan_target;
-
-        $array = $model->attributes;
-        $array['isnew'] = $isnew;
-        $array['uraian'] = CHtml::link($model->detail->uraian, array('#'), array(
-                    'data-toggle' => 'modal',
-                    'data-target' => '#SuboutputDialog',
-                    'onclick' => "window.data_id = {$model->id}; window.data_table = 'Suboutput';",
-                    'class' => 'link'
-        ));
-        $array['satuan_target'] = $satuan_target;
-        $array['jumlah'] = Format::currency($model->pagu);
-
-        echo CJSON::encode($array);
-        Yii::app()->end();
-    }
 
     /**
      * Updates a particular model.

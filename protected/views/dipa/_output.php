@@ -70,7 +70,7 @@
         <td class="jumlah">[item-jumlah]</td>
     </tr>
     <?php
-    echo str_replace("[output_id]", $output->id, $suboutput_new);
+    echo $suboutput_new;
     echo $output_new;
     ?>
 <?php endif; ?>

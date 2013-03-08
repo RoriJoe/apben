@@ -53,29 +53,38 @@ echo $form->textFieldRow($model, 'target', array(
                .replace("[item-kode]",item.kode)
                .replace("[item-uraian]",item.uraian)
                .replace("[item-jumlah]",item.jumlah)
+               .replace("[output_uid]",item.output_uid)
+               .replace("[suboutput_uid]",item.uid)
                .replace("[item-target]",item.target)
                .replace("[item-satuan-target]",item.satuan_target);
+               
+               target = $(".item.output[item-uid="+item.output_uid+"] .target").text() * 1;
                
                if (item.isnew) {
                    $anc = $(".item.output[item-uid="+item.output_uid+"]");
                    $anc = $anc.next();
-                   while (($anc.hasClass("newbtn") ||  $anc.hasClass("suboutput") || $anc.hasClass("detail-input") || $anc.hasClass("mak")) && $anc.length > 0) {
+                   while (($anc.hasClass("newbtn") ||  $anc.hasClass("suboutput") || $anc.hasClass("detail-input") || $anc.hasClass("mak")) && $anc.next().length > 0) {
                         $anc = $anc.next();
-                        console.debug($anc);
                    }
                    
-                   $anc = $anc.prev();
+                   if ($anc.next().length != 0) {
+                        $anc = $anc.prev();
+                   }
 
                    $(row).find("tr").each(function() {
-                        $(this).insertBefore($anc);
+                        $(this).show().insertAfter($anc);
+                        $anc = $(this);
                    });
                } else {
                     $(".suboutput[item-id=" + item.id + "]").nextUntil(".item.suboutput",".suboutput").each(function() {
                         $(this).find(".satuan_target").text(item.satuan_target);
                     });
                     
+                    target = target - ($(".suboutput[item-id=" + item.id + "] .target").text() * 1);
                     $(".suboutput[item-id=" + item.id + "]").replaceWith($(row));
                }
+               $(".item.output[item-uid="+item.output_uid+"] .target").text(target + (item.target * 1));
+               
                $(".modal-backdrop").click();
             }'
         )

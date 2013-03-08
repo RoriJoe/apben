@@ -60,6 +60,15 @@ class DetailInput extends CActiveRecord {
 
         return true;
     }
+    
+    public function afterSave() {
+        parent::afterSave();
+        if ($this->uid == 0) {
+            $this->uid = $this->id;
+        }
+        
+        return true;
+    }
 
     public function afterFind() {
 
