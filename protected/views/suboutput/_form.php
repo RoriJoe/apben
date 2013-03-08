@@ -9,16 +9,15 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <?php
 echo $form->dropDownListRow($model, 'kode', MasterSuboutput::getDropDownList(), array(
-    'class' => 'span5', 
+    'class' => 'span5',
     'maxlength' => 25,
-    'options' => array($model->kode_uid . '-' . $model->kode =>array('selected'=>true))
-    ));
+    'options' => array($model->kode_uid . '-' . $model->kode => array('selected' => true))
+));
 ?>
 <?php
-
 echo $form->textFieldRow($model, 'target', array(
     'class' => 'span2 pull-left',
-    'append' => "<div>{$model->output->satuan_target}</div>"
+    'append' => "<div>{$satuan_target}</div>"
 ));
 ?> 
 
@@ -26,10 +25,60 @@ echo $form->textFieldRow($model, 'target', array(
 
 <div class="form-actions">
     <?php
+    $path = Yii::app()->request->pathInfo . "?dpid=" . $model->dipa_uid . "&dpv=" . $model->dipa_version . "&oid=" . $model->output_uid;
+    $id = 'SubOutput-' . Helper::rand();
     $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType' => 'submit',
+        'buttonType' => 'ajaxSubmit',
+        'url' => array($path),
         'type' => 'primary',
         'label' => $model->isNewRecord ? 'Rekam Suboutput' : 'Save',
+        'htmlOptions' => array(
+            'id' => $id,
+        ),
+        'ajaxOptions' => array(
+            'complete' => 'js:function(data) {
+               item = $.parseJSON(data.responseText);
+
+               if (!item.isnew) { 
+                    row = $("#template .suboutput-table").clone();
+                    row.find(".newbtn").remove().end();
+                    row = row.find("tbody");
+               } else {
+                    row = $("#template .suboutput-table").clone();
+               }
+               
+               row = row.html()
+               .replace("[item-id]",item.id)
+               .replace("[item-uid]",item.uid)
+               .replace("[item-kode]",item.kode)
+               .replace("[item-uraian]",item.uraian)
+               .replace("[item-jumlah]",item.jumlah)
+               .replace("[item-target]",item.target)
+               .replace("[item-satuan-target]",item.satuan_target);
+               
+               if (item.isnew) {
+                   $anc = $(".item.output[item-uid="+item.output_uid+"]");
+                   $anc = $anc.next();
+                   while (($anc.hasClass("newbtn") ||  $anc.hasClass("suboutput") || $anc.hasClass("detail-input") || $anc.hasClass("mak")) && $anc.length > 0) {
+                        $anc = $anc.next();
+                        console.debug($anc);
+                   }
+                   
+                   $anc = $anc.prev();
+
+                   $(row).find("tr").each(function() {
+                        $(this).insertBefore($anc);
+                   });
+               } else {
+                    $(".suboutput[item-id=" + item.id + "]").nextUntil(".item.suboutput",".suboutput").each(function() {
+                        $(this).find(".satuan_target").text(item.satuan_target);
+                    });
+                    
+                    $(".suboutput[item-id=" + item.id + "]").replaceWith($(row));
+               }
+               $(".modal-backdrop").click();
+            }'
+        )
     ));
     ?>
 </div>

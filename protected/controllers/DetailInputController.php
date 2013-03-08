@@ -59,7 +59,7 @@ class DetailInputController extends Controller {
     public function actionCreate() {
         $model = new DetailInput;
 
-        $model->dipa_id = @$_GET['dpid'];
+        $model->dipa_uid = @$_GET['dpid'];
         $model->dipa_version = @$_GET['dpv'];
         $model->mak_uid = @$_GET['mid'];
 
@@ -69,7 +69,7 @@ class DetailInputController extends Controller {
         if (isset($_POST['DetailInput'])) {
             $model->attributes = $_POST['DetailInput'];
             if ($model->save())
-                $this->redirect(array('/dipa/view/' . $model->dipa_id));
+                $this->redirect(array('/dipa/view/' . $model->dipa_uid));
         }
 
         $this->renderPartial('create', array(
@@ -91,7 +91,7 @@ class DetailInputController extends Controller {
         if (isset($_POST['DetailInput'])) {
             $model->attributes = $_POST['DetailInput'];
             if ($model->save())
-                $this->redirect(array('/dipa/view/' . $model->dipa_id));
+                $this->redirect(array('/dipa/view/' . $model->dipa_uid));
         }
 
 

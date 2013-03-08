@@ -36,7 +36,7 @@
                 'class' => 'dipa-btn',
                 'data-toggle' => 'modal',
                 'data-target' => '#SuboutputDialog',
-                'onclick' => "window.output_id = [output_id];"
+                'onclick' => "window.output_uid = [output_uid];"
             )
         ));
         ?>
@@ -59,7 +59,7 @@
                 'class' => 'dipa-btn',
                 'data-toggle' => 'modal',
                 'data-target' => '#MakDialog',
-                'onclick' => "window.suboutput_id = [suboutput_id];"
+                'onclick' => "window.suboutput_uid = [suboutput_uid];"
             )
         ));
         ?>
@@ -81,7 +81,7 @@
                 'class' => 'dipa-btn',
                 'data-toggle' => 'modal',
                 'data-target' => '#DetailInputDialog',
-                'onclick' => "window.mak_id = [mak_id];"
+                'onclick' => "window.mak_uid = [mak_uid];"
             )
         ));
         ?>

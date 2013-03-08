@@ -4,8 +4,8 @@
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('dipa_id')); ?>:</b>
-	<?php echo CHtml::encode($data->dipa_id); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('dipa_uid')); ?>:</b>
+	<?php echo CHtml::encode($data->dipa_uid); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dipa_version')); ?>:</b>

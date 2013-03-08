@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
 	'DIPA'=>array('admin'),
-    $model->nomor_dipa . " ({$model->tanggal_dipa})" => array('/dipa/view/' . $model->id),
+    $model->nomor_dipa . " ({$model->tanggal_dipa})" => array('/dipa/view/' . $model->uid),
 	'Update',
 );
 

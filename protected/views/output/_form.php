@@ -18,7 +18,7 @@ echo $form->dropDownListRow($model, 'kode', MasterOutput::getDropDownList(), arr
 
 <div class="form-actions">
     <?php
-    $path = Yii::app()->request->pathInfo . "?dpid=" . $model->dipa_id . "&dpv=" . $model->dipa_version;
+    $path = Yii::app()->request->pathInfo . "?dpid=" . $model->dipa_uid . "&dpv=" . $model->dipa_version;
     $id = 'Output-' . Helper::rand();
     $this->widget('bootstrap.widgets.TbButton', array(
         'buttonType' => 'ajaxSubmit',
@@ -30,6 +30,36 @@ echo $form->dropDownListRow($model, 'kode', MasterOutput::getDropDownList(), arr
         ),
         'ajaxOptions' => array(
             'complete' => 'js:function(data) {
+               item = $.parseJSON(data.responseText);
+
+               if (!item.isnew) { 
+                    row = $("#template .output-table").clone();
+                    row.find(".newbtn").remove().end();
+                    row = row.find("tbody");
+               } else {
+                    row = $("#template .output-table").clone();
+               }
+               
+               row = row.html()
+               .replace("[item-id]",item.id)
+               .replace("[item-uid]",item.uid)
+               .replace("[item-kode]",item.kode)
+               .replace("[item-uraian]",item.uraian)
+               .replace("[item-jumlah]",item.jumlah)
+               .replace("[item-target]","")
+               .replace("[item-satuan-target]",item.satuan_target);
+               
+               if (item.isnew) {
+                   $(row).find("tr").each(function() {
+                        $(this).appendTo("#dipa-table tbody");
+                   });
+               } else {
+                    $(".output[item-id=" + item.id + "]").nextUntil(".item.output",".suboutput").each(function() {
+                        $(this).find(".satuan_target").text(item.satuan_target);
+                    });
+                    
+                    $(".output[item-id=" + item.id + "]").replaceWith($(row));
+               }
                $(".modal-backdrop").click();
             }'
         )

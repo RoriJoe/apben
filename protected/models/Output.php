@@ -30,7 +30,6 @@ class Output extends CActiveRecord {
         return 'output';
     }
 
-
     public function afterFind() {
 
         if ($this->uid == 0) {
@@ -38,10 +37,10 @@ class Output extends CActiveRecord {
                 'uid' => $this->id
             ));
         }
-        
+
         return true;
     }
-    
+
     /**
      * @return array validation rules for model attributes.
      */
@@ -63,6 +62,17 @@ class Output extends CActiveRecord {
         return MasterOutput::model()->find(array('condition' => 'kode = ' . $this->kode));
     }
 
+    public function getTarget() {
+
+        $tot = Yii::app()->db->createCommand()
+                ->select('sum(target) as sum')
+                ->from('suboutput')
+                ->where('output_uid = ' . $this->uid . ' and dipa_version = ' . $this->dipa_version . ' and dipa_uid = ' . $this->dipa_uid)
+                ->queryRow();
+
+        return $tot['sum'];
+    }
+
     /**
      * @return array relational rules.
      */
@@ -70,7 +80,7 @@ class Output extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'suboutput' => array(self::HAS_MANY, 'Suboutput', array('output_uid' => 'uid')),
+            'suboutput' => array(self::HAS_MANY, 'Suboutput', array('output_uid' => 'uid', 'dipa_version' => 'dipa_version', 'dipa_uid' => 'dipa_uid')),
         );
     }
 

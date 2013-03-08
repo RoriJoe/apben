@@ -79,8 +79,7 @@
     padding-top:0px !important; 
     padding-bottom:0px !important; 
     margin-right:3px;
-    height:17px;
-    visibility: hidden;
+    height:17px;display:none;
 }
 
 .item.menghapus td {
@@ -90,17 +89,14 @@
 .item .kode .hapus i { 
     margin-top:-2px;
 }
-.item:hover .kode .hapus {
-    visibility:visible;
-    
+.item .kode .hapus.active {
+    display:block;
 }
 
 .item .kode .label { display:none; }
 .item:hover .kode .label { display:block; }
 
 
-
-/*
 .mak .kode .label:hover span {display:none !important;}
 .mak .kode .label:hover i {display:block !important;}
 
@@ -109,4 +105,3 @@
 
 .output .kode .label:hover span {display:none !important;}
 .output .kode .label:hover i {display:block !important;}
-*/

@@ -77,7 +77,7 @@ class Mak extends CActiveRecord {
         // class name for the relations automatically generated below.
         return array(
             'dipa' => array(self::BELONGS_TO, 'Dipa', 'dipa_uid'),
-            'detail_input' => array(self::HAS_MANY, 'DetailInput', array('mak_uid' => 'uid')),
+            'detail_input' => array(self::HAS_MANY, 'DetailInput', array('mak_uid' => 'uid', 'dipa_version' => 'dipa_version', 'dipa_uid' => 'dipa_uid')),
         );
     }
 

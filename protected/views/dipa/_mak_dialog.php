@@ -9,8 +9,8 @@ $this->beginWidget('bootstrap.widgets.TbModal', array(
                window.data_id = "";
                window.data_table = "";
             } else {
-                url = "' . $this->createUrl('/mak/create?dpv=' . $model->version . '&dpid=' . $model->id) . '&soid=" + window.suboutput_id; 
-                window.suboutput_id = "";
+                url = "' . $this->createUrl('/mak/create?dpv=' . $model->version . '&dpid=' . $model->uid) . '&soid=" + window.suboutput_uid; 
+                window.suboutput_uid = "";
             }
             
             $.get(url,

@@ -52,6 +52,21 @@ class OutputController extends Controller {
         ));
     }
 
+    public function generateJSON($model, $isnew) {
+        $array = $model->attributes;
+        $array['isnew'] = $isnew;
+        $array['uraian'] = CHtml::link($model->detail->uraian, array('#'), array(
+                    'data-toggle' => 'modal',
+                    'data-target' => '#OutputDialog',
+                    'onclick' => "window.data_id = {$model->id}; window.data_table = 'Output';",
+                    'class' => 'link'
+        ));
+        $array['jumlah'] = Format::currency($model->pagu);
+
+        echo CJSON::encode($array);
+        Yii::app()->end();
+    }
+
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -59,7 +74,7 @@ class OutputController extends Controller {
     public function actionCreate() {
         $model = new Output;
 
-        $model->dipa_id = @$_GET['dpid'];
+        $model->dipa_uid = @$_GET['dpid'];
         $model->dipa_version = @$_GET['dpv'];
 
         // Uncomment the following line if AJAX validation is needed
@@ -69,10 +84,9 @@ class OutputController extends Controller {
             $model->attributes = $_POST['Output'];
             $model->kode = Format::kode($_POST['Output']['kode']);
             $model->kode_uid = Format::kode_uid($_POST['Output']['kode']);
-            
+
             if ($model->save()) {
-                echo CJSON::encode($model->attributes);
-                Yii::app()->end();
+                $this->generateJSON($model, 1);
             }
         }
 
@@ -96,9 +110,10 @@ class OutputController extends Controller {
             $model->attributes = $_POST['Output'];
             $model->kode = Format::kode($_POST['Output']['kode']);
             $model->kode_uid = Format::kode_uid($_POST['Output']['kode']);
-            
-            if ($model->save())
-                $this->redirect(array('/dipa/view/' . $model->dipa_id));
+
+            if ($model->save()) {
+                $this->generateJSON($model, 0);
+            }
         }
 
         $this->renderPartial('update', array(
@@ -117,7 +132,7 @@ class OutputController extends Controller {
             $this->loadModel($id)->delete();
 
             Yii::app()->end();
-            
+
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

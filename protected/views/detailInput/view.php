@@ -19,7 +19,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'dipa_id',
+		'dipa_uid',
 		'dipa_version',
 		'mak_uid',
 		'uraian',

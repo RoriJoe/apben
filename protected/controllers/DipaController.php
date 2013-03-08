@@ -42,14 +42,14 @@ class DipaController extends Controller {
         $model = $this->loadModel($id);
         $model->calculate();
 
-        $this->redirect(array('/dipa/view/' . $model->id));
+        $this->redirect(array('/dipa/view/' . $model->uid));
     }
 
     public function actionSaverev($id) {
         $model = $this->loadModel($id);
         $model->saveRev();
 
-        $this->redirect(array('/dipa/view/' . $model->id));
+        $this->redirect(array('/dipa/view/' . $model->uid));
     }
 
     /**
@@ -63,19 +63,40 @@ class DipaController extends Controller {
             $this->redirect(array('/dipa/view/' . $terbaru->uid));
         }
 
-        $model = $this->loadModel($id);
+        $model = Dipa::model()->find(array('condition' => 'uid = ' . $id));
 
         $readonly = false;
         if (isset($_GET['rev']) && is_numeric($_GET['rev']) && $_GET['rev'] < $model->version) {
-            $model->version = @$_GET['rev'];
+            $model = Dipa::model()->resetScope(true)->find(
+                    array('condition' => 'uid = ' . $id . ' and version = ' . $_GET['rev']
+            ));
             $readonly = true;
         }
 
+
         if (@$_GET['co'] == 1) {
-            $this->renderPartial('view', array(
+            Yii::app()->clientScript->scriptMap = array(
+                'jquery.js' => false,
+                'jquery.ba-bbq.js' => false,
+                'jquery.yiilistview.js' => false
+            );
+            $html = $this->renderPartial('view', array(
                 'model' => $model,
                 'readonly' => $readonly,
-                    ), false, true);
+                    ), true, true);
+
+            /*
+            $html = str_replace(
+                    array(
+                '<script type="text/javascript">',
+                '</script>'
+                    ), array(
+                '<div class="script">',
+                '</div>'
+                    ), $html
+            );
+             */
+            echo $html;
         } else {
             $this->render('view', array(
                 'model' => $model,
@@ -97,7 +118,7 @@ class DipaController extends Controller {
         if (isset($_POST['Dipa'])) {
             $model->attributes = $_POST['Dipa'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('view', 'id' => $model->uid));
         }
 
         $this->render('create', array(
@@ -119,7 +140,7 @@ class DipaController extends Controller {
         if (isset($_POST['Dipa'])) {
             $model->attributes = $_POST['Dipa'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('view', 'id' => $model->uid));
         }
 
         $this->render('update', array(
@@ -175,8 +196,8 @@ class DipaController extends Controller {
      * @param integer the ID of the model to be loaded
      */
     public function loadModel($id) {
-        $model = Dipa::model()->find(array('condition' => 'uid = ' . $id));
-        
+        $model = Dipa::model()->findByPk($id);
+
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;

@@ -7,20 +7,6 @@ $this->breadcrumbs = array(
 ?>
 <div id="ajax-page">
     <div id="dipa-versi">
-        <?php
-        if (!$readonly) {
-            $this->widget('bootstrap.widgets.TbButton', array(
-                'buttonType' => 'link',
-                'size' => 'small',
-                'url' => array('/dipa/kalkulasi/' . $model->id),
-                'icon' => 'check',
-                'label' => 'Kalkulasi ulang',
-                'htmlOptions' => array(
-                    'class' => 'pull-right',
-                )
-            ));
-        }
-        ?>
         <div class="dipa-group pull-left">
             <div class="pull-left" style="margin:1px 0px 0px -7px;">
                 Revisi: <b><?php echo $model->version; ?></b>
@@ -29,36 +15,70 @@ $this->breadcrumbs = array(
             $this->widget('bootstrap.widgets.TbButton', array(
                 'buttonType' => 'link',
                 'size' => 'mini',
-                'url' => array('/dipa/view/' . $model->id . "?rev=" . ($model->version - 1)),
+                'url' => array('/dipa/view/' . $model->uid . "?rev=" . ($model->version - 1)),
                 'icon' => 'chevron-left',
                 'htmlOptions' => array(
                     'hide' => 'no',
                     'class' => 'pull-left',
-                    'style' => 'margin:0px 0px 0px 15px;'
+                    'style' => 'margin:0px -10px 0px 15px;'
                 )
             ));
             ?>
             <?php
-            $this->widget('bootstrap.widgets.TbButton', array(
-                'buttonType' => 'link',
-                'size' => 'mini',
-                'url' => array('/dipa/view/' . $model->id . "?rev=" . ($model->version + 1)),
-                'icon' => 'chevron-right',
-                'htmlOptions' => array(
-                    'hide' => 'no',
-                    'class' => 'pull-left',
-                    'style' => 'margin:0px -10px 0px 5px;'
-                )
-            ));
+            if ($readonly) {
+                $this->widget('bootstrap.widgets.TbButton', array(
+                    'buttonType' => 'link',
+                    'size' => 'mini',
+                    'url' => array('/dipa/view/' . $model->uid . "?rev=" . ($model->version + 1)),
+                    'icon' => 'chevron-right',
+                    'htmlOptions' => array(
+                        'hide' => 'no',
+                        'class' => 'pull-left',
+                        'style' => 'margin:0px -10px 0px 15px;'
+                    )
+                ));
+            }
             ?>
         </div>
-        <div class="pull-right dipa-group" style="padding:0px 0px 3px 3px;">
+        <?php
+        if (!$readonly) {
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'buttonType' => 'link',
+                'size' => 'small',
+                'type' => 'success',
+                'url' => array('/dipa/kalkulasi/' . $model->id),
+                'icon' => 'check white',
+                'label' => 'Kalkulasi ulang',
+                'htmlOptions' => array(
+                    'class' => 'pull-right',
+                )
+            ));
+        }
+        ?>
+        <?php
+        if (!$readonly) {
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'buttonType' => 'link',
+                'size' => 'small',
+                'icon' => 'trash',
+                'label' => 'Mode Hapus',
+                'toggle' => true,
+                'htmlOptions' => array(
+                    'class' => 'pull-right',
+                    'style' => 'margin:0px 5px 0px 0px;',
+                    'onclick' => ' $(".hapus").toggle(); '
+                )
+            ));
+        }
+        ?>
+        <div class="pull-right dipa-group" style="padding:0px 0px 3px 3px;margin-top:-1px;">
             <?php
             $this->widget('bootstrap.widgets.TbButton', array(
                 'buttonType' => 'link',
                 'size' => 'mini',
                 'type' => 'danger',
                 'label' => 'MAK',
+                'toggle' => true,
                 'htmlOptions' => array(
                     'id' => 'sh-mak',
                     'hide' => 'no',
@@ -73,6 +93,7 @@ $this->breadcrumbs = array(
                 'size' => 'mini',
                 'type' => 'info',
                 'label' => 'SUB',
+                'toggle' => true,
                 'htmlOptions' => array(
                     'id' => 'sh-sub',
                     'hide' => 'no',
@@ -87,6 +108,7 @@ $this->breadcrumbs = array(
                 'size' => 'mini',
                 'type' => 'success',
                 'label' => 'OUT',
+                'toggle' => true,
                 'htmlOptions' => array(
                     'id' => 'sh-out',
                     'hide' => 'no',
@@ -106,7 +128,8 @@ $this->breadcrumbs = array(
                 'label' => 'Simpan Revisi',
                 'htmlOptions' => array(
                     'class' => 'pull-left',
-                    'style' => 'margin-left:3px;margin-top:2px;'
+                    'style' => 'margin-left:3px;margin-top:2px;',
+                    'onclick' => 'return confirm("Apakah Anda yakin?")'
                 )
             ));
         }
@@ -144,6 +167,7 @@ $this->breadcrumbs = array(
         <?php include("_dipa_buttons.php"); ?>
 
         <?php
+        $template = false;
         $outputs = $model->output;
 
         echo $output_new;
@@ -154,8 +178,10 @@ $this->breadcrumbs = array(
             include("_output.php");
             $suboutputs = $output->suboutput;
 
-            echo str_replace("[output_id]", $output->id, $suboutput_new);
-            echo $output_new;
+            if (!$readonly) {
+                echo str_replace("[output_uid]", $output->uid, $suboutput_new);
+                echo $output_new;
+            }
 
             foreach ($suboutputs as $suboutput) {
                 if ($suboutput->dipa_version != $model->version)
@@ -164,8 +190,10 @@ $this->breadcrumbs = array(
                 include("_suboutput.php");
                 $maks = $suboutput->mak;
 
-                echo str_replace("[suboutput_id]", $suboutput->id, $mak_new);
-                echo str_replace("[output_id]", $output->id, str_replace("arrow-right", "arrow-down", $suboutput_new));
+                if (!$readonly) {
+                    echo str_replace("[suboutput_uid]", $suboutput->uid, $mak_new);
+                    echo str_replace("[output_uid]", $output->uid, str_replace("arrow-right", "arrow-down", $suboutput_new));
+                }
 
                 foreach ($maks as $mak) {
                     if ($mak->dipa_version != $model->version)
@@ -174,16 +202,23 @@ $this->breadcrumbs = array(
                     include("_mak.php");
                     $details = $mak->detail_input;
 
-                    echo str_replace("[mak_id]", $mak->id, $detailinput_new);
-                    echo str_replace("[suboutput_id]", $suboutput->id, str_replace("arrow-right", "arrow-down", $mak_new));
+
+                    if (!$readonly) {
+                        echo str_replace("[mak_uid]", $mak->uid, $detailinput_new);
+                        echo str_replace("[suboutput_uid]", $suboutput->uid, str_replace("arrow-right", "arrow-down", $mak_new));
+                    }
 
                     foreach ($details as $detail) {
                         if ($detail->dipa_version != $model->version)
                             continue;
 
                         include("_detailinput.php");
-                        echo str_replace("[mak_id]", $mak->id, $detailinput_new);
-                        echo str_replace("[suboutput_id]", $suboutput->id, str_replace("arrow-right", "arrow-down", $mak_new));
+
+
+                        if (!$readonly) {
+                            echo str_replace("[mak_uid]", $mak->uid, $detailinput_new);
+                            echo str_replace("[suboutput_uid]", $suboutput->uid, str_replace("arrow-right", "arrow-down", $mak_new));
+                        }
                     }
                 }
             }
@@ -200,70 +235,102 @@ $this->breadcrumbs = array(
     include("_detailinput_dialog.php");
     ?>
 
+    <div id="template" style="display:none;">
+        <?php $template = true; ?>
+        <table class="output-table">
+            <?php include("_output.php"); ?>
+        </table>
+        <table class="suboutput-table">
+            <?php include("_suboutput.php"); ?>
+        </table>
+    </div>
+
+
     <script type="text/javascript">
         window.data_id = "";
         window.data_table = "";
-        window.output_id = "";
-        window.suboutput_id = "";
-        window.mak_id = "";
+        window.output_uid = "";
+        window.suboutput_uid = "";
+        window.mak_uid = "";
+
+        /*
+         function refreshContent() {
+         $path = '<?php echo $this->createUrl(Yii::app()->request->pathInfo); ?>?co=1';
+         $.ajax({
+         url: $path,
+         complete: function(data) {
+         $("#ajax-page").replaceWith(data.responseText);
+         }
+         });
+         }
+         */
+        
+        function getTreeClass($class) {
+            switch ($class) {
+                case "detail-input":
+                    return ".item.detail-input,.item.mak,.item.suboutput,.item.output";
+                    break;
+                case "mak":
+                    return ".item.mak,.item.suboutput,.item.output";
+                    break;
+                case "suboutput":
+                    return ".item.suboutput,.item.output";
+                    break;
+                case "output":
+                    return ".item.output";
+                    break;
+            }
+        }
+
+        function getNextItem($item) {
+            $item = $item.next();
+            while (!$item.hasClass('item') && $item.length > 0) {
+                $item = $item.next();
+            }
+            return $item;
+        }
 
         $(function() {
-            function getNextItem($item) {
-                $item = $item.next();
-                while (!$item.hasClass('item') && $item.length > 0) {
-                    $item = $item.next();
-                }
-                return $item;
-            }
-
-            $('.hapus').on('click', function(e) {
+            $(document).on('click', '.hapus', function(e) {
                 $parent = $(this).parent().parent();
-                $parent.addClass('menghapus');
+                $class = $parent.attr('class').replace('item', '').trim();
 
                 $url = '<?php echo $this->createUrl("/[item]/delete/[id]"); ?>';
 
                 $url = $url.replace('[id]', $parent.attr('item-id'));
                 $url = $url.replace('[item]', $parent.attr('item-type'));
 
-                console.debug($url);
-
                 $.post($url, function(data) {
-                    $parent.hide();
+                    $childs = $parent.nextUntil(getTreeClass($class));
+                    $parent.remove();
+                    $childs.remove();
                 });
 
                 e.preventDefault();
                 return false;
             });
 
-            /*
-             $(".kode .label").click(function(e) {
-             $parent = $(this).parent().parent();
-             $class = $parent.attr('class').replace('item', '').trim();
-             $next = getNextItem($parent);
-             
-             if ($class == 'mak') {
-             while (!$next.hasClass('mak') && !$next.hasClass('suboutput') && !$next.hasClass('output')) {
-             $next.hide();
-             $next = getNextItem($next);
-             }
-             } else if ($class == 'suboutput') {
-             while (!$next.hasClass('suboutput') && !$next.hasClass('output')) {
-             $next.hide();
-             $next = getNextItem($next);
-             }
-             } else if ($class == 'output') {
-             while (!$next.hasClass('output')) {
-             $next.hide();
-             $next = getNextItem($next);
-             }
-             }
-             
-             e.preventDefault();
-             return false;
-             });
-             */
+            $(".kode .label").click(function(e) {
+                $parent = $(this).parent().parent();
+                $class = $parent.attr('class').replace('item', '').trim();
+                $icon = $(this).find('i');
+                $icon_class = $icon.attr('class').replace('icon-white','').trim();
+                
+                $childs = $parent.nextUntil(getTreeClass($class),'.item');
+                
+                if ($icon_class == "icon-minus") {
+                    $childs.hide();
+                    $icon.removeClass("icon-minus").addClass("icon-plus");
+                } else {
+                    $childs.show();
+                    $icon.removeClass("icon-plus").addClass("icon-minus");
+                }
+                
+                e.preventDefault();
+                return false;
+            });
 
-            $(".kode").click(function() {
+            $(document).on("click", '.kode', function() {
                 $next = $(this).parent().next();
                 $parent = $(this).parent();
 
@@ -283,6 +350,7 @@ $this->breadcrumbs = array(
             });
 
             $("#sh-out").click(function() {
+                $(".newbtn").hide();
                 $("#sh-sub,#sh-mak").attr("hide", "no");
 
                 $hidden = $("#sh-out").attr("hide");
@@ -296,6 +364,7 @@ $this->breadcrumbs = array(
             });
 
             $("#sh-sub").click(function() {
+                $(".newbtn").hide();
                 $("#sh-out,#sh-mak").attr("hide", "no");
                 $(".item.suboutput").show();
 
@@ -311,6 +380,7 @@ $this->breadcrumbs = array(
             });
 
             $("#sh-mak").click(function() {
+                $(".newbtn").hide();
                 $("#sh-out,#sh-sub").attr("hide", "no");
                 $(".item.suboutput,.item.mak").show();
 

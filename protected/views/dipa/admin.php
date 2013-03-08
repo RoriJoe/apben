@@ -22,12 +22,9 @@ $this->breadcrumbs=array(
 		'nomor_dipa',
 		'satker',
 		'kegiatan',
-		/*
-		'version',
-		*/
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-            'template' => '{view}'
-		),
+        array(
+            'type' => 'raw',
+            'value' => 'CHtml::link("Edit",array("/dipa/view/" . $data->uid));'
+        )
 	),
 )); ?>

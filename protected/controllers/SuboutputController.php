@@ -59,7 +59,7 @@ class SuboutputController extends Controller {
     public function actionCreate() {
         $model = new Suboutput;
 
-        $model->dipa_id = @$_GET['dpid'];
+        $model->dipa_uid = @$_GET['dpid'];
         $model->dipa_version = @$_GET['dpv'];
         $model->output_uid = @$_GET['oid'];
 
@@ -71,13 +71,37 @@ class SuboutputController extends Controller {
             $model->kode = Format::kode($_POST['Suboutput']['kode']);
             $model->kode_uid = Format::kode_uid($_POST['Suboutput']['kode']);
 
-            if ($model->save())
-                $this->redirect(array('/dipa/view/' . $model->dipa_id));
+            if ($model->save()) {
+                $this->generateJSON($model, 1);
+            }
         }
+
+        $satuan_target = Output::model()->find(array(
+                    'condition' => 'uid = ' . $model->output_uid . ' and dipa_uid = ' . $model->dipa_uid . ' and dipa_version  =' . $model->dipa_version
+                ))->satuan_target;
 
         $this->renderPartial('create', array(
             'model' => $model,
+            'satuan_target' => $satuan_target
                 ), false, true);
+    }
+
+    public function generateJSON($model, $isnew) {
+        $satuan_target = $model->output->satuan_target;
+
+        $array = $model->attributes;
+        $array['isnew'] = $isnew;
+        $array['uraian'] = CHtml::link($model->detail->uraian, array('#'), array(
+                    'data-toggle' => 'modal',
+                    'data-target' => '#SuboutputDialog',
+                    'onclick' => "window.data_id = {$model->id}; window.data_table = 'Suboutput';",
+                    'class' => 'link'
+        ));
+        $array['satuan_target'] = $satuan_target;
+        $array['jumlah'] = Format::currency($model->pagu);
+
+        echo CJSON::encode($array);
+        Yii::app()->end();
     }
 
     /**
@@ -95,13 +119,15 @@ class SuboutputController extends Controller {
             $model->attributes = $_POST['Suboutput'];
             $model->kode = Format::kode($_POST['Suboutput']['kode']);
             $model->kode_uid = Format::kode_uid($_POST['Suboutput']['kode']);
-            
-            if ($model->save())
-                $this->redirect(array('/dipa/view/' . $model->dipa_id));
+
+            if ($model->save()) {
+                $this->generateJSON($model, 0);
+            }
         }
 
         $this->renderPartial('update', array(
             'model' => $model,
+            'satuan_target' => $model->output->satuan_target
                 ), false, true);
     }
 
@@ -116,7 +142,7 @@ class SuboutputController extends Controller {
             $this->loadModel($id)->delete();
 
             Yii::app()->end();
-            
+
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

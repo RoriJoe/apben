@@ -5,7 +5,7 @@
 
 	<?php echo $form->textFieldRow($model,'id',array('class'=>'span5','maxlength'=>20)); ?>
 
-	<?php echo $form->textFieldRow($model,'dipa_id',array('class'=>'span5','maxlength'=>20)); ?>
+	<?php echo $form->textFieldRow($model,'dipa_uid',array('class'=>'span5','maxlength'=>20)); ?>
 
 	<?php echo $form->textFieldRow($model,'dipa_version',array('class'=>'span5')); ?>
 

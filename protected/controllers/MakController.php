@@ -63,7 +63,7 @@ class MakController extends Controller
 	{
 		$model=new Mak;
 
-        $model->dipa_id = @$_GET['dpid'];
+        $model->dipa_uid = @$_GET['dpid'];
         $model->dipa_version = @$_GET['dpv'];
         $model->suboutput_uid = @$_GET['soid'];
         
@@ -77,7 +77,7 @@ class MakController extends Controller
             $model->kode_uid = Format::kode_uid($_POST['Mak']['kode']);
             
 			if($model->save())
-				$this->redirect(array('/dipa/view/' . $model->dipa_id));
+				$this->redirect(array('/dipa/view/' . $model->dipa_uid));
 		}
 
 		$this->renderPartial('create',array(
@@ -104,7 +104,7 @@ class MakController extends Controller
             $model->kode_uid = Format::kode_uid($_POST['Mak']['kode']);
             
 			if($model->save())
-				$this->redirect(array('/dipa/view/' . $model->dipa_id));
+				$this->redirect(array('/dipa/view/' . $model->dipa_uid));
 		}
 
 		$this->renderPartial('update',array(

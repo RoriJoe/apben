@@ -51,7 +51,6 @@ class Dipa extends CActiveRecord {
     public function saveRev() {
         $this->calculate();
         
-        
         $new = new Dipa;
         $new->attributes = $this->attributes;
         $new->version += 1;
@@ -78,13 +77,15 @@ DROP TABLE tmp;";
     }
 
     public function calculate() {
-        $sql = "update detail_input set jumlah = volume * frequensi * tarif;
-update mak set pagu = (select sum(jumlah) from detail_input where mak_uid = mak.uid and dipa_version = [dipa_version] and dipa_uid = [dipa_uid] group by mak_uid);
-update suboutput set pagu = (select sum(pagu) from mak where suboutput_uid = suboutput.uid and dipa_version = [dipa_version] and dipa_uid = [dipa_uid] group by suboutput_uid);
-update output set pagu = (select sum(pagu) from suboutput where output_uid = output.uid and dipa_version = [dipa_version] and dipa_uid = [dipa_uid] group by output_uid);
-update dipa set pagu = (select sum(pagu) from mak where dipa_uid = dipa.id and dipa_version = [dipa_version] group by dipa_uid);";
+        $sql = "update detail_input set jumlah = (floor(volume * frequensi * tarif/1000) * 1000) where dipa_uid = [dipa_uid] and dipa_version = [dipa_version];
+update mak set pagu = (select sum(jumlah) from detail_input where mak_uid = mak.uid and dipa_version = [dipa_version] and dipa_uid = [dipa_uid] group by mak_uid) where dipa_uid = [dipa_uid] and dipa_version = [dipa_version];
+update suboutput set pagu = (select sum(pagu) from mak where suboutput_uid = suboutput.uid and dipa_version = [dipa_version] and dipa_uid = [dipa_uid] group by suboutput_uid) where dipa_uid = [dipa_uid] and dipa_version = [dipa_version];
+update output set pagu = (select sum(pagu) from suboutput where output_uid = output.uid and dipa_version = [dipa_version] and dipa_uid = [dipa_uid] group by output_uid) where dipa_uid = [dipa_uid] and dipa_version = [dipa_version];
+update dipa set pagu = (select sum(pagu) from output where dipa_uid = dipa.uid and dipa_version = [dipa_version] group by dipa_uid) where uid = [dipa_uid] and version = [dipa_version];";
         
-        $sql = str_replace(array('[dipa_version]','[dipa_uid]'),array($this->version,$this->id),$sql);
+        $sql = str_replace(array('[dipa_version]','[dipa_uid]'),array($this->version,$this->uid),$sql);
+        
+        
         $db = Yii::app()->db;
         $db->createCommand($sql)->execute();
     }

@@ -9,7 +9,7 @@ $this->beginWidget('bootstrap.widgets.TbModal', array(
                window.data_id = "";
                window.data_table = "";
             } else {
-                url = "' . $this->createUrl('/output/create?dpv=' . $model->version . '&dpid=' . $model->id) . '"; 
+                url = "' . $this->createUrl('/output/create?dpv=' . $model->version . '&dpid=' . $model->uid) . '"; 
             }
             
             $.get(url,

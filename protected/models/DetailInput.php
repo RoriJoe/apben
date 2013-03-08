@@ -79,7 +79,7 @@ class DetailInput extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'mak' => array(self::BELONGS_TO, 'Mak', array('mak_uid' => 'uid')),
+            'mak' => array(self::BELONGS_TO, 'Mak', array('mak_uid' => 'uid', 'dipa_version' => 'dipa_version', 'dipa_uid' => 'dipa_uid')),
         );
     }
 

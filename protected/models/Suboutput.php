@@ -32,9 +32,8 @@ class Suboutput extends CActiveRecord {
     }
 
     public function getDetail() {
-        return MasterSuboutput::model()->find(array('condition' => 'kode = ' . $this->kode));
+        return MasterSuboutput::model()->find(array('condition' => 'kode = ' . $this->kode . ' and uid = ' . $this->kode_uid));
     }
-
 
     /**
      * @return array validation rules for model attributes.
@@ -53,7 +52,6 @@ class Suboutput extends CActiveRecord {
             array('id, dipa_uid, dipa_version, output_uid, kode', 'safe', 'on' => 'search'),
         );
     }
-    
 
     public function afterFind() {
 
@@ -62,10 +60,10 @@ class Suboutput extends CActiveRecord {
                 'uid' => $this->id
             ));
         }
-        
+
         return true;
     }
-    
+
     /**
      * @return array relational rules.
      */
@@ -73,8 +71,8 @@ class Suboutput extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'mak' => array(self::HAS_MANY, 'Mak', array('suboutput_uid' => 'uid')),
-            'output' => array(self::BELONGS_TO, 'Output', array('output_uid' => 'uid')),
+            'mak' => array(self::HAS_MANY, 'Mak', array('suboutput_uid' => 'uid', 'dipa_version' => 'dipa_version', 'dipa_uid' => 'dipa_uid')),
+            'output' => array(self::BELONGS_TO, 'Output', array('output_uid' => 'uid', 'dipa_version' => 'dipa_version', 'dipa_uid' => 'dipa_uid')),
         );
     }
 
