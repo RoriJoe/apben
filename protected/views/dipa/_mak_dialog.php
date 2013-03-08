@@ -13,6 +13,8 @@ $this->beginWidget('bootstrap.widgets.TbModal', array(
                 window.suboutput_uid = "";
             }
             
+            $("#MakDialog .modal-content").html("<center><br><br><br><img src=\"'.$this->createUrl('/static/images/loading.gif').'\" /><br><br><br><br></center>");
+                
             $.get(url,
                 function(data) {
                     $("#MakDialog .modal-content").html(data);

@@ -36,6 +36,10 @@ echo $form->textFieldRow($model, 'target', array(
             'id' => $id,
         ),
         'ajaxOptions' => array(
+            'beforeSend' => 'js:function() {
+                $("<img src=\"'.$this->createUrl('/static/images/loading.gif').'\" />").insertAfter("#'.$id.'");
+                $("#'.$id.'").remove();
+            }',
             'complete' => 'js:function(data) {
                item = $.parseJSON(data.responseText);
 

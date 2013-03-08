@@ -13,6 +13,8 @@ $this->beginWidget('bootstrap.widgets.TbModal', array(
                 window.output_uid = "";
             }
             
+            $("#SuboutputDialog .modal-content").html("<center><br><br><br><img src=\"'.$this->createUrl('/static/images/loading.gif').'\" /><br><br><br><br></center>");
+            
             $.get(url,
                 function(data) {
                     $("#SuboutputDialog .modal-content").html(data);

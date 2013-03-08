@@ -5,8 +5,6 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         ));
 ?>
 
-<?php echo $form->errorSummary($model); ?>
-
 <?php echo $form->textFieldRow($model, 'uraian', array('class' => 'span5', 'maxlength' => 255)); ?>
 
 <div style="float:left;">
@@ -44,8 +42,16 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
             'id' => $id,
         ),
         'ajaxOptions' => array(
+            'beforeSend' => 'js:function() {
+                $("<img src=\"'.$this->createUrl('/static/images/loading.gif').'\" />").insertAfter("#'.$id.'");
+                $("#'.$id.'").remove();
+            }',
             'complete' => 'js:function(data) {
+               try {
                item = $.parseJSON(data.responseText);
+               } catch(e) {
+                    $("#DetailInputDialog .modal-content").html(data.responseText);
+               }
                
                if (!item.isnew) { 
                     row = $("#template .detailinput-table").clone();

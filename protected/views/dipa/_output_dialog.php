@@ -12,6 +12,8 @@ $this->beginWidget('bootstrap.widgets.TbModal', array(
                 url = "' . $this->createUrl('/output/create?dpv=' . $model->version . '&dpid=' . $model->uid) . '"; 
             }
             
+            $("#OutputDialog .modal-content").html("<center><br><br><br><img src=\"'.$this->createUrl('/static/images/loading.gif').'\" /><br><br><br><br></center>");
+            
             $.get(url,
                 function(data) {
                     $("#OutputDialog .modal-content").html(data);

@@ -12,7 +12,8 @@ $this->beginWidget('bootstrap.widgets.TbModal', array(
                 url = "' . $this->createUrl('/detailInput/create?dpv=' . $model->version . '&dpid=' . $model->uid) . '&mid=" + window.mak_uid; 
                 window.mak_uid = "";
             }
-            
+            $("#DetailInputDialog .modal-content").html("<center><br><br><br><img src=\"'.$this->createUrl('/static/images/loading.gif').'\" /><br><br><br><br></center>");
+                
             $.get(url,
                 function(data) {
                     $("#DetailInputDialog .modal-content").html(data);
