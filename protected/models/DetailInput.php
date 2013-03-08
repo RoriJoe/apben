@@ -45,7 +45,7 @@ class DetailInput extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('dipa_uid, dipa_version, mak_uid, uraian, volume, satuan_volume, frequensi, satuan_frequensi, tarif', 'required'),
-            array('dipa_version', 'numerical', 'integerOnly' => true),
+            array('volume,frequensi,tarif,dipa_version', 'numerical', 'integerOnly' => true),
             array('dipa_uid, mak_uid, volume, frequensi, tarif, jumlah', 'length', 'max' => 20),
             array('uraian', 'length', 'max' => 255),
             array('satuan_volume, satuan_frequensi', 'length', 'max' => 25),

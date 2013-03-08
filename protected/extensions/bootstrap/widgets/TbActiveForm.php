@@ -474,6 +474,8 @@ class TbActiveForm extends CActiveForm
 		$error = $model->getError($attribute);
 		return $error != '' ? CHtml::tag('span', $htmlOptions, $error) : '';
 	}
+    
+    
 
 	/**
 	 * Creates an input row of a specific type.

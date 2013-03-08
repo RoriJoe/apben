@@ -70,6 +70,16 @@ return array(
              */
             ),
         ),
+        'widgetFactory' => array(
+            'widgets' => array(
+                'CJuiDatePicker' => array(
+                    'options' => array(
+                        'dayNamesMin' => array('M', 'S', 'S', 'R', 'K', 'J', 'S'),
+                        'dateFormat' => 'dd MM yy',
+                    ),
+                ),
+            ),
+        )
     ),
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']

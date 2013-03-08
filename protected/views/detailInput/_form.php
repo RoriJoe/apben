@@ -51,6 +51,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                item = $.parseJSON(data.responseText);
                } catch(e) {
                     $("#DetailInputDialog .modal-content").html(data.responseText);
+                    return false;
                }
                
                if (!item.isnew) { 

@@ -64,7 +64,13 @@ class DipaController extends Controller {
         }
 
         $model = Dipa::model()->find(array('condition' => 'uid = ' . $id));
-
+        
+        if ($model == null) {
+            $terbaru = Dipa::model()->find(array('order' => 'uid desc'));
+            $this->redirect(array('/dipa/view/' . $terbaru->uid));
+        }
+        
+        
         $readonly = false;
         if (isset($_GET['rev']) && is_numeric($_GET['rev']) && $_GET['rev'] < $model->version) {
             $model = Dipa::model()->resetScope(true)->find(
@@ -85,17 +91,6 @@ class DipaController extends Controller {
                 'readonly' => $readonly,
                     ), true, true);
 
-            /*
-            $html = str_replace(
-                    array(
-                '<script type="text/javascript">',
-                '</script>'
-                    ), array(
-                '<div class="script">',
-                '</div>'
-                    ), $html
-            );
-             */
             echo $html;
         } else {
             $this->render('view', array(
@@ -117,8 +112,11 @@ class DipaController extends Controller {
 
         if (isset($_POST['Dipa'])) {
             $model->attributes = $_POST['Dipa'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->uid));
+            if ($model->save()) {
+                $model->uid = $model->id;
+                $model->save();
+                $this->redirect(array('/dipa/view/' . $model->id));
+            }
         }
 
         $this->render('create', array(
@@ -140,7 +138,7 @@ class DipaController extends Controller {
         if (isset($_POST['Dipa'])) {
             $model->attributes = $_POST['Dipa'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->uid));
+                $this->redirect(array('/dipa/view/' . $model->uid));
         }
 
         $this->render('update', array(
