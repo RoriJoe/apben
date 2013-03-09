@@ -52,7 +52,7 @@ class User extends CActiveRecord {
                 "psppm" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
                 "psptb" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
                 "ar" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
-                "pta" => array('dipa' => 'edit'),
+                "pta" => array('dipa' => 'edit','master'=>'edit'),
                 "pst" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'view'),
                 "plpk" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'edit'),
                 "ksbp" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'view'),
@@ -131,6 +131,15 @@ class User extends CActiveRecord {
             }
         }
         return $menu;
+    }
+    
+    public function isMenuAllowed($menu) {
+        $setting = self::itemAlias('menu',Yii::app()->user->role);
+        if (isset($setting[$menu])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function beforeValidate() {

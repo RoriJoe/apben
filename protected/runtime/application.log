@@ -7022,3 +7022,418 @@ Stack trace:
 REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
 HTTP_REFERER=http://192.168.20.5/apben/
 ---
+2013/03/09 01:21:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\wamp\www\apben\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('tagihan/admin')
+#9 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\apben\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/apben/tagihan/admin
+HTTP_REFERER=http://192.168.20.5/apben/
+---
+2013/03/09 01:21:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://192.168.20.5/apben/tagihan/admin
+---
+2013/03/09 01:21:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://192.168.20.5/apben/tagihan/create
+---
+2013/03/09 01:34:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:35:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:36:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:36:07 [warning] [application] Failed to set unsafe attribute "roles_arr" of "User".
+in C:\wamp\www\apben\protected\controllers\UserController.php (99)
+in C:\wamp\www\apben\index.php (13)
+2013/03/09 01:36:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:36:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://192.168.20.5/apben/dipa/view/1
+---
+2013/03/09 01:36:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:36:15 [warning] [application] Failed to set unsafe attribute "roles_arr" of "User".
+in C:\wamp\www\apben\protected\controllers\UserController.php (99)
+in C:\wamp\www\apben\index.php (13)
+2013/03/09 01:36:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:36:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:36:31 [warning] [application] Failed to set unsafe attribute "roles_arr" of "User".
+in C:\wamp\www\apben\protected\controllers\UserController.php (99)
+in C:\wamp\www\apben\index.php (13)
+2013/03/09 01:36:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:36:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:12 [warning] [application] Failed to set unsafe attribute "roles_arr" of "User".
+in C:\wamp\www\apben\protected\controllers\UserController.php (71)
+in C:\wamp\www\apben\index.php (13)
+2013/03/09 01:37:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:35 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\wamp\www\apben\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('user/admin')
+#9 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\apben\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/apben/user/admin
+HTTP_REFERER=http://localhost/apben/
+---
+2013/03/09 01:37:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\wamp\www\apben\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('user/admin')
+#9 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\apben\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/apben/user/admin
+HTTP_REFERER=http://localhost/apben/user/admin
+---
+2013/03/09 01:37:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:37:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:38:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:43:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:43:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:44:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:44:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:44:14 [warning] [application] Failed to set unsafe attribute "roles_arr" of "User".
+in C:\wamp\www\apben\protected\controllers\UserController.php (99)
+in C:\wamp\www\apben\index.php (13)
+2013/03/09 01:44:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:44:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:44:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:44:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:45:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:45:22 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\wamp\www\apben\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('tagihan/admin')
+#9 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\apben\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/apben/tagihan/admin
+HTTP_REFERER=http://localhost/apben/
+---
+2013/03/09 01:45:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:45:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\wamp\www\apben\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('tagihan/admin')
+#9 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\apben\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/apben/tagihan/admin
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/09 01:45:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/09 01:47:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://192.168.20.5/apben/dipa/view/1
+---
+2013/03/09 01:47:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---

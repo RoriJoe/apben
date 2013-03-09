@@ -7,7 +7,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
             'class' => 'bootstrap.widgets.TbMenu',
             'items' => array(
                 array(
-                    'visible' => !Yii::app()->user->isGuest,
+                    'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->isMenuAllowed('dipa'),
                     'label' => 'Data Anggaran',
                     'icon' => 'briefcase',
                     'url' => '#',
@@ -28,7 +28,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                     )
                 ),
                 array(
-                    'visible' => !Yii::app()->user->isGuest,
+                    'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->isMenuAllowed('realisasi'),
                     'label' => 'Realisasi Anggaran',
                     'icon' => 'pencil',
                     'url' => '#',
@@ -45,7 +45,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                     )
                 ),
                 array(
-                    'visible' => !Yii::app()->user->isGuest,
+                    'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->isMenuAllowed('master'),
                     'label' => 'Data Master',
                     'icon' => 'book',
                     'items' => array(
@@ -64,7 +64,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                     ),
                 ),
                 array(
-                    'visible' => !Yii::app()->user->isGuest,
+                    'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->isMenuAllowed('user'),
                     'label' => 'Manage User',
                     'icon' => 'user',
                     'url' => '#',
