@@ -5,9 +5,9 @@
 
 	<?php echo $form->textFieldRow($model,'id',array('class'=>'span5','maxlength'=>20)); ?>
 
-	<?php echo $form->textFieldRow($model,'kode_ouput',array('class'=>'span5','maxlength'=>25)); ?>
+	<?php echo $form->textFieldRow($model,'kode_output',array('class'=>'span5','maxlength'=>25)); ?>
 
-	<?php echo $form->textFieldRow($model,'kode_subouput',array('class'=>'span5','maxlength'=>25)); ?>
+	<?php echo $form->textFieldRow($model,'kode_suboutput',array('class'=>'span5','maxlength'=>25)); ?>
 
 	<?php echo $form->textFieldRow($model,'kode_mak',array('class'=>'span5','maxlength'=>25)); ?>
 

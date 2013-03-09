@@ -1,6 +1,85 @@
 
 <?php
 
+$dipa[0] = array();
+$dipa['edit'] = array(
+    array(
+        'label' => 'Edit DIPA Terbaru',
+        'url' => array('/dipa/view/0')
+    ),
+    '---',
+    array(
+        'label' => 'Buat DIPA Baru',
+        'url' => array('/dipa/create')
+    ),
+    array(
+        'label' => 'Manage DIPA',
+        'url' => array('/dipa/admin')
+    )
+);
+
+$dipa['view'] = array(
+    array(
+        'label' => 'Lihat DIPA Terbaru',
+        'url' => array('/dipa/view/0')
+    ),
+    '---',
+    array(
+        'label' => 'Daftar DIPA',
+        'url' => array('/dipa/admin')
+    )
+);
+
+$realisasi[0] = array();
+$realisasi['edit'] = array(
+    array(
+        'label' => 'Realisasi Tagihan',
+        'url' => array('/tagihan/admin')
+    ),
+);
+
+if (!Yii::app()->user->isGuest && User::itemAlias('ilang_ilangan', Yii::app()->user->role)) {
+    $realisasi['edit'] = array_merge($realisasi['edit'], array(
+        '---',
+        array(
+            'label' => 'Rekapitulasi Tagihan',
+            'url' => array('/tagihan/rekap')
+        ))
+    );
+}
+if (!Yii::app()->user->isGuest && (Yii::app()->user->role == "ar" || Yii::app()->user->role == "bp" || Yii::app()->user->role == "bpp")) {
+    $realisasi['edit'] = array_merge($realisasi['edit'], array(
+        '---',
+        array(
+            'label' => 'Buat Tagihan Baru',
+            'url' => array('/tagihan/create')
+        ))
+    );
+}
+
+$realisasi['view'] = array(
+    array(
+        'label' => 'Daftar Tagihan',
+        'url' => array('/tagihan/admin')
+    ),
+);
+
+$master[0] = array();
+$master['edit'] = array(
+    array(
+        'label' => 'Master Output',
+        'url' => array('/masterOutput/admin')
+    ),
+    array(
+        'label' => 'Master Suboutput',
+        'url' => array('/masterSubOutput/admin')
+    ),
+    array(
+        'label' => 'Master MAK',
+        'url' => array('/masterMak/admin')
+    ),
+);
+
 $this->widget('bootstrap.widgets.TbNavbar', array(
     'items' => array(
         array(
@@ -11,57 +90,20 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                     'label' => 'Data Anggaran',
                     'icon' => 'briefcase',
                     'url' => '#',
-                    'items' => array(
-                        array(
-                            'label' => 'Edit DIPA Terbaru',
-                            'url' => array('/dipa/view/0')
-                        ),
-                        '---',
-                        array(
-                            'label' => 'Buat DIPA Baru',
-                            'url' => array('/dipa/create')
-                        ),
-                        array(
-                            'label' => 'Manage DIPA',
-                            'url' => array('/dipa/admin')
-                        )
-                    )
+                    'items' => $dipa[Yii::app()->user->detail->menuMode('dipa')]
                 ),
                 array(
                     'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->isMenuAllowed('realisasi'),
                     'label' => 'Realisasi Anggaran',
                     'icon' => 'pencil',
                     'url' => '#',
-                    'items' => array(
-                        array(
-                            'label' => 'Manage Tagihan',
-                            'url' => array('/tagihan/admin')
-                        ),
-                        '---',
-                        array(
-                            'label' => 'Buat Tagihan Baru',
-                            'url' => array('/tagihan/create')
-                        ),
-                    )
+                    'items' => $realisasi[Yii::app()->user->detail->menuMode('realisasi')]
                 ),
                 array(
                     'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->isMenuAllowed('master'),
                     'label' => 'Data Master',
                     'icon' => 'book',
-                    'items' => array(
-                        array(
-                            'label' => 'Master Output',
-                            'url' => array('/masterOutput/admin')
-                        ),
-                        array(
-                            'label' => 'Master Suboutput',
-                            'url' => array('/masterSubOutput/admin')
-                        ),
-                        array(
-                            'label' => 'Master MAK',
-                            'url' => array('/masterMak/admin')
-                        ),
-                    ),
+                    'items' => $master[Yii::app()->user->detail->menuMode('master')]
                 ),
                 array(
                     'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->isMenuAllowed('user'),

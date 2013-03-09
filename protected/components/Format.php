@@ -10,6 +10,7 @@ class Format {
     }
 
     public static function date($timestamp) {
+        
         $time = Format::getTimestamp($timestamp);
 
         if (date("Y", $time) == 1970) {
@@ -17,6 +18,8 @@ class Format {
         } else {
             return date('d F Y', $time);
         }
+        
+        
     }
 
     public static function date2sql($date) {

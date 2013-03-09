@@ -66,7 +66,7 @@ class DipaController extends Controller {
             $this->redirect(array('/dipa/view/' . $terbaru->uid));
         }
         
-        
+        $version = $model->version;
         $readonly = false;
         if (isset($_GET['rev']) && is_numeric($_GET['rev']) && $_GET['rev'] < $model->version) {
             $model = Dipa::model()->resetScope(true)->find(
@@ -75,6 +75,7 @@ class DipaController extends Controller {
             $readonly = true;
         }
 
+        if (Yii::app()->user->detail->menuMode('dipa') == "view") $readonly = true;
 
         if (@$_GET['co'] == 1) {
             Yii::app()->clientScript->scriptMap = array(
@@ -85,6 +86,7 @@ class DipaController extends Controller {
             $html = $this->renderPartial('view', array(
                 'model' => $model,
                 'readonly' => $readonly,
+                'version' => $version
                     ), true, true);
 
             echo $html;
@@ -92,6 +94,7 @@ class DipaController extends Controller {
             $this->render('view', array(
                 'model' => $model,
                 'readonly' => $readonly,
+                'version' => $version
             ));
         }
     }
@@ -127,7 +130,7 @@ class DipaController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
-
+        
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
@@ -190,8 +193,8 @@ class DipaController extends Controller {
      * @param integer the ID of the model to be loaded
      */
     public function loadModel($id) {
-        $model = Dipa::model()->findByPk($id);
-
+        $model = Dipa::model()->resetScope(true)->findByPk($id);
+        
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;

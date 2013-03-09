@@ -25,7 +25,7 @@ $this->breadcrumbs = array(
             ));
             ?>
             <?php
-            if ($readonly) {
+            if ($model->version != $version) {
                 $this->widget('bootstrap.widgets.TbButton', array(
                     'buttonType' => 'link',
                     'size' => 'mini',
@@ -149,8 +149,17 @@ $this->breadcrumbs = array(
         </tr>
         <tr class="dipa">
             <td class="kode"><?php echo $model->nomor_dipa; ?></td>
-            <td class="uraian"><b><?php echo CHtml::link($model->satker, array('/dipa/update/' . $model->id), array('class' => 'link'));
-        ?></b></td>
+            <td class="uraian">
+                <b>
+                    <?php
+                    if ($readonly) {
+                        echo $model->satker;
+                    } else {
+                        echo CHtml::link($model->satker, array('/dipa/update/' . $model->id), array('class' => 'link'));
+                    }
+                    ?>
+                </b>
+            </td>
             <td class="volume"></td>
             <td class="freq"></td>
             <td class="tarif"></td>
@@ -158,7 +167,14 @@ $this->breadcrumbs = array(
         </tr>
         <tr class="dipa">
             <td class="kode"><?php echo $model->kode_kegiatan; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td class="uraian"><?php echo CHtml::link($model->kegiatan, array('/dipa/update/' . $model->id), array('class' => 'link')); ?></td>
+            <td class="uraian">
+                <?php
+                if ($readonly) {
+                    echo $model->kegiatan;
+                } else {
+                    echo CHtml::link($model->kegiatan, array('/dipa/update/' . $model->id), array('class' => 'link'));
+                }
+                ?>
             <td class="volume"></td>
             <td class="freq"></td>
             <td class="tarif"></td>
@@ -171,7 +187,9 @@ $this->breadcrumbs = array(
         $template = false;
         $outputs = $model->output;
 
-        echo $output_new;
+        if (!$readonly) {
+            echo $output_new;
+        }
         foreach ($outputs as $output) {
             if ($output->dipa_version != $model->version)
                 continue;
@@ -260,17 +278,6 @@ $this->breadcrumbs = array(
         window.suboutput_uid = "";
         window.mak_uid = "";
 
-        /*
-         function refreshContent() {
-         $path = '<?php echo $this->createUrl(Yii::app()->request->pathInfo); ?>?co=1';
-         $.ajax({
-         url: $path,
-         complete: function(data) {
-         $("#ajax-page").replaceWith(data.responseText);
-         }
-         });
-         }
-         */
 
         function getTreeClass($class) {
             switch ($class) {
@@ -296,14 +303,11 @@ $this->breadcrumbs = array(
             }
             return $item;
         }
-
         $(function() {
             $(document).on('click', '.hapus', function(e) {
                 $parent = $(this).parent().parent();
                 $class = $parent.attr('class').replace('item', '').trim();
-
                 $url = '<?php echo $this->createUrl("/[item]/delete/[id]"); ?>';
-
                 $url = $url.replace('[id]', $parent.attr('item-id'));
                 $url = $url.replace('[item]', $parent.attr('item-type'));
 

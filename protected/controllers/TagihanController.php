@@ -31,7 +31,7 @@ class TagihanController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','rekap'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -66,7 +66,7 @@ class TagihanController extends Controller
 		{
 			$model->attributes=$_POST['Tagihan'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -90,7 +90,7 @@ class TagihanController extends Controller
 		{
 			$model->attributes=$_POST['Tagihan'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -132,10 +132,27 @@ class TagihanController extends Controller
 	/**
 	 * Manages all models.
 	 */
+	public function actionRekap()
+	{
+		$model=new Tagihan('rekap');
+		$model->unsetAttributes();  // clear any default values
+        
+		if(isset($_GET['Tagihan']))
+			$model->attributes=$_GET['Tagihan'];
+
+		$this->render('rekap',array(
+			'model'=>$model,
+		));
+	}
+    
+	/**
+	 * Manages all models.
+	 */
 	public function actionAdmin()
 	{
 		$model=new Tagihan('search');
 		$model->unsetAttributes();  // clear any default values
+        
 		if(isset($_GET['Tagihan']))
 			$model->attributes=$_GET['Tagihan'];
 

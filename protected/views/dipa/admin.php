@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
 		'kegiatan',
         array(
             'type' => 'raw',
-            'value' => 'CHtml::link("Edit",array("/dipa/view/" . $data->uid));'
+            'value' => 'CHtml::link("Lihat&nbsp;DIPA",array("/dipa/view/" . $data->uid));'
         )
 	),
 )); ?>

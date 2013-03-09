@@ -53,6 +53,11 @@
     margin:0px -20px -15px -20px;
 }
 
+.hasDatepicker {
+    background:white !important;
+    cursor:pointer !important;
+}
+
 .dipa .kode,.dipa .uraian {
     background:#d0d0d0;
 }
@@ -105,3 +110,21 @@
 
 .output .kode .label:hover span {display:none !important;}
 .output .kode .label:hover i {display:block !important;}
+
+.label-tagihan {
+    width:200px;
+    display:inline-block;
+}
+
+.row-tagihan {
+    padding-bottom:10px;
+}
+
+#tagihan-form label {
+    float:left;
+    width:205px;
+}
+#tagihan-form input, #tagihan-form select {
+    float:left;
+    margin-top:-5px;
+}

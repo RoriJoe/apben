@@ -1,7 +1,6 @@
 <?php
 $this->breadcrumbs=array(
 	'Tagihan'=>array('admin'),
-	$model->id=>array('view','id'=>$model->id),
 	'Update',
 );
 

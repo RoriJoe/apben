@@ -12,6 +12,6 @@ $this->beginWidget('bootstrap.widgets.TbHeroUnit', array(
 ));
 ?>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<p>Selamat Datang, silakan pilih menu di atas untuk memulai.</p>
 
 <?php $this->endWidget(); ?>

@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs = array(
-    'Tagihan' => array('admin'),
+    'Tagihan' => array('rekap'),
     'Manage',
 );
 
@@ -10,7 +10,7 @@ $this->menu = array(
 );
 ?>
 
-<h1>Manage Tagihan</h1>
+<h1>Rekapitulasi Tagihan</h1>
 
 <?php
 $columns = User::itemAlias('realisasi_view', Yii::app()->user->role);
@@ -29,7 +29,7 @@ if (Yii::app()->user->detail->menuMode('realisasi') == "edit") {
 
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id' => 'tagihan-grid',
-    'dataProvider' => $model->search(),
+    'dataProvider' => $model->rekap(),
     'filter' => $model,
     'columns' => $columns,
 ));

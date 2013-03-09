@@ -139,7 +139,7 @@ class UserController extends Controller
                 Yii::app()->user->setState('role',$r);
             }
         }
-        $this->redirect(array('/'));
+        $this->redirect(Yii::app()->request->urlReferrer);
     }
     
 	/**

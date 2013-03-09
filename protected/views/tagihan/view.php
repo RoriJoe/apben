@@ -19,8 +19,8 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'kode_ouput',
-		'kode_subouput',
+		'kode_output',
+		'kode_suboutput',
 		'kode_mak',
 		'id_p_ar',
 		'tanggal_ar',

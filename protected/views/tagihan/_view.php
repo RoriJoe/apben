@@ -4,12 +4,12 @@
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('kode_ouput')); ?>:</b>
-	<?php echo CHtml::encode($data->kode_ouput); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('kode_output')); ?>:</b>
+	<?php echo CHtml::encode($data->kode_output); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('kode_subouput')); ?>:</b>
-	<?php echo CHtml::encode($data->kode_subouput); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('kode_suboutput')); ?>:</b>
+	<?php echo CHtml::encode($data->kode_suboutput); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('kode_mak')); ?>:</b>

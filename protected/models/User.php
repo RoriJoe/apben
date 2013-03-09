@@ -28,13 +28,12 @@ class User extends CActiveRecord {
                 "kpa" => "Kuasa Pengguna Anggaran (KPA)",
                 "ppk" => "Pejabat Pembuat Komitmen (PPK)",
                 "ptspm" => "Penandatangan SPM",
-                "pbspm" => "Pembuat SPM",
                 "bp" => "Bendahara Pengeluaran",
                 "bpp" => "Bendahara Pengeluaran Pembantu",
                 "vrf" => "Verifikator",
                 "psppm" => "Pembuat SPP dan SPM",
                 "psptb" => "Pembuat SPTB",
-                "ar" => "Akun Representatif (AR)",
+                "ar" => "Pembuat Tagihan (AR)",
                 "pta" => "Pengelola Teknis Anggaran",
                 "pst" => "Pejabat Struktural",
                 "plpk" => "Penyusun LPK PHLN",
@@ -45,24 +44,38 @@ class User extends CActiveRecord {
                 "kpa" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'view'),
                 "ppk" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'view'),
                 "ptspm" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'view'),
-                "pbspm" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
                 "bp" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
                 "bpp" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
                 "vrf" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
                 "psppm" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
                 "psptb" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
                 "ar" => array('dipa' => 'view', 'realisasi' => 'edit', 'laporan' => 'view'),
-                "pta" => array('dipa' => 'edit','master'=>'edit'),
+                "pta" => array('dipa' => 'edit', 'master' => 'edit'),
                 "pst" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'view'),
                 "plpk" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'edit'),
                 "ksbp" => array('dipa' => 'view', 'realisasi' => 'view', 'laporan' => 'view'),
-                "admin" => array('user'),
+                "admin" => array('user' => 'edit'),
+            ),
+            "realisasi_view" => array(
+                "kpa" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "ppk" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "ptspm" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "bp" => array('uraian_tagihan', 'pihak_penerima',  'jumlah_tagihan', 'mata_uang', 'tanggal_sp2d', 'tanggal_deadline'),
+                "bpp" => array('uraian_tagihan', 'pihak_penerima',  'jumlah_tagihan', 'mata_uang', 'tanggal_sp2d', 'tanggal_deadline'),
+                "vrf" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "ppspm" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "psptb" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan', 'mata_uang', 'tanggal_deadline', 'tanggal_sp2d'),
+                "ar" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan', 'mata_uang', 'jenis_kurs', 'tanggal_deadline', 'tanggal_sp2d'),
+                "pta" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "pst" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "plpk" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "ksbp" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "admin" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline')
             ),
             "realisasi_hide" => array(
                 "kpa" => array(),
                 "ppk" => array(),
                 "ptspm" => array(),
-                "pbspm" => array('tanggal_trm_tagihan'),
                 "bp" => array(),
                 "bpp" => array(),
                 "vrf" => array('tanggal_trm_tagihan'),
@@ -70,22 +83,87 @@ class User extends CActiveRecord {
                 "psptb" => array(),
                 "ar" => array(),
                 "pta" => array(),
-                "pst" => array('tanggal_trm_tagihan', 'tanggal_tagihan', 'kode_output', 'kode_suboutput', 'kode_mak', 'tanggal_sptb', 'nomor_sptb', 'tanggal_verifikasi', 'tanggal_ke_tu', 'jenis_tagihan', 'kode_lpk', 'mata_uang', 'kurs', 'jenis_kurs'),
+                "pst" => array(
+                    'tanggal_trm_tagihan',
+                    'tanggal_tagihan',
+                    'kode_output',
+                    'kode_suboutput',
+                    'kode_mak',
+                    'tanggal_sptb',
+                    'nomor_sptb',
+                    'tanggal_verifikasi',
+                    'tanggal_ke_tu',
+                    'jenis_tagihan',
+                    'kode_lpk',
+                    'mata_uang',
+                    'kurs',
+                    'jenis_kurs'
+                ),
                 "plpk" => array(),
                 "ksbp" => array(),
                 "admin" => array(),
+            ),
+            "ilang_ilangan" => array(
+                'bp' => true,
+                'bpp' => true,
+                'vrf' => true,
+                'psppm' => true,
+                'psptb' => true
             ),
             "realisasi_edit" => array(
                 "kpa" => array(),
                 "ppk" => array(),
                 "ptspm" => array(),
-                "pbspm" => array(),
-                "bp" => array('tanggal_trm_tagihan', 'tanggal_tagihan', 'jumlah_tagihan', 'uraian_tagihan', 'tanggal_sp2d', 'nomor_sp2d'),
-                "bpp" => array('tanggal_trm_tagihan', 'tanggal_tagihan', 'jumlah_tagihan', 'uraian_tagihan'),
+                "bp" => array(
+                    'tanggal_trm_tagihan',
+                    'tanggal_tagihan',
+                    'jumlah_tagihan',
+                    'uraian_tagihan',
+                    'tanggal_sp2d',
+                    'nomor_sp2d',
+                ),
+                "bpp" => array(
+                    'tanggal_trm_tagihan',
+                    'tanggal_tagihan',
+                    'jumlah_tagihan',
+                    'uraian_tagihan',
+                    'tanggal_sp2d',
+                    'nomor_sp2d',
+                ),
                 "vrf" => array('tanggal_verifikasi'),
-                "psppm" => array('nomor_spp', 'tanggal_spp', 'nomor_spm', 'tanggal_spm'),
-                "psptb" => array('kode_output', 'kode_suboutput', 'kode_mak', 'tanggal_sptb', 'nomor_sptb', 'tanggal_ke_tu', 'jenis_tagihan', 'sumber_dana', 'kode_lpk', 'mata_uang', 'kurs', 'jenis_kurs'),
-                "ar" => array('tanggal_trm_tagihan', 'jumlah_tagihan', 'uraian_tagihan', 'tanggal_tagihan', 'pihak_penerima'),
+                "psppm" => array(
+                    'nomor_spp',
+                    'tanggal_spp',
+                    'nomor_spm',
+                    'tanggal_spm',
+                ),
+                "psptb" => array(
+                    'kode_output',
+                    'kode_suboutput',
+                    'kode_mak',
+                    'tanggal_sptb',
+                    'nomor_sptb',
+                    'tanggal_ke_tu',
+                    'jenis_tagihan',
+                    'sumber_dana',
+                    'kode_lpk',
+                ),
+                "ar" => array(
+                    'tanggal_trm_tagihan',
+                    'tanggal_deadline',
+                    'jumlah_tagihan',
+                    'uraian_tagihan',
+                    'tanggal_tagihan',
+                    'pihak_penerima',
+                    'ppn',
+                    'pph_21',
+                    'pph_22',
+                    'pph_23',
+                    'pph_25',
+                    'mata_uang',
+                    'kurs',
+                    'jenis_kurs'
+                ),
                 "pta" => array(),
                 "pst" => array(),
                 "plpk" => array(),
@@ -132,11 +210,28 @@ class User extends CActiveRecord {
         }
         return $menu;
     }
-    
+
     public function isMenuAllowed($menu) {
-        $setting = self::itemAlias('menu',Yii::app()->user->role);
+
+        if (Yii::app()->user->isGuest)
+            return false;
+
+        $setting = self::itemAlias('menu', Yii::app()->user->role);
+
         if (isset($setting[$menu])) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function menuMode($menu) {
+        if (Yii::app()->user->isGuest)
+            return false;
+
+        $setting = self::itemAlias('menu', Yii::app()->user->role);
+        if (isset($setting[$menu])) {
+            return $setting[$menu];
         } else {
             return false;
         }
@@ -191,6 +286,7 @@ class User extends CActiveRecord {
             'id' => 'ID',
             'nip' => 'Nomor Induk Pegawai (NIP)',
             'roles' => 'Roles',
+            'roles_text' => 'Roles',
             'password' => 'Password',
             'nama' => 'Nama',
             'telepon' => 'Telepon',
