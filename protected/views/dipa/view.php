@@ -82,7 +82,6 @@ $up_icon = "icon-folder-open";
                 'size' => 'mini',
                 'type' => 'danger',
                 'label' => 'MAK',
-                'toggle' => true,
                 'htmlOptions' => array(
                     'id' => 'sh-mak',
                     'hide' => 'no',
@@ -97,7 +96,6 @@ $up_icon = "icon-folder-open";
                 'size' => 'mini',
                 'type' => 'info',
                 'label' => 'SUB',
-                'toggle' => true,
                 'htmlOptions' => array(
                     'id' => 'sh-sub',
                     'hide' => 'no',
@@ -112,7 +110,6 @@ $up_icon = "icon-folder-open";
                 'size' => 'mini',
                 'type' => 'success',
                 'label' => 'OUT',
-                'toggle' => true,
                 'htmlOptions' => array(
                     'id' => 'sh-out',
                     'hide' => 'no',
@@ -404,12 +401,27 @@ $up_icon = "icon-folder-open";
                 $("#sh-sub,#sh-mak").attr("hide", "no");
 
                 $hidden = $("#sh-out").attr("hide");
+                
                 if ($hidden == "yes") {
                     $(".item.suboutput,.item.mak,.item.detail-input").show();
                     $("#sh-out").attr("hide", "no");
+                    
+                    $(".item.output .label,.item.suboutput .label,.item.mak .label")
+                            .removeClass("always_show")
+                            .find('i')
+                            .removeClass('<?php echo $down_icon; ?>')
+                            .removeClass('<?php echo $up_icon; ?>')
+                            .addClass('<?php echo $up_icon; ?>');
                 } else {
                     $(".item.suboutput,.item.mak,.item.detail-input").hide();
                     $("#sh-out").attr("hide", "yes");
+
+                    $(".item.output .label,.item.suboutput .label,.item.mak .label")
+                            .removeClass("always_show")
+                            .find('i')
+                            .removeClass('<?php echo $down_icon; ?>')
+                            .removeClass('<?php echo $up_icon; ?>')
+                            .addClass('<?php echo $down_icon; ?>');
                 }
             });
 
@@ -419,17 +431,28 @@ $up_icon = "icon-folder-open";
                 $(".item.suboutput").show();
 
                 $hidden = $("#sh-sub").attr("hide");
-                $(".item.mak .always_show,.item.detail-input .always_show")
-                        .removeClass("always_show")
-                        .find('.<?php echo $down_icon; ?>')
-                        .addClass();
-
+                
                 if ($hidden == "yes") {
                     $(".item.mak,.item.detail-input").show();
                     $("#sh-sub").attr("hide", "no");
+
+                    $(".item.suboutput .label, .item.mak .label")
+                            .removeClass("always_show")
+                            .find('i')
+                            .removeClass('<?php echo $down_icon; ?>')
+                            .removeClass('<?php echo $up_icon; ?>')
+                            .addClass('<?php echo $up_icon; ?>');
+
                 } else {
                     $(".item.mak,.item.detail-input").hide();
                     $("#sh-sub").attr("hide", "yes");
+
+                    $(".item.suboutput .label, .item.mak .label")
+                            .removeClass("always_show")
+                            .find('i')
+                            .removeClass('<?php echo $down_icon; ?>')
+                            .removeClass('<?php echo $up_icon; ?>')
+                            .addClass('<?php echo $down_icon; ?>');
                 }
             });
 
@@ -443,9 +466,23 @@ $up_icon = "icon-folder-open";
                 if ($hidden == "yes") {
                     $(".item.detail-input").show();
                     $("#sh-mak").attr("hide", "no");
+
+                    $(".item.mak .label")
+                            .removeClass("always_show")
+                            .find('i')
+                            .removeClass('<?php echo $down_icon; ?>')
+                            .removeClass('<?php echo $up_icon; ?>')
+                            .addClass('<?php echo $up_icon; ?>');
                 } else {
                     $(".item.detail-input").hide();
                     $("#sh-mak").attr("hide", "yes");
+
+                    $(".item.mak .label")
+                            .removeClass("always_show")
+                            .find('i')
+                            .removeClass('<?php echo $down_icon; ?>')
+                            .removeClass('<?php echo $up_icon; ?>')
+                            .addClass('<?php echo $down_icon; ?>');
                 }
             });
 
