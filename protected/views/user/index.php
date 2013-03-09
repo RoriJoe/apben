@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Tagihan',
+	'Users',
 );
 
 $this->menu=array(
-	array('label'=>'Create Tagihan','url'=>array('create')),
-	array('label'=>'Manage Tagihan','url'=>array('admin')),
+	array('label'=>'Create User','url'=>array('create')),
+	array('label'=>'Manage User','url'=>array('admin')),
 );
 ?>
 
-<h1>Tagihans</h1>
+<h1>Users</h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,

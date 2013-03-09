@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Tagihans'=>array('admin'),
+	'Tagihan'=>array('admin'),
 	$model->id=>array('view','id'=>$model->id),
 	'Update',
 );
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Tagihan <?php echo $model->id; ?></h1>
+<h1>Update Tagihan</h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

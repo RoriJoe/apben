@@ -35,6 +35,7 @@
  * @property string $pph_21
  * @property string $pph_22
  * @property string $pph_23
+ * @property string $pph_25
  * @property string $kurs
  * @property string $jenis_kurs
  */
@@ -112,12 +113,12 @@ class Tagihan extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('kode_ouput, kode_subouput, kode_mak, id_p_ar, tanggal_ar, id_p_sptb, nomor_sptb, kode_lpk, nomor_spp, id_p_spm, id_p_sp2d, nomor_sp2d, jenis_tagihan, uraian_tagihan, pihak_penerima, sumber_dana, mata_uang, jumlah_tagihan, ppn, pph_21, pph_22, pph_23, kurs, jenis_kurs', 'required'),
+            array('kode_ouput, kode_subouput, kode_mak, id_p_ar, tanggal_ar, id_p_sptb, nomor_sptb, kode_lpk, nomor_spp, id_p_spm, id_p_sp2d, nomor_sp2d, jenis_tagihan, uraian_tagihan, pihak_penerima, sumber_dana, mata_uang, jumlah_tagihan, ppn,  kurs, jenis_kurs', 'required'),
             array('kode_ouput, kode_subouput, kode_mak, sumber_dana, mata_uang, jenis_kurs', 'length', 'max' => 25),
             array('id_p_ar, id_p_sptb, nomor_sptb, kode_lpk, nomor_spp, id_p_spm, id_p_sp2d, nomor_sp2d, jumlah_tagihan, ppn, pph_21, pph_22, pph_23, kurs', 'length', 'max' => 20),
             array('jenis_tagihan', 'length', 'max' => 10),
             array('uraian_tagihan, pihak_penerima', 'length', 'max' => 255),
-            array('tanggal_sptb, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, tanggal_spm, tanggal_kirim, tanggal_sp2d, tanggal_tagihan', 'safe'),
+            array('tanggal_sptb, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, tanggal_spm, tanggal_kirim, tanggal_sp2d, tanggal_tagihan,pph_21, pph_22, pph_23, pph_25, tanggal_trm_tagihan', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, kode_ouput, kode_subouput, kode_mak, id_p_ar, tanggal_ar, id_p_sptb, tanggal_sptb, nomor_sptb, kode_lpk, nomor_spp, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, id_p_spm, tanggal_spm, tanggal_kirim, id_p_sp2d, tanggal_sp2d, nomor_sp2d, jenis_tagihan, tanggal_tagihan, uraian_tagihan, pihak_penerima, sumber_dana, mata_uang, jumlah_tagihan, ppn, pph_21, pph_22, pph_23, kurs, jenis_kurs', 'safe', 'on' => 'search'),
@@ -161,6 +162,7 @@ class Tagihan extends CActiveRecord {
             'nomor_sp2d' => 'Nomor SP2D',
             'jenis_tagihan' => 'Jenis Tagihan',
             'tanggal_tagihan' => 'Tanggal Tagihan',
+            'tanggal_trm_tagihan' => 'Tanggal Terima Tagihan',
             'uraian_tagihan' => 'Uraian Tagihan',
             'pihak_penerima' => 'Pihak Penerima',
             'sumber_dana' => 'Sumber Dana',
@@ -168,8 +170,9 @@ class Tagihan extends CActiveRecord {
             'jumlah_tagihan' => 'Jumlah Tagihan',
             'ppn' => 'PPN',
             'pph_21' => 'PPH 21',
-            'pph_22' => 'PPh 22',
+            'pph_22' => 'PPH 22',
             'pph_23' => 'PPH 23',
+            'pph_25' => 'PPH 25',
             'kurs' => 'Kurs',
             'jenis_kurs' => 'Jenis Kurs',
         );
@@ -184,6 +187,7 @@ class Tagihan extends CActiveRecord {
         $this->tanggal_spp = Format::date2sql($this->tanggal_spp);
         $this->tanggal_sptb = Format::date2sql($this->tanggal_sptb);
         $this->tanggal_tagihan = Format::date2sql($this->tanggal_tagihan);
+        $this->tanggal_trm_tagihan = Format::date2sql($this->tanggal_trm_tagihan);
         $this->tanggal_verifikasi = Format::date2sql($this->tanggal_verifikasi);
         
         return true;
@@ -198,6 +202,7 @@ class Tagihan extends CActiveRecord {
         $this->tanggal_spp = Format::date($this->tanggal_spp);
         $this->tanggal_sptb = Format::date($this->tanggal_sptb);
         $this->tanggal_tagihan = Format::date($this->tanggal_tagihan);
+        $this->tanggal_trm_tagihan = Format::date($this->tanggal_trm_tagihan);
         $this->tanggal_verifikasi = Format::date($this->tanggal_verifikasi);
         
         return true;
@@ -235,6 +240,7 @@ class Tagihan extends CActiveRecord {
         $criteria->compare('nomor_sp2d', $this->nomor_sp2d, true);
         $criteria->compare('jenis_tagihan', $this->jenis_tagihan, true);
         $criteria->compare('tanggal_tagihan', $this->tanggal_tagihan, true);
+        $criteria->compare('tanggal_trm_tagihan', $this->tanggal_trm_tagihan, true);
         $criteria->compare('uraian_tagihan', $this->uraian_tagihan, true);
         $criteria->compare('pihak_penerima', $this->pihak_penerima, true);
         $criteria->compare('sumber_dana', $this->sumber_dana, true);

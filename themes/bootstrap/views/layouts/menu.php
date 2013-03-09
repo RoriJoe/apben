@@ -29,6 +29,23 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                 ),
                 array(
                     'visible' => !Yii::app()->user->isGuest,
+                    'label' => 'Realisasi Anggaran',
+                    'icon' => 'pencil',
+                    'url' => '#',
+                    'items' => array(
+                        array(
+                            'label' => 'Manage Tagihan',
+                            'url' => array('/tagihan/admin')
+                        ),
+                        '---',
+                        array(
+                            'label' => 'Buat Tagihan Baru',
+                            'url' => array('/tagihan/create')
+                        ),
+                    )
+                ),
+                array(
+                    'visible' => !Yii::app()->user->isGuest,
                     'label' => 'Data Master',
                     'icon' => 'book',
                     'items' => array(
@@ -46,6 +63,23 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                         ),
                     ),
                 ),
+                array(
+                    'visible' => !Yii::app()->user->isGuest,
+                    'label' => 'Manage User',
+                    'icon' => 'user',
+                    'url' => '#',
+                    'items' => array(
+                        array(
+                            'label' => 'Manage User',
+                            'url' => array('/user/admin')
+                        ),
+                        '---',
+                        array(
+                            'label' => 'Buat User Baru',
+                            'url' => array('/user/create')
+                        ),
+                    )
+                ),
             ),
         ),
         //#####################################################//
@@ -54,12 +88,19 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
             'htmlOptions' => array('class' => 'pull-right'),
             'items' => array(
                 array(
+                    'label' => 'Roles',
+                    'icon' => 'user',
+                    'url' => array('#'),
+                    'items' => Yii::app()->user->detail->roles_menu,
+                    'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->roles_count > 1,
+                ),
+                array(
                     'label' => 'Login',
                     'url' => array('/site/login'),
                     'visible' => Yii::app()->user->isGuest,
                 ),
                 array(
-                    'label' => 'Logout (' . Yii::app()->user->name . ')',
+                    'label' => 'Logout (' . Yii::app()->user->detail->nama . ')',
                     'url' => array('/site/logout'),
                     'visible' => !Yii::app()->user->isGuest,
                 )

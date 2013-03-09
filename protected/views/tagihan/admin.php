@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Tagihans'=>array('admin'),
+	'Tagihan'=>array('admin'),
 	'Manage',
 );
 
