@@ -9,13 +9,13 @@ $dipa['edit'] = array(
     ),
     '---',
     array(
+        'label' => 'Manage DIPA',
+        'url' => array('/dipa/admin')
+    ),
+    array(
         'label' => 'Buat DIPA Baru',
         'url' => array('/dipa/create')
     ),
-    array(
-        'label' => 'Manage DIPA',
-        'url' => array('/dipa/admin')
-    )
 );
 
 $dipa['view'] = array(
@@ -104,6 +104,17 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                     'label' => 'Data Master',
                     'icon' => 'book',
                     'items' => $master[Yii::app()->user->detail->menuMode('master')]
+                ),
+                array(
+                    'visible' => !Yii::app()->user->isGuest,
+                    'label' => 'Laporan',
+                    'icon' => 'list-alt',
+                    'items' => array(
+                        array(
+                            'label' => 'Laporan Realisasi',
+                            'url' => array('/laporan/realisasi')
+                        )
+                    )
                 ),
                 array(
                     'visible' => !Yii::app()->user->isGuest && Yii::app()->user->detail->isMenuAllowed('user'),

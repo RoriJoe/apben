@@ -132,10 +132,10 @@ class Tagihan extends CActiveRecord {
             array('id_p_ar, id_p_sptb, nomor_sptb, kode_lpk, nomor_spp, id_p_spm, id_p_sp2d, nomor_sp2d, jumlah_tagihan, ppn, pph_21, pph_22, pph_23, kurs', 'length', 'max' => 20),
             array('jenis_tagihan', 'length', 'max' => 10),
             array('uraian_tagihan, pihak_penerima', 'length', 'max' => 255),
-            array('tanggal_sptb, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, tanggal_deadline, tanggal_spm, tanggal_kirim, tanggal_sp2d, tanggal_tagihan,pph_21, pph_22, pph_23, pph_25, tanggal_trm_tagihan', 'safe'),
+            array('tanggal_sptb, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, tanggal_deadline, tanggal_spm, tanggal_kirim, tanggal_sp2d, tanggal_tagihan,pph_21, pph_22, pph_23, pph_25, tanggal_trm_tagihan,kode_output_uid,kode_suboutput_uid,kode_mak_uid,dipa_uid', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, kode_output, kode_suboutput, kode_mak, id_p_ar, tanggal_ar, id_p_sptb, tanggal_sptb, nomor_sptb, kode_lpk, nomor_spp, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, id_p_spm, tanggal_spm, tanggal_kirim, id_p_sp2d, tanggal_sp2d, nomor_sp2d, jenis_tagihan, tanggal_tagihan, uraian_tagihan, pihak_penerima, sumber_dana, mata_uang, jumlah_tagihan, ppn, pph_21, pph_22, pph_23, kurs, jenis_kurs', 'safe', 'on' => 'search'),
+            array('id, kode_output, kode_suboutput, kode_mak, id_p_ar, tanggal_ar, id_p_sptb, tanggal_sptb, nomor_sptb, kode_lpk, nomor_spp, nomor_spm, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, id_p_spm, tanggal_spm, tanggal_kirim, id_p_sp2d, tanggal_sp2d, nomor_sp2d, jenis_tagihan, tanggal_tagihan, uraian_tagihan, pihak_penerima, sumber_dana, mata_uang, jumlah_tagihan, ppn, pph_21, pph_22, pph_23, kurs, jenis_kurs', 'safe', 'on' => 'search'),
         );
     }
 
@@ -166,6 +166,7 @@ class Tagihan extends CActiveRecord {
             'nomor_sptb' => 'Nomor SPTB',
             'kode_lpk' => 'Kode LPK',
             'nomor_spp' => 'Nomor SPP',
+            'nomor_spm' => 'Nomor SPM',
             'tanggal_spp' => 'Tanggal SPP',
             'tanggal_verifikasi' => 'Tanggal Verifikasi',
             'tanggal_ke_tu' => 'Tanggal Ke TU',
@@ -205,6 +206,10 @@ class Tagihan extends CActiveRecord {
     }
 
     public function beforeSave() {
+        if ($this->isNewRecord) {
+            $terbaru = Dipa::model()->find(array('order' => 'uid desc'));
+            $this->dipa_uid = $terbaru->uid;
+        }
         $this->tanggal_ar = Format::date2sql($this->tanggal_ar);
         $this->tanggal_ke_tu = Format::date2sql($this->tanggal_ke_tu);
         $this->tanggal_kirim = Format::date2sql($this->tanggal_kirim);
@@ -216,6 +221,19 @@ class Tagihan extends CActiveRecord {
         $this->tanggal_trm_tagihan = Format::date2sql($this->tanggal_trm_tagihan);
         $this->tanggal_deadline = Format::date2sql($this->tanggal_deadline);
         $this->tanggal_verifikasi = Format::date2sql($this->tanggal_verifikasi);
+
+        if (strpos($this->kode_output, "-") !== false) {
+            $this->kode_output_uid = Format::kode_uid($this->kode_output);
+            $this->kode_output = Format::kode($this->kode_output);
+        }
+        if (strpos($this->kode_suboutput, "-") !== false) {
+            $this->kode_suboutput_uid = Format::kode_uid($this->kode_suboutput);
+            $this->kode_suboutput = Format::kode($this->kode_suboutput);
+        }
+        if (strpos($this->kode_mak, "-") !== false) {
+            $this->kode_mak_uid = Format::kode_uid($this->kode_mak);
+            $this->kode_mak = Format::kode($this->kode_mak);
+        }
 
         switch (Yii::app()->user->role) {
             case "bp":
@@ -234,17 +252,16 @@ class Tagihan extends CActiveRecord {
                 $this->id_p_ar = Yii::app()->user->id;
                 break;
         }
-        
+
         if ($this->mata_uang == "IDR") {
             $this->kurs = 1;
         }
-            
+
 
         return true;
     }
 
     public function afterFind() {
-
         $this->tanggal_ar = Format::date($this->tanggal_ar);
         $this->tanggal_ke_tu = Format::date($this->tanggal_ke_tu);
         $this->tanggal_kirim = Format::date($this->tanggal_kirim);
@@ -256,6 +273,10 @@ class Tagihan extends CActiveRecord {
         $this->tanggal_trm_tagihan = Format::date($this->tanggal_trm_tagihan);
         $this->tanggal_deadline = Format::date($this->tanggal_deadline);
         $this->tanggal_verifikasi = Format::date($this->tanggal_verifikasi);
+
+        $this->kode_output = $this->kode_output_uid . "-" . $this->kode_output;
+        $this->kode_suboutput = $this->kode_suboutput_uid . "-" . $this->kode_suboutput;
+        $this->kode_mak = $this->kode_mak_uid . "-" . $this->kode_mak;
 
         if ($this->mata_uang == "IDR")
             $this->jenis_kurs = "-";
@@ -265,6 +286,12 @@ class Tagihan extends CActiveRecord {
 
     public function afterConstruct() {
 
+        if ($this->isNewRecord) {
+            $this->kode_output = "0-0";
+            $this->kode_suboutput = "0-0";
+            $this->kode_mak = "0-0";
+        }
+        
         $this->tanggal_ar = Format::date($this->tanggal_ar);
         $this->tanggal_ke_tu = Format::date($this->tanggal_ke_tu);
         $this->tanggal_kirim = Format::date($this->tanggal_kirim);
@@ -280,6 +307,34 @@ class Tagihan extends CActiveRecord {
         return true;
     }
 
+
+    public function getKode_output_text() {
+        $kode = Format::kode($this->kode_output);
+        $uid = Format::kode_uid($this->kode_output);
+        $i = MasterOutput::model()->find(array('condition' => 'kode = ' . $kode . ' and uid = ' . $uid));
+
+        if ($i == null) return "";
+        return "{$i->kode} - {$i->uraian}";
+    }
+
+    public function getKode_suboutput_text() {
+        $kode = Format::kode($this->kode_suboutput);
+        $uid = Format::kode_uid($this->kode_suboutput);
+        $i = MasterSuboutput::model()->find(array('condition' => 'kode = ' . $kode . ' and uid = ' . $uid));
+
+        if ($i == null) return "";
+        return "{$i->kode} - {$i->uraian}";
+    }
+
+    public function getKode_mak_text() {
+        $kode = Format::kode($this->kode_mak);
+        $uid = Format::kode_uid($this->kode_mak);
+        $i = MasterMak::model()->find(array('condition' => 'kode = ' . $kode . ' and uid = ' . $uid));
+
+        if ($i == null) return "";
+        return "{$i->kode} - {$i->uraian}";
+    }
+    
     public function rekap() {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -297,6 +352,7 @@ class Tagihan extends CActiveRecord {
         $criteria->compare('nomor_sptb', $this->nomor_sptb, true);
         $criteria->compare('kode_lpk', $this->kode_lpk, true);
         $criteria->compare('nomor_spp', $this->nomor_spp, true);
+        $criteria->compare('nomor_spm', $this->nomor_spp, true);
         $criteria->compare('tanggal_spp', $this->tanggal_spp, true);
         $criteria->compare('tanggal_verifikasi', $this->tanggal_verifikasi, true);
         $criteria->compare('tanggal_ke_tu', $this->tanggal_ke_tu, true);
@@ -320,6 +376,8 @@ class Tagihan extends CActiveRecord {
         $criteria->compare('pph_23', $this->pph_23, true);
         $criteria->compare('kurs', $this->kurs, true);
         $criteria->compare('jenis_kurs', $this->jenis_kurs, true);
+
+        $criteria->order = "id desc";
 
         if (User::itemAlias('ilang_ilangan', Yii::app()->user->role)) {
             switch (Yii::app()->user->role) {
@@ -367,6 +425,7 @@ class Tagihan extends CActiveRecord {
         $criteria->compare('nomor_sptb', $this->nomor_sptb, true);
         $criteria->compare('kode_lpk', $this->kode_lpk, true);
         $criteria->compare('nomor_spp', $this->nomor_spp, true);
+        $criteria->compare('nomor_spm', $this->nomor_spp, true);
         $criteria->compare('tanggal_spp', $this->tanggal_spp, true);
         $criteria->compare('tanggal_verifikasi', $this->tanggal_verifikasi, true);
         $criteria->compare('tanggal_ke_tu', $this->tanggal_ke_tu, true);
@@ -390,6 +449,8 @@ class Tagihan extends CActiveRecord {
         $criteria->compare('pph_23', $this->pph_23, true);
         $criteria->compare('kurs', $this->kurs, true);
         $criteria->compare('jenis_kurs', $this->jenis_kurs, true);
+
+        $criteria->order = "id desc";
 
         if (User::itemAlias('ilang_ilangan', Yii::app()->user->role)) {
             $cols = User::itemAlias('realisasi_edit', Yii::app()->user->role);

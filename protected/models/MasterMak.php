@@ -23,11 +23,11 @@ class MasterMak extends ActiveRecord
 		return parent::model($className);
 	}
     
-    public static function getDropDownList($includeid = true) {
+    public static function getDropDownList() {
         $raw = self::model()->findAll();
         $dropdown = array();
         foreach ($raw as $k=>$r) {
-            $dropdown[($includeid ? $r->id . "-" . $r->kode : $r->kode)] = "{$r->kode} - {$r->uraian}";
+            $dropdown[$r->id . "-" . $r->kode] = "{$r->kode} - {$r->uraian}";
         }
         return $dropdown;
     }

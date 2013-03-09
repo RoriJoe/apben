@@ -63,7 +63,7 @@ class User extends CActiveRecord {
                 "bp" => array('uraian_tagihan', 'pihak_penerima',  'jumlah_tagihan', 'mata_uang', 'tanggal_sp2d', 'tanggal_deadline'),
                 "bpp" => array('uraian_tagihan', 'pihak_penerima',  'jumlah_tagihan', 'mata_uang', 'tanggal_sp2d', 'tanggal_deadline'),
                 "vrf" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "ppspm" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
+                "psppm" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
                 "psptb" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan', 'mata_uang', 'tanggal_deadline', 'tanggal_sp2d'),
                 "ar" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan', 'mata_uang', 'jenis_kurs', 'tanggal_deadline', 'tanggal_sp2d'),
                 "pta" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
