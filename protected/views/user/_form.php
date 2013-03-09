@@ -25,7 +25,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     <?php $alias = User::itemAlias('Roles'); $alias = array_merge(array(""=>"----"),$alias); ?>
     <?php echo CHtml::dropDownList('User[roles_arr][]',@$model->roles_arr[1],$alias, array('class' => 'span5', 'maxlength' => 40)); ?>
     <?php echo CHtml::dropDownList('User[roles_arr][]',@$model->roles_arr[2],$alias, array('class' => 'span5', 'maxlength' => 40)); ?>
-    <?php echo CHtml::dropDownList('User[roles_arr][]',@$model->roles_arr[2],$alias, array('class' => 'span5', 'maxlength' => 40)); ?>
+    <?php echo CHtml::dropDownList('User[roles_arr][]',@$model->roles_arr[3],$alias, array('class' => 'span5', 'maxlength' => 40)); ?>
+    <?php echo CHtml::dropDownList('User[roles_arr][]',@$model->roles_arr[4],$alias, array('class' => 'span5', 'maxlength' => 40)); ?>
 </div>
 <div class="clearfix"></div>
 <div class="form-actions">

@@ -34,7 +34,7 @@ class User extends CActiveRecord {
                 "psppm" => "Pembuat SPP dan SPM",
                 "psptb" => "Pembuat SPTB",
                 "ar" => "Pembuat Tagihan (AR)",
-                "pta" => "Pengelola Teknis Anggaran",
+                "pta" => "Pengelola Teknis Anggaran (PTA)",
                 "pst" => "Pejabat Struktural",
                 "plpk" => "Penyusun LPK PHLN",
                 "ksbp" => "KASUBBID Perencanaan Beasiswa",

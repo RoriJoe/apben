@@ -4,6 +4,9 @@ $this->breadcrumbs = array(
     'DIPA' => array('admin'),
     $model->nomor_dipa . " ({$model->tanggal_dipa})",
 );
+
+$down_icon = "icon-folder-close";
+$up_icon = "icon-folder-open";
 ?>
 <div id="ajax-page">
     <div id="dipa-versi">
@@ -296,6 +299,23 @@ $this->breadcrumbs = array(
             }
         }
 
+        function downOneLevel($class) {
+            switch ($class) {
+                case "detail-input":
+                    return "";
+                    break;
+                case "mak":
+                    return "detail-input";
+                    break;
+                case "suboutput":
+                    return "mak";
+                    break;
+                case "output":
+                    return "suboutput";
+                    break;
+            }
+        }
+
         function getNextItem($item) {
             $item = $item.next();
             while (!$item.hasClass('item') && $item.length > 0) {
@@ -324,20 +344,34 @@ $this->breadcrumbs = array(
             $(".kode .label").click(function(e) {
                 if (!$("#mode-hapus").hasClass("active")) {
                     $parent = $(this).parent().parent();
-                    $class = $parent.attr('class').replace('item', '').trim();
+                    $class = $parent.attr('class').replace('item', '').replace('active', '').trim();
                     $icon = $(this).find('i');
-
                     if ($icon.length > 0) {
                         $icon_class = $icon.attr('class').replace('icon-white', '').trim();
+                        $down_icon = '<?php echo $down_icon; ?>';
+                        $up_icon = '<?php echo $up_icon; ?>';
 
                         $childs = $parent.nextUntil(getTreeClass($class), '.item');
+                        $btns = $parent.nextUntil(getTreeClass($class), '.newbtn');
+                        $btns.hide();
 
-                        if ($icon_class == "icon-minus") {
+                        if ($icon_class == $up_icon) {
+                            $(this).addClass("always_show");
+
                             $childs.hide();
-                            $icon.removeClass("icon-minus").addClass("icon-plus");
+                            $icon.removeClass($up_icon).addClass($down_icon);
                         } else {
-                            $childs.show();
-                            $icon.removeClass("icon-plus").addClass("icon-minus");
+                            $(this).removeClass("always_show");
+
+                            $down = downOneLevel($class);
+                            $childs.each(function() {
+                                if ($(this).hasClass($down)) {
+                                    $(this).show();
+                                } else if ($(this).find("label i").hasClass($up_icon)) {
+                                    $(this).show();
+                                }
+                            });
+                            $icon.removeClass($down_icon).addClass($up_icon);
                         }
                     }
                 }
@@ -385,6 +419,10 @@ $this->breadcrumbs = array(
                 $(".item.suboutput").show();
 
                 $hidden = $("#sh-sub").attr("hide");
+                $(".item.mak .always_show,.item.detail-input .always_show")
+                        .removeClass("always_show")
+                        .find('.<?php echo $down_icon; ?>')
+                        .addClass();
 
                 if ($hidden == "yes") {
                     $(".item.mak,.item.detail-input").show();

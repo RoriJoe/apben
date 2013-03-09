@@ -7,7 +7,7 @@
                 </div>
             <?php endif; ?>
             <div class="label label-important pull-left">
-                <i class="icon-white icon-minus" style="display:none;"></i>
+                <i class="icon-white <?php echo $up_icon; ?>" style="display:none;"></i>
                 <span>MAK</span>
             </div>
             <?php echo $mak->kode; ?>
@@ -43,7 +43,7 @@
                 </div>
             <?php endif; ?>
             <span class="label label-important pull-left">
-                <i class="icon-white icon-minus" style="display:none;"></i>
+                <i class="icon-white <?php echo $up_icon; ?>" style="display:none;"></i>
                 <span>MAK</span>
             </span>
             [item-kode]

@@ -111,6 +111,16 @@
 .output .kode .label:hover span {display:none !important;}
 .output .kode .label:hover i {display:block !important;}
 
+.always_show {
+    display:block !important;
+}
+.always_show i {
+    display:block !important;
+}
+.always_show span {
+    display:none !important;
+}
+
 .label-tagihan {
     width:200px;
     display:inline-block;

@@ -234,6 +234,11 @@ class Tagihan extends CActiveRecord {
                 $this->id_p_ar = Yii::app()->user->id;
                 break;
         }
+        
+        if ($this->mata_uang == "IDR") {
+            $this->kurs = 1;
+        }
+            
 
         return true;
     }

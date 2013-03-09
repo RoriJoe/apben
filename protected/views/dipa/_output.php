@@ -8,7 +8,7 @@
                 </div>
             <?php endif; ?>
             <span class="label label-success pull-left">
-                <i class="icon-white icon-minus" style="display:none;"></i>
+                <i class="icon-white <?php echo $up_icon; ?>" style="display:none;"></i>
                 <span>OUT</span>
             </span>
             <?php echo $output->kode; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,7 +49,7 @@
                 </div>
             <?php endif; ?>
             <span class="label label-success pull-left">
-                <i class="icon-white icon-minus" style="display:none;"></i>
+                <i class="icon-white <?php echo $up_icon; ?>" style="display:none;"></i>
                 <span>OUT</span>
             </span>
             [item-kode]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
