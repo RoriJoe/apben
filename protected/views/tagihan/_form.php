@@ -25,6 +25,16 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <?php echo $form->errorSummary($model); ?>
 
+<?php if (!$model->isNewRecord): ?>
+    <div class='row-tagihan'>
+        <span class='label-tagihan'>
+            Pembuat Tagihan
+        </span> 
+        : <b><?php echo $model->pembuat_tagihan->nama; ?> (<?php echo $model->pembuat_tagihan->nip; ?>)</b>
+    </div>
+    <hr style='margin:0px 0px 15px 0px;'/>
+<?php endif; ?>
+
 <?php if ($editable['kode_output']): ?>
     <?php echo $form->dropDownListRow($model, 'kode_output', MasterOutput::getDropDownList(false), array('class' => 'span5', 'maxlength' => 25)); ?>
     <div class="clearfix"></div>
@@ -421,14 +431,14 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         </div>
     <?php endif; ?>
 
-<?php if ($model->mata_uang != "IDR"): ?>
-    <div class='row-tagihan'>
-        <span class='label-tagihan'>
-            <?php echo $model->getAttributeLabel('jumlah_tagihan_rupiah'); ?>
-        </span> 
-        : <b><?php echo Format::currency($model->jumlah_tagihan_rupiah); ?></b>
-    </div>
-<?php endif; ?>
+    <?php if ($model->mata_uang != "IDR"): ?>
+        <div class='row-tagihan'>
+            <span class='label-tagihan'>
+                <?php echo $model->getAttributeLabel('jumlah_tagihan_rupiah'); ?>
+            </span> 
+            : <b><?php echo Format::currency($model->jumlah_tagihan_rupiah); ?></b>
+        </div>
+    <?php endif; ?>
 
     <?php if ($editable['jenis_kurs']): ?>
         <?php echo $form->dropDownListRow($model, 'jenis_kurs', Tagihan::itemAlias("JenisKurs"), array('class' => 'span5', 'maxlength' => 25)); ?>
