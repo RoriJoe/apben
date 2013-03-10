@@ -13,7 +13,7 @@ class LaporanController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('realisasi'),
+                'actions' => array('realisasi','realisasi_excel'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -22,19 +22,25 @@ class LaporanController extends Controller {
         );
     }
 
-    public function actionRealisasi() {
+    public function getRealisasi() {
         $tgl_spp = "";
         $tgl_sp2d = "";
         $tgl_spm = "";
-        if (@$_GET['tgl_awal'] != "" && @$_GET['tgl_akhir'] != "") {
 
+        if (@$_GET['tgl_awal'] != "" && @$_GET['tgl_akhir'] != "") {
             $tgl_awal = Format::date2sql(@$_GET['tgl_awal']);
             $tgl_akhir = Format::date2sql(@$_GET['tgl_akhir']);
-
-            $tgl_spp = "&& a.tanggal_spp > '{$tgl_awal}' && a.tanggal_spp < '{$tgl_akhir}'";
-            $tgl_sp2d = "&& a.tanggal_sp2d > '{$tgl_awal}' && a.tanggal_sp2d < '{$tgl_akhir}'";
-            $tgl_spm = "&& a.tanggal_spm > '{$tgl_awal}' && a.tanggal_spm < '{$tgl_akhir}'";
+        } else {
+            $dipa_terbaru = Dipa::model()->find(array('order' => 'uid desc'));
+            $tgl_awal = Format::date2sql("1 January " . $dipa_terbaru->tahun_anggaran);
+            $tgl_akhir = Format::date2sql(date('d F Y'));
+            $_GET['tgl_awal'] = "1 January " . $dipa_terbaru->tahun_anggaran;
+            $_GET['tgl_akhir'] = date('d F Y');
         }
+        $tgl_spp = "&& a.tanggal_spp > '{$tgl_awal}' && a.tanggal_spp < '{$tgl_akhir}'";
+        $tgl_sp2d = "&& a.tanggal_sp2d > '{$tgl_awal}' && a.tanggal_sp2d < '{$tgl_akhir}'";
+        $tgl_spm = "&& a.tanggal_spm > '{$tgl_awal}' && a.tanggal_spm < '{$tgl_akhir}'";
+
 
         $sql = "select @row := @row + 1 as row ,a.* from (select c.dipa_uid,c.kode_output, c.kode_suboutput,c.uid_suboutput, c.kode , c.sumber_dana, c.pagu, 
 d.realisasi_spp,(d.realisasi_spp/c.pagu*100) as prosentase_spp,
@@ -70,7 +76,34 @@ c.kode_output = f.kode_output && c.kode_suboutput = f.kode_suboutput && c.kode =
 ) a,(SELECT @row := 0) r";
 
 
-        $rawData = Yii::app()->db->createCommand($sql)->queryAll();
+        return Yii::app()->db->createCommand($sql)->queryAll();
+    }
+
+    public function actionRealisasi_excel() {
+        $rawData = $this->realisasi;
+        $r = new YiiReport(array('template' => 'realisasi.xls'));
+
+        $r->load(array(
+            array(
+                'id' => 'tgl',
+                'data' => array(
+                    'awal' => @$_GET['tgl_awal'],
+                    'akhir' => @$_GET['tgl_akhir'],
+                )
+            ),
+            array(
+                'id' => 'd',
+                'repeat' => true,
+                'data' => $rawData,
+        )));
+
+        echo $r->render('excel2007', 'Realisasi');
+        //echo $r->render('excel2007', 'Students');
+        //echo $r->render('pdf', 'Students');
+    }
+
+    public function actionRealisasi() {
+        $rawData = $this->realisasi;
 
         $dataProvider = new CArrayDataProvider($rawData, array(
             'keyField' => 'row',

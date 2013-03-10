@@ -10,7 +10,7 @@ $this->menu = array(
 );
 ?>
 
-<h1>Realisasi Tagihan</h1>
+<h1>Tagihan Baru</h1>
 
 <?php
 $columns = User::itemAlias('realisasi_view', Yii::app()->user->role);

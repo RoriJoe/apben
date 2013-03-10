@@ -403,20 +403,21 @@
         </div>
     <?php endif; ?>
 
-
-    <div id="kode_lpk_row">
-        <?php if ($editable['kode_lpk']): ?>
-            <?php echo $form->dropDownListRow($model, 'kode_lpk', Tagihan::itemAlias("KodeLPK"), array('class' => 'span5', 'maxlength' => 20)); ?>
-            <div class="clearfix"></div>
-        <?php else: ?>
-            <div class='row-tagihan'>
-                <span class='label-tagihan'>
-                    <?php echo $model->getAttributeLabel('kode_lpk'); ?>
-                </span> 
-                : <b><?php echo $model->kode_lpk; ?></b>
-            </div>
-        <?php endif; ?>
-    </div>
+    <?php if ($model->sumber_dana != "RM"): ?>
+        <div id="kode_lpk_row">
+            <?php if ($editable['kode_lpk']): ?>
+                <?php echo $form->dropDownListRow($model, 'kode_lpk', Tagihan::itemAlias("KodeLPK"), array('class' => 'span5', 'maxlength' => 20)); ?>
+                <div class="clearfix"></div>
+            <?php else: ?>
+                <div class='row-tagihan'>
+                    <span class='label-tagihan'>
+                        <?php echo $model->getAttributeLabel('kode_lpk'); ?>
+                    </span> 
+                    : <b><?php echo $model->kode_lpk; ?></b>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
     <?php if ($editable['mata_uang']): ?>
         <?php echo $form->dropDownListRow($model, 'mata_uang', Tagihan::itemAlias("MataUang"), array('class' => 'span5', 'maxlength' => 25)); ?>
@@ -438,7 +439,7 @@
             <span class='label-tagihan'>
                 <?php echo $model->getAttributeLabel('jumlah_tagihan'); ?>
             </span> 
-            : <b><?php echo $model->jumlah_tagihan; ?></b>
+            : <b><?php echo Format::currency($model->jumlah_tagihan); ?></b>
         </div>
     <?php endif; ?>
 
@@ -491,7 +492,7 @@
                 <span class='label-tagihan'>
                     Pajak:
                 </span> 
-                : <b><?php echo ($model->berpajak ? "Pajak" : "Non-Pajak"); ?>
+                : <b id="berpajak"><?php echo ($model->berpajak ? "Pajak" : "Non-Pajak"); ?>
 
                 </b>
             </div>
@@ -506,7 +507,7 @@
                     <span class='label-tagihan'>
                         <?php echo $model->getAttributeLabel('ppn'); ?>
                     </span> 
-                    : <b><?php echo $model->ppn; ?></b>
+                    : <b><?php echo Format::currency($model->ppn); ?></b>
                 </div>
             <?php endif; ?>
             <?php if ($editable['ppn']): ?>
@@ -540,13 +541,13 @@
                         </span> 
                         : <b><?php
                             if ($model->pph_21 != 0) {
-                                echo $model->pph_21;
+                                echo Format::currency($model->pph_21);
                             } else if ($model->pph_22 != 0) {
-                                echo $model->pph_22;
+                                echo Format::currency($model->pph_22);
                             } else if ($model->pph_23 != 0) {
-                                echo $model->pph_23;
+                                echo Format::currency($model->pph_23);
                             } else if ($model->pph_25 != 0) {
-                                echo $model->pph_25;
+                                echo Format::currency($model->pph_25);
                             }
                             ?></b>
                     </div>
@@ -594,6 +595,10 @@
                 $(".pph,#Tagihan_ppn").val('0');
             }
         }).change();
+        
+        if ($("#berpajak").text().trim() == "Pajak") { 
+                $("#pajak_subcontainer").show();
+        }
 
         $(".pph").each(function() {
             if ($(this).val() != 0) {
@@ -636,7 +641,9 @@
             $("#Tagihan_sumber_dana").val($(this).find(":selected").attr("sumber_dana"));
         });
 
-        $("#Tagihan_kode_mak").change();
+<?php if ($model->sumber_dana == ""): ?>
+            $("#Tagihan_kode_mak").change();
+<?php endif; ?>
 
         $("#Tagihan_mata_uang").change(function() {
             if ($(this).val() == "IDR") {

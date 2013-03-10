@@ -455,7 +455,7 @@ class Tagihan extends CActiveRecord {
         $criteria->order = "id desc";
 
         if (Yii::app()->user->role == "ar") {
-            $criteria->condition = "id_p_ar = '" . Yii::app()->user->role . "'";
+            $criteria->condition = "id_p_ar = '" . Yii::app()->user->id . "'";
         }
 
         if (User::itemAlias('ilang_ilangan', Yii::app()->user->role)) {

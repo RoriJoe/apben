@@ -19,7 +19,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 <div class="dipa-group pull-left" style="padding:5px;">
     <?php
     $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType' => 'submit',
+        'buttonType' => 'button',
         'type' => '',
         'icon' => 'remove',
         'htmlOptions' => array(
@@ -33,7 +33,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'name' => 'tgl_awal',
         'value' => @$_GET['tgl_awal'],
         'htmlOptions' => array(
-            'style' => 'width:100px;margin:0px;text-align:center;',
+            'style' => 'width:110px;margin:0px;text-align:center;',
             'placeholder' => 'Tgl. Awal',
             'readonly' => 'readonly'
         )
@@ -45,7 +45,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'name' => 'tgl_akhir',
         'value' => @$_GET['tgl_akhir'],
         'htmlOptions' => array(
-            'style' => 'width:100px;margin:0px;text-align:center;',
+            'style' => 'width:110px;margin:0px;text-align:center;',
             'placeholder' => 'Tgl. Akhir',
             'readonly' => 'readonly'
         )
@@ -99,6 +99,31 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         <input class="sp" data="sp2d" type="checkbox" checked="checked" style="float:left;" /> 
         <div style="float:left;margin-left:2px;"><b>SP2D</b></div>
     </label>
+</div>
+<div id="export_print" class="dipa-group pull-left" style="padding:5px;">
+    
+    <?php
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType' => 'link',
+        'url' => 'realisasi_excel',
+        'type' => '',
+        'label' => 'Unduh Excel',
+        'icon' => 'share',
+        'htmlOptions' => array(
+        )
+    ));
+    ?>
+    <?php
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType' => 'button',
+        'type' => '',
+        'label' => 'Print',
+        'icon' => 'print',
+        'htmlOptions' => array(
+            'onclick' => 'window.print()'
+        )
+    ));
+    ?>
 </div>
 
 

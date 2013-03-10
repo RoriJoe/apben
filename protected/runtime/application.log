@@ -5483,3 +5483,2179 @@ Stack trace:
 REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
 HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
 ---
+2013/03/10 08:00:25 [error] [exception.CException] exception 'CException' with message 'Property "TbButton.text" is not defined.' in C:\wamp\www\apben\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWidgetFactory.php(161): CComponent->__set('text', 'Unduh Excel')
+#1 C:\wamp\www\apben\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(LaporanController), 'bootstrap.widge...', Array)
+#2 C:\wamp\www\apben\framework\web\CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\wamp\www\apben\protected\views\laporan\realisasi.php(113): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\wamp\www\apben\framework\web\CBaseController.php(126): require('C:\wamp\www\apb...')
+#5 C:\wamp\www\apben\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\apb...', Array, true)
+#6 C:\wamp\www\apben\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\apb...', Array, true)
+#7 C:\wamp\www\apben\framework\web\CController.php(782): CController->renderPartial('realisasi', Array, true)
+#8 C:\wamp\www\apben\protected\controllers\LaporanController.php(83): CController->render('realisasi', Array)
+#9 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(49): LaporanController->actionRealisasi()
+#10 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('realisasi')
+#19 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('laporan/realisa...')
+#20 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\wamp\www\apben\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/apben/laporan/realisasi?tgl_awal=&tgl_akhir=&options=%7B%22sumber_dana%22%3A%5B%22jc%22%5D%2C%22mak%22%3A%5B%2251%22%5D%7D&yt1=
+HTTP_REFERER=http://localhost/apben/laporan/realisasi?tgl_awal=&tgl_akhir=&options=%7B%22sumber_dana%22%3A%5B%22jc%22%5D%2C%22mak%22%3A%5B%2251%22%5D%7D&yt1=
+---
+2013/03/10 08:00:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:03:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:04:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:04:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:04:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:04:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:07:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:07:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:08:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:08:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:09:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:09:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:09:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:12:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:12:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:12:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:12:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:12:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:12:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:13:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:13:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:13:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:13:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:13:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:14:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:14:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:14:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:15:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:17:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:17:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:17:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:18:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:18:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:18:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:18:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:18:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:19:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:20:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:20:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:20:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:20:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:21:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:21:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:21:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:21:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:21:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:21:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:22:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:23:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:23:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:24:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:24:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:24:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:24:14 [warning] [application] Failed to set unsafe attribute "roles_arr" of "User".
+in C:\wamp\www\apben\protected\controllers\UserController.php (95)
+in C:\wamp\www\apben\index.php (13)
+2013/03/10 08:24:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:24:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/site/login
+---
+2013/03/10 08:24:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 08:24:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 08:24:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 08:24:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 08:24:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/rekap
+---
+2013/03/10 08:25:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:26:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:12 [warning] [application] Failed to set unsafe attribute "roles_arr" of "User".
+in C:\wamp\www\apben\protected\controllers\UserController.php (67)
+in C:\wamp\www\apben\index.php (13)
+2013/03/10 08:27:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:27:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:28:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:28:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:28:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:28:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:28:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:28:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:29:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:29:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:29:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:29:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:29:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:31:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:34:33 [error] [php] Undefined variable: tgl_awal (C:\wamp\www\apben\protected\controllers\LaporanController.php:37)
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): LaporanController->runAction()
+#1 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\apben\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): LaporanController->filterAccessControl()
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(265): LaporanController->runActionWithFilters()
+#7 C:\wamp\www\apben\framework\web\CWebApplication.php(282): LaporanController->run()
+#8 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\apben\index.php(13): CWebApplication->run()
+REQUEST_URI=/apben/laporan/realisasi
+in C:\wamp\www\apben\protected\controllers\LaporanController.php (37)
+in C:\wamp\www\apben\index.php (13)
+2013/03/10 08:36:48 [error] [php] Undefined variable: tgl_awal (C:\wamp\www\apben\protected\controllers\LaporanController.php:37)
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): LaporanController->runAction()
+#1 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\apben\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): LaporanController->filterAccessControl()
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(265): LaporanController->runActionWithFilters()
+#7 C:\wamp\www\apben\framework\web\CWebApplication.php(282): LaporanController->run()
+#8 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\apben\index.php(13): CWebApplication->run()
+REQUEST_URI=/apben/laporan/realisasi
+in C:\wamp\www\apben\protected\controllers\LaporanController.php (37)
+in C:\wamp\www\apben\index.php (13)
+2013/03/10 08:37:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:37:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:37:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:39:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:40:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/laporan/realisasi
+---
+2013/03/10 08:51:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:52:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:52:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 08:52:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:12:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:12:46 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\wamp\www\apben\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('realisasi_excel')
+#8 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('laporan/realisa...')
+#9 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\apben\index.php(29): CApplication->run()
+#11 {main}
+REQUEST_URI=/apben/laporan/realisasi_excel
+HTTP_REFERER=http://localhost/apben/laporan/realisasi
+---
+2013/03/10 09:12:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:15:04 [error] [exception.Exception] exception 'Exception' with message 'Unable to load template file: C:\wamp\www\apben\protected\views\reports/realisasi.xls' in C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php:194
+Stack trace:
+#0 C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php(177): PHPReport->loadTemplate()
+#1 C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php(151): PHPReport->init()
+#2 C:\wamp\www\apben\protected\extensions\yiireport\YiiReport.php(52): PHPReport->__construct(Array)
+#3 C:\wamp\www\apben\protected\controllers\LaporanController.php(85): YiiReport->__construct(Array)
+#4 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(49): LaporanController->actionRealisasi_excel()
+#5 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\apben\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\apben\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\apben\framework\web\CWebApplication.php(282): CController->run('realisasi_excel')
+#14 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('laporan/realisa...')
+#15 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\wamp\www\apben\index.php(29): CApplication->run()
+#17 {main}
+REQUEST_URI=/apben/laporan/realisasi_excel
+HTTP_REFERER=http://localhost/apben/laporan/realisasi
+---
+2013/03/10 09:20:07 [error] [php] Array to string conversion (C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php:824)
+Stack trace:
+#0 C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#1 C:\wamp\www\apben\protected\controllers\LaporanController.php(100): YiiReport->render()
+#2 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(49): LaporanController->actionRealisasi_excel()
+#3 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): LaporanController->runAction()
+#5 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#7 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): LaporanController->filterAccessControl()
+#8 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#9 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\apben\framework\web\CController.php(265): LaporanController->runActionWithFilters()
+#11 C:\wamp\www\apben\framework\web\CWebApplication.php(282): LaporanController->run()
+#12 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\wamp\www\apben\index.php(29): CWebApplication->run()
+REQUEST_URI=/apben/laporan/realisasi_excel
+in C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php (824)
+in C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php (495)
+in C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php (885)
+2013/03/10 09:20:10 [error] [php] Array to string conversion (C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php:824)
+Stack trace:
+#0 C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php(885): YiiReport->generateReport()
+#1 C:\wamp\www\apben\protected\controllers\LaporanController.php(100): YiiReport->render()
+#2 C:\wamp\www\apben\framework\web\actions\CInlineAction.php(49): LaporanController->actionRealisasi_excel()
+#3 C:\wamp\www\apben\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(133): LaporanController->runAction()
+#5 C:\wamp\www\apben\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\apben\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#7 C:\wamp\www\apben\framework\web\filters\CInlineFilter.php(58): LaporanController->filterAccessControl()
+#8 C:\wamp\www\apben\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#9 C:\wamp\www\apben\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\apben\framework\web\CController.php(265): LaporanController->runActionWithFilters()
+#11 C:\wamp\www\apben\framework\web\CWebApplication.php(282): LaporanController->run()
+#12 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\wamp\www\apben\index.php(29): CWebApplication->run()
+REQUEST_URI=/apben/laporan/realisasi_excel
+in C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php (824)
+in C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php (495)
+in C:\wamp\www\apben\protected\extensions\yiireport\PHPReport.php (885)
+2013/03/10 09:23:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:28:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:32:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:40:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:40:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:40:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:41:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:41:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:41:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:41:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:42:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:42:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:42:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:42:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:42:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:43:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:43:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:43:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:43:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:44:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:44:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:45:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:45:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:45:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:45:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:45:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:45:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:45:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:46:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:47:02 [warning] [application] Failed to set unsafe attribute "roles_arr" of "User".
+in C:\wamp\www\apben\protected\controllers\UserController.php (95)
+in C:\wamp\www\apben\index.php (29)
+2013/03/10 09:47:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:47:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:47:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:47:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:47:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:47:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:47:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:47:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:48:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:48:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:48:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:48:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:48:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:48:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:48:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:49:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:49:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:52:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:52:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:52:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:52:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:52:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:52:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:53:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:53:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:53:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:54:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:55:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:55:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:55:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:55:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:56:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 09:59:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/site/login
+---
+2013/03/10 09:59:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/laporan/realisasi
+---
+2013/03/10 09:59:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/dipa/view/1
+---
+2013/03/10 10:00:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 10:00:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/create
+---
+2013/03/10 10:00:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 10:00:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/update/1
+---
+2013/03/10 10:04:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 10:04:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/create
+---
+2013/03/10 10:04:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:04:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/site/login
+---
+2013/03/10 10:05:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/
+---
+2013/03/10 10:05:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 10:05:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 10:05:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/create
+---
+2013/03/10 10:06:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 10:06:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/admin
+---
+2013/03/10 10:06:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/update/2
+---
+2013/03/10 10:07:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/update/2
+---
+2013/03/10 10:08:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/update/2
+---
+2013/03/10 10:09:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:09:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:09:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:09:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:09:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:10:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/update/2
+---
+2013/03/10 10:11:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/tagihan/update/2
+---
+2013/03/10 10:12:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:12:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:12:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://localhost/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:13:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:13:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:13:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:14:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:14:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:14:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:14:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:14:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:14:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:14:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---
+2013/03/10 10:15:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap/less/mixins.less".' in C:\wamp\www\apben\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\apben\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\wamp\www\apben\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\apben\index.php(29): CApplication->run()
+#3 {main}
+REQUEST_URI=/apben/assets/lib/bootstrap/less/mixins.less
+HTTP_REFERER=http://118.97.87.76/apben/assets/e3ecaab1/css/yii.css
+---

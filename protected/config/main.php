@@ -15,6 +15,8 @@ return array(
     'import' => array(
         'application.models.*',
         'application.components.*',
+        'application.vendors.phpexcel.PHPExcel',
+        'ext.yiireport.*',
     ),
     'modules' => array(
         'gii' => array(
