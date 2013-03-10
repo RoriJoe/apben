@@ -13,7 +13,7 @@ class LaporanController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('realisasi','realisasi_excel'),
+                'actions' => array('realisasi', 'realisasi_excel'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -82,6 +82,36 @@ c.kode_output = f.kode_output && c.kode_suboutput = f.kode_suboutput && c.kode =
     public function actionRealisasi_excel() {
         $rawData = $this->realisasi;
         $r = new YiiReport(array('template' => 'realisasi.xls'));
+        $total = array(
+            'pagu' => 0,
+            'realisasi_spp' => 0,
+            'prosentase_spp' => 0,
+            'realisasi_spm' => 0,
+            'prosentase_spm' => 0,
+            'realisasi_sp2d' => 0,
+            'prosentase_sp2d' => 0,
+        );
+        
+        foreach ($rawData as $k => $raw) {
+            $rawData[$k]['prosentase_spp'] = $raw['prosentase_spp'] = round($raw["prosentase_spp"], 2);
+            $rawData[$k]['prosentase_spm'] = $raw['prosentase_spm'] = round($raw["prosentase_spm"], 2);
+            $rawData[$k]['prosentase_sp2d'] = $raw['prosentase_sp2d'] = round($raw["prosentase_sp2d"], 2);
+
+            $total['pagu'] += $raw['pagu'];
+            $total['realisasi_spp'] += $raw['realisasi_spp'];
+            $total['prosentase_spp'] += $raw['prosentase_spp'];
+            $total['realisasi_spm'] += $raw['realisasi_spm'];
+            $total['prosentase_spm'] += $raw['prosentase_spm'];
+            $total['realisasi_sp2d'] += $raw['realisasi_sp2d'];
+            $total['prosentase_sp2d'] += $raw['prosentase_sp2d'];
+
+            $rawData[$k]['prosentase_spp'] = $raw['prosentase_spp'] = Format::persenExcel(round($raw["prosentase_spp"], 2));
+            $rawData[$k]['prosentase_spm'] = $raw['prosentase_spm'] = Format::persenExcel(round($raw["prosentase_spm"], 2));
+            $rawData[$k]['prosentase_sp2d'] = $raw['prosentase_sp2d'] = Format::persenExcel(round($raw["prosentase_sp2d"], 2));
+        }
+        $total['prosentase_sp2d'] = Format::persenExcel($total['prosentase_spp']);
+        $total['prosentase_spm'] = Format::persenExcel($total['prosentase_spm']);
+        $total['prosentase_spp'] = Format::persenExcel($total['prosentase_sp2d']);
 
         $r->load(array(
             array(
@@ -95,7 +125,12 @@ c.kode_output = f.kode_output && c.kode_suboutput = f.kode_suboutput && c.kode =
                 'id' => 'd',
                 'repeat' => true,
                 'data' => $rawData,
-        )));
+            ),
+            array(
+                'id' => 'total',
+                'data' => $total
+            ),
+        ));
 
         echo $r->render('excel2007', 'Realisasi');
         //echo $r->render('excel2007', 'Students');

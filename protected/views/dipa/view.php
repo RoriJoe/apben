@@ -1,4 +1,16 @@
 
+    <?php
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType' => 'link',
+        'url' => array('/dipa/excel/' . $model->id),
+        'type' => '',
+        'label' => 'Unduh Excel',
+        'icon' => 'share',
+        'htmlOptions' => array(
+            'style' => 'float:right;margin-top:-53px;margin-right:3px;'
+        )
+    ));
+    ?>
 <?php
 $this->breadcrumbs = array(
     'DIPA' => array('admin'),

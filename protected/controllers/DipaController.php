@@ -25,7 +25,7 @@ class DipaController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'index', 'view', 'kalkulasi', 'saverev','admin', 'delete'),
+                'actions' => array('create', 'update', 'index', 'view', 'kalkulasi', 'saverev', 'admin', 'delete', 'excel'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -48,6 +48,117 @@ class DipaController extends Controller {
         $this->redirect(array('/dipa/view/' . $model->uid));
     }
 
+    public function actionExcel($id) {
+
+        $model = Dipa::model()->find(array('condition' => 'uid = ' . $id));
+
+        $dipa = array();
+
+        $dipa[] = array(
+            'klasifikasi' => 'DIPA',
+            'kode' => $model->nomor_dipa,
+            'uraian' => $model->satker,
+            'sumber_dana' => '',
+            'volume' => '',
+            'satuan_volume' => '',
+            'frequensi' => '',
+            'satuan_frequensi' => '',
+            'tarif' => '',
+            'jumlah' => $model->pagu
+        );
+        
+
+        $dipa[] = array(
+            'klasifikasi' => 'KEG',
+            'kode' => $model->kode_kegiatan,
+            'uraian' => $model->kegiatan,
+            'sumber_dana' => '',
+            'volume' => '',
+            'satuan_volume' => '',
+            'frequensi' => '',
+            'satuan_frequensi' => '',
+            'tarif' => '',
+            'jumlah' => $model->pagu
+        );
+
+        $outputs = $model->output;
+        foreach ($outputs as $output) {
+            if ($output->dipa_version != $model->version)
+                continue;
+
+            $dipa[] = array(
+                'klasifikasi' => 'OUT',
+                'kode' => $output->kode,
+                'uraian' => $output->detail->uraian,
+                'sumber_dana' => '',
+                'volume' => '',
+                'satuan_volume' => '',
+                'frequensi' => '',
+                'satuan_frequensi' => '',
+                'tarif' => '',
+                'jumlah' => $output->pagu
+            );
+            $suboutputs = $output->suboutput;
+
+            foreach ($suboutputs as $suboutput) {
+                if ($suboutput->dipa_version != $model->version)
+                    continue;
+
+                $dipa[] = array(
+                    'klasifikasi' => 'SUB',
+                    'kode' => $suboutput->kode,
+                    'uraian' => $suboutput->detail->uraian,
+                    'sumber_dana' => '',
+                    'volume' => '',
+                    'satuan_volume' => '',
+                    'frequensi' => '',
+                    'satuan_frequensi' => '',
+                    'tarif' => '',
+                    'jumlah' => $suboutput->pagu
+                );
+
+                $maks = $suboutput->mak;
+
+                foreach ($maks as $mak) {
+                    if ($mak->dipa_version != $model->version)
+                        continue;
+
+                    $dipa[] = array(
+                        'klasifikasi' => 'MAK',
+                        'kode' => $mak->kode,
+                        'uraian' => $mak->detail->uraian,
+                        'sumber_dana' => $mak->sumber_dana,
+                        'volume' => '',
+                        'satuan_volume' => '',
+                        'frequensi' => '',
+                        'satuan_frequensi' => '',
+                        'tarif' => '',
+                        'jumlah' => $mak->pagu
+                    );
+                }
+            }
+        }
+
+
+        $r = new YiiReport(array('template' => 'dipa.xls'));
+        $r->load(array(
+            array(
+                'id' => 'tgl',
+                'data' => array(
+                    'tahun_anggaran' => $model->tahun_anggaran,
+                    'tanggal_dipa' => $model->tanggal_dipa,
+                )
+            ),
+            array(
+                'id' => 'd',
+                'repeat' => true,
+                'data' => $dipa,
+            ),
+        ));
+
+        echo $r->render('excel5', 'Dipa');
+    }
+
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
@@ -60,12 +171,12 @@ class DipaController extends Controller {
         }
 
         $model = Dipa::model()->find(array('condition' => 'uid = ' . $id));
-        
+
         if ($model == null) {
             $terbaru = Dipa::model()->find(array('order' => 'uid desc'));
             $this->redirect(array('/dipa/view/' . $terbaru->uid));
         }
-        
+
         $version = $model->version;
         $readonly = false;
         if (isset($_GET['rev']) && is_numeric($_GET['rev']) && $_GET['rev'] < $model->version) {
@@ -75,7 +186,8 @@ class DipaController extends Controller {
             $readonly = true;
         }
 
-        if (Yii::app()->user->detail->menuMode('dipa') == "view") $readonly = true;
+        if (Yii::app()->user->detail->menuMode('dipa') == "view")
+            $readonly = true;
 
         if (@$_GET['co'] == 1) {
             Yii::app()->clientScript->scriptMap = array(
@@ -130,7 +242,7 @@ class DipaController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
-        
+
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
@@ -194,7 +306,7 @@ class DipaController extends Controller {
      */
     public function loadModel($id) {
         $model = Dipa::model()->resetScope(true)->findByPk($id);
-        
+
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;

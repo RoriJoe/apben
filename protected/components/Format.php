@@ -18,8 +18,10 @@ class Format {
         } else {
             return date('d F Y', $time);
         }
-        
-        
+    }
+    
+    public static function persenExcel($float) {
+        return $float . "%";
     }
 
     public static function date2sql($date) {

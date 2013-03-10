@@ -225,7 +225,6 @@ $this->widget('bootstrap.widgets.TbGridView', array(
                 $mak.push($(this).attr('data'));
             });
 
-
             $act = {
                 'sumber_dana': $sumber_dana,
                 'mak': $mak
@@ -307,6 +306,10 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             generateOptions();
         });
 
+        $("#reset-form").click(function() {
+            $("#tgl_awal,#tgl_akhir").val('');
+        });
+        
         $(".sp").change(function() {
             sd = $(this).attr("data");
             checked = $(this).is(':checked');
