@@ -16,9 +16,11 @@ $this->menu = array(
 $columns = User::itemAlias('realisasi_view', Yii::app()->user->role);
 
 if (Yii::app()->user->detail->menuMode('realisasi') == "edit") {
+    $template = (Yii::app()->user->role == "ar" ? "{update} {delete}" : "{update}");
+    
     $columns = array_merge($columns, array(array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
-            'template' => '{update} {delete}',
+            'template' => $template,
     )));
 } else {
     $columns = array_merge($columns, array(array(

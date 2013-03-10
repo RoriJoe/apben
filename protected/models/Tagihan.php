@@ -49,7 +49,7 @@ class Tagihan extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-    
+
     public static function itemAlias($type, $code = NULL) {
         $_items = array(
             'KodeLPK' => array(
@@ -291,7 +291,7 @@ class Tagihan extends CActiveRecord {
             $this->kode_suboutput = "0-0";
             $this->kode_mak = "0-0";
         }
-        
+
         $this->tanggal_ar = Format::date($this->tanggal_ar);
         $this->tanggal_ke_tu = Format::date($this->tanggal_ke_tu);
         $this->tanggal_kirim = Format::date($this->tanggal_kirim);
@@ -307,13 +307,13 @@ class Tagihan extends CActiveRecord {
         return true;
     }
 
-
     public function getKode_output_text() {
         $kode = Format::kode($this->kode_output);
         $uid = Format::kode_uid($this->kode_output);
         $i = MasterOutput::model()->find(array('condition' => 'kode = ' . $kode . ' and uid = ' . $uid));
 
-        if ($i == null) return "";
+        if ($i == null)
+            return "";
         return "{$i->kode} - {$i->uraian}";
     }
 
@@ -322,7 +322,8 @@ class Tagihan extends CActiveRecord {
         $uid = Format::kode_uid($this->kode_suboutput);
         $i = MasterSuboutput::model()->find(array('condition' => 'kode = ' . $kode . ' and uid = ' . $uid));
 
-        if ($i == null) return "";
+        if ($i == null)
+            return "";
         return "{$i->kode} - {$i->uraian}";
     }
 
@@ -331,10 +332,11 @@ class Tagihan extends CActiveRecord {
         $uid = Format::kode_uid($this->kode_mak);
         $i = MasterMak::model()->find(array('condition' => 'kode = ' . $kode . ' and uid = ' . $uid));
 
-        if ($i == null) return "";
+        if ($i == null)
+            return "";
         return "{$i->kode} - {$i->uraian}";
     }
-    
+
     public function rekap() {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -451,6 +453,10 @@ class Tagihan extends CActiveRecord {
         $criteria->compare('jenis_kurs', $this->jenis_kurs, true);
 
         $criteria->order = "id desc";
+
+        if (Yii::app()->user->role == "ar") {
+            $criteria->condition = "id_p_ar = '" . Yii::app()->user->role . "'";
+        }
 
         if (User::itemAlias('ilang_ilangan', Yii::app()->user->role)) {
             $cols = User::itemAlias('realisasi_edit', Yii::app()->user->role);

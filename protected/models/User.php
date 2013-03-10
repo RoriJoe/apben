@@ -115,18 +115,10 @@ class User extends CActiveRecord {
                 "ppk" => array(),
                 "ptspm" => array(),
                 "bp" => array(
-                    'tanggal_trm_tagihan',
-                    'tanggal_tagihan',
-                    'jumlah_tagihan',
-                    'uraian_tagihan',
                     'tanggal_sp2d',
                     'nomor_sp2d',
                 ),
                 "bpp" => array(
-                    'tanggal_trm_tagihan',
-                    'tanggal_tagihan',
-                    'jumlah_tagihan',
-                    'uraian_tagihan',
                     'tanggal_sp2d',
                     'nomor_sp2d',
                 ),

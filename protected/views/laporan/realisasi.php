@@ -18,6 +18,17 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 ?>
 <div class="dipa-group pull-left" style="padding:5px;">
     <?php
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType' => 'submit',
+        'type' => '',
+        'icon' => 'remove',
+        'htmlOptions' => array(
+            'id' => 'reset-form',
+            'style' => 'margin:0px;text-align:center;',
+        )
+    ));
+    ?>
+    <?php
     $this->widget('zii.widgets.jui.CJuiDatePicker', array(
         'name' => 'tgl_awal',
         'value' => @$_GET['tgl_awal'],
@@ -40,6 +51,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         )
     ));
     ?>
+    <?php echo CHtml::hiddenField('options', @$_GET['options']); ?>
     <?php
     $this->widget('bootstrap.widgets.TbButton', array(
         'buttonType' => 'submit',
@@ -52,7 +64,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     ?>
 </div>
 
-<div class="dipa-group pull-left" style="padding:10px 0px 5px 10px;">
+<div id="sumber_dana" class="dipa-group pull-left" style="padding:10px 0px 5px 10px;">
     <label style="float:left;margin-right:10px;display:block">
         <input class="sumber_dana" data="wb" type="checkbox" checked="checked" style="float:left;"/>
         <div style="float:left;margin-left:2px;"><b>WB</b></div>
@@ -70,6 +82,25 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         <div style="float:left;margin-left:2px;"><b>RMP</b></div>
     </label>
 </div>
+
+<div id="mak" class="dipa-group pull-left" style="padding:10px 0px 5px 10px;">
+</div>
+
+<div id="sp" class="dipa-group pull-left" style="padding:10px 0px 5px 10px;">
+    <label style="float:left;margin-right:10px;display:block">
+        <input class="sp" data="spp" type="checkbox" checked="checked" style="float:left;"/>
+        <div style="float:left;margin-left:2px;"><b>SPP</b></div>
+    </label>
+    <label style="float:left;margin-right:10px;">
+        <input class="sp" data="spm" type="checkbox" checked="checked" style="float:left;"/>
+        <div style="float:left;margin-left:2px;"><b>SPM</b></div>
+    </label>
+    <label style="float:left;margin-right:10px;">
+        <input class="sp" data="sp2d" type="checkbox" checked="checked" style="float:left;" /> 
+        <div style="float:left;margin-left:2px;"><b>SP2D</b></div>
+    </label>
+</div>
+
 
 <?php $this->endWidget(); ?>
 
@@ -141,6 +172,57 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             return x1 + x2;
         }
 
+        function applyOptions() {
+            $act = $("#options").val();
+            if ($act != "") {
+                $act = JSON.parse($act);
+                $($act.sumber_dana).each(function() {
+                    $(".sumber_dana[data=" + this + "]").prop("checked", false);
+                });
+
+                $($act.mak).each(function() {
+                    $(".mak[data=" + this + "]").prop("checked", false);
+                });
+
+                $(".mak:not(:checked)").change();
+                $(".sumber_dana:not(:checked)").change();
+            }
+        }
+
+        function generateOptions() {
+            $sumber_dana = [];
+            $(".sumber_dana:not(:checked)").each(function() {
+                $sumber_dana.push($(this).attr('data'));
+            });
+
+            $mak = [];
+            $(".mak:not(:checked)").each(function() {
+                $mak.push($(this).attr('data'));
+            });
+
+
+            $act = {
+                'sumber_dana': $sumber_dana,
+                'mak': $mak
+            };
+
+            $("#options").val(JSON.stringify($act));
+        }
+
+        function generateMAK() {
+            $mak = [];
+            $("#laporan-grid tr.odd, #laporan-grid tr.even").each(function() {
+                $mak[$(this).find("td:eq(2)").text().trim().substr(0, 2)] = 1;
+            });
+
+            for (k in $mak) {
+                $mak = $("#sumber_dana label:last").clone();
+                $mak.find('input').removeClass("sumber_dana").addClass("mak").attr('data', k);
+                $mak.find("b").text(k);
+                $mak.appendTo("#mak");
+            }
+        }
+        generateMAK();
 
         function calculate() {
             sum = [0, 0, 0, 0, 0, 0, 0];
@@ -156,7 +238,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
                     sum[6] += $(this).find("td:eq(10)").text().replace(/\%/g, "") * 1;
                 }
             });
-            tr = $("#laporan-grid tr:last").clone().addClass("sum-tr");
+            tr = $("#laporan-grid tr:last").clone().addClass("sum-tr").show();
             tr.find("td").text("");
             tr.find("td:eq(4)").addClass("sum").text(ac(sum[0]));
             tr.find("td:eq(5)").addClass("sum").text(ac(sum[1]));
@@ -180,15 +262,49 @@ $this->widget('bootstrap.widgets.TbGridView', array(
                 }
             });
 
-            $act = [];
-            $(".sumber_dana").each(function() {
-                if ($(this).is(":checked")) {
-                    $act.push($(this).attr('data'));
-                }
-            });
             calculate();
+            generateOptions();
         });
 
+        $(".mak").change(function() {
+            sd = $(this).attr("data");
+            checked = $(this).is(':checked');
+            $("#laporan-grid tr.odd, #laporan-grid tr.even").each(function() {
+                if ($(this).find("td:eq(2)").text().trim().substr(0, 2) == sd) {
+                    if (checked)
+                        $(this).show();
+                    else
+                        $(this).hide();
+                }
+            });
+
+            calculate();
+            generateOptions();
+        });
+
+        $(".sp").change(function() {
+            sd = $(this).attr("data");
+            checked = $(this).is(':checked');
+            $("#laporan-grid tr").each(function() {
+
+                if (sd == "spp")
+                    $sp = $(this).find("td:eq(5),td:eq(6),th:eq(5),th:eq(6)");
+                else if (sd == "spm")
+                    $sp = $(this).find("td:eq(7),td:eq(8),th:eq(7),th:eq(8)");
+                else if (sd == "sp2d")
+                    $sp = $(this).find("td:eq(9),td:eq(10),th:eq(9),th:eq(10)");
+
+                if (checked)
+                    $sp.show();
+                else
+                    $sp.hide();
+            });
+
+            calculate();
+            generateOptions();
+        });
+
+        applyOptions();
         calculate();
     });
 

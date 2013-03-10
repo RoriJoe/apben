@@ -1,18 +1,18 @@
 <div class="form">
     <?php echo CHtml::image($this->createUrl("/static/images/loading.gif"), 'loading', array('class' => 'loading', 'style' => 'position:absolute;')); ?>
 
-    <?php 
+    <?php
     $editable_raw = User::itemAlias('realisasi_edit', Yii::app()->user->role);
     $editable = $model->attributes;
 
-    $output =  Output::getDropDownList();
-    $output_pertama = explode(" - ",reset($output));
+    $output = Output::getDropDownList();
+    $output_pertama = explode(" - ", reset($output));
     $output_pertama = $output_pertama[0];
-    
+
     $suboutput = Suboutput::getDropDownList($output_pertama);
-    $suboutput_pertama = explode(" - ",reset($suboutput));
+    $suboutput_pertama = explode(" - ", reset($suboutput));
     $suboutput_pertama = $suboutput_pertama[0];
-    
+
     $mak = Mak::getDropDownList($output_pertama, $suboutput_pertama);
 
     foreach ($editable as $k => $e) {
@@ -70,7 +70,7 @@
     <?php endif; ?>
 
     <?php if ($editable['kode_mak']): ?>
-        <?php echo $form->dropDownListRow($model, 'kode_mak', $mak, array('class' => 'span5', 'maxlength' => 25, 'options' => Mak::getDropDownListOptions($output_pertama,$suboutput_pertama))); ?>
+        <?php echo $form->dropDownListRow($model, 'kode_mak', $mak, array('class' => 'span5', 'maxlength' => 25, 'options' => Mak::getDropDownListOptions($output_pertama, $suboutput_pertama))); ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>
@@ -186,7 +186,7 @@
             : <b><?php echo $model->nomor_spp; ?></b>
         </div>
     <?php endif; ?>
-        
+
     <?php if ($editable['tanggal_spm']): ?>
         <?php echo $form->labelEx($model, 'tanggal_spm'); ?>
         <?php
@@ -207,7 +207,7 @@
             : <b><?php echo $model->tanggal_spm; ?></b>
         </div>
     <?php endif; ?>
-        
+
     <?php if ($editable['tanggal_verifikasi']): ?>
         <?php echo $form->labelEx($model, 'tanggal_verifikasi'); ?>
         <?php
@@ -392,7 +392,7 @@
     <?php endif; ?>
 
     <?php if ($editable['sumber_dana']): ?>
-        <?php echo $form->dropDownListRow($model, 'sumber_dana', Tagihan::itemAlias("SumberDana"), array('class' => 'span5', 'maxlength' => 25 ,'disabled'=>'disabled')); ?>
+        <?php echo $form->textFieldRow($model, 'sumber_dana', array('class' => 'span1', 'maxlength' => 25, 'readonly' => 'readonly')); ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>
@@ -608,26 +608,31 @@
             $("#Tagihan_" + $(this).val()).show();
         });
 
-        $("#Tagihan_kode_output").change(function () {
-            $kode = $(this).val().split('-')[1];      
-            $("#Tagihan_kode_suboutput,#Tagihan_kode_mak").attr("disabled","disabled");
-            $.get('<?php echo $this->createUrl('/tagihan/suboutput_dropdown/'); ?>' + "/" + $kode,function(data) {
+        $("#Tagihan_kode_output").change(function() {
+            $kode = $(this).val().split('-')[1];
+            $("#Tagihan_kode_suboutput,#Tagihan_kode_mak").attr("disabled", "disabled");
+            $.get('<?php echo $this->createUrl('/tagihan/suboutput_dropdown/'); ?>' + "/" + $kode, function(data) {
                 $("#Tagihan_kode_suboutput").replaceWith(data);
                 $("#Tagihan_kode_suboutput").change();
             });
         });
-        
-        $(document).on("change","#Tagihan_kode_suboutput",function() {
-            $("#Tagihan_kode_mak").attr("disabled","disabled");
+
+        $(document).on("change", "#Tagihan_kode_suboutput", function() {
+            $("#Tagihan_kode_mak").attr("disabled", "disabled");
             $o = $("#Tagihan_kode_output").val().split("-")[1];
-            $s = $(this).val().split('-')[1];            
-            $.get('<?php echo $this->createUrl('/tagihan/mak_dropdown?'); ?>' + "o=" + $o + "&s=" + $s,function(data) {
+            $s = $(this).val().split('-')[1];
+            $.get('<?php echo $this->createUrl('/tagihan/mak_dropdown?'); ?>' + "o=" + $o + "&s=" + $s, function(data) {
                 $("#Tagihan_kode_mak").replaceWith(data);
+
+                $("#Tagihan_kode_mak").change(function() {
+                    $("#Tagihan_sumber_dana").val($(this).find(":selected").attr("sumber_dana"));
+                });
+
+                $("#Tagihan_kode_mak").change();
             });
         });
-        
-        
-        $(document).on("change","#Tagihan_kode_mak",function() {
+
+        $("#Tagihan_kode_mak").change(function() {
             $("#Tagihan_sumber_dana").val($(this).find(":selected").attr("sumber_dana"));
         });
 

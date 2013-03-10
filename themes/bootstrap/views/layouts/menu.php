@@ -47,7 +47,7 @@ if (!Yii::app()->user->isGuest && User::itemAlias('ilang_ilangan', Yii::app()->u
         ))
     );
 }
-if (!Yii::app()->user->isGuest && (Yii::app()->user->role == "ar" || Yii::app()->user->role == "bp" || Yii::app()->user->role == "bpp")) {
+if (!Yii::app()->user->isGuest && (Yii::app()->user->role == "ar")) {
     $realisasi['edit'] = array_merge($realisasi['edit'], array(
         '---',
         array(
@@ -106,7 +106,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
                     'items' => $master[Yii::app()->user->detail->menuMode('master')]
                 ),
                 array(
-                    'visible' => !Yii::app()->user->isGuest,
+                    'visible' => !Yii::app()->user->isGuest && Yii::app()->user->role != "admin",
                     'label' => 'Laporan',
                     'icon' => 'list-alt',
                     'items' => array(
