@@ -73,7 +73,7 @@ class Tagihan extends CActiveRecord {
             ),
             "SumberDana" => array(
                 "WB" => "WorldBank",
-                "JICA" => "JICA",
+                "JC" => "JICA",
                 "RM" => "Rupiah Murni (RM)",
                 "RMP" => "Rupiah Murni Pendamping (RMP)"
             ),

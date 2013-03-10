@@ -31,7 +31,7 @@ class TagihanController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','rekap'),
+				'actions'=>array('create','update','admin','delete','rekap','suboutput_dropdown','mak_dropdown'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -39,6 +39,16 @@ class TagihanController extends Controller
 			),
 		);
 	}
+    
+    public function actionSuboutput_dropdown($id) {
+        echo CHtml::dropDownList('Tagihan[kode_suboutput]',null,Suboutput::getDropDownList($id), array('class' => 'span5', 'maxlength' => 25));
+    }
+    
+    public function actionMak_dropdown() {
+        $output = @$_GET['o'];
+        $suboutput = @$_GET['s'];
+        echo CHtml::dropDownList('Tagihan[kode_mak]',null,Mak::getDropDownList($output,$suboutput), array('class' => 'span5', 'maxlength' => 25, 'options' => Mak::getDropDownListOptions($output,$suboutput)));
+    }
 
 	/**
 	 * Displays a particular model.

@@ -6,15 +6,14 @@
     $editable = $model->attributes;
 
     $output =  Output::getDropDownList();
-    $output_pertama = explode(" - ",array_shift(array_values($output)));
+    $output_pertama = explode(" - ",reset($output));
     $output_pertama = $output_pertama[0];
     
     $suboutput = Suboutput::getDropDownList($output_pertama);
-    $suboutput_pertama = explode(" - ",array_shift(array_values($suboutput)));
+    $suboutput_pertama = explode(" - ",reset($suboutput));
     $suboutput_pertama = $suboutput_pertama[0];
-    var_dump($output_pertama,$suboutput_pertama);
     
-    $mak = Mak::getDropDownList($output, $suboutput_pertama);
+    $mak = Mak::getDropDownList($output_pertama, $suboutput_pertama);
 
     foreach ($editable as $k => $e) {
         if (in_array($k, $editable_raw)) {
@@ -71,7 +70,7 @@
     <?php endif; ?>
 
     <?php if ($editable['kode_mak']): ?>
-        <?php echo $form->dropDownListRow($model, 'kode_mak', $mak, array('class' => 'span5', 'maxlength' => 25)); ?>
+        <?php echo $form->dropDownListRow($model, 'kode_mak', $mak, array('class' => 'span5', 'maxlength' => 25, 'options' => Mak::getDropDownListOptions($output_pertama,$suboutput_pertama))); ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>
@@ -393,7 +392,7 @@
     <?php endif; ?>
 
     <?php if ($editable['sumber_dana']): ?>
-        <?php echo $form->dropDownListRow($model, 'sumber_dana', Tagihan::itemAlias("SumberDana"), array('class' => 'span5', 'maxlength' => 25)); ?>
+        <?php echo $form->dropDownListRow($model, 'sumber_dana', Tagihan::itemAlias("SumberDana"), array('class' => 'span5', 'maxlength' => 25 ,'disabled'=>'disabled')); ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>
@@ -609,7 +608,30 @@
             $("#Tagihan_" + $(this).val()).show();
         });
 
+        $("#Tagihan_kode_output").change(function () {
+            $kode = $(this).val().split('-')[1];      
+            $("#Tagihan_kode_suboutput,#Tagihan_kode_mak").attr("disabled","disabled");
+            $.get('<?php echo $this->createUrl('/tagihan/suboutput_dropdown/'); ?>' + "/" + $kode,function(data) {
+                $("#Tagihan_kode_suboutput").replaceWith(data);
+                $("#Tagihan_kode_suboutput").change();
+            });
+        });
+        
+        $(document).on("change","#Tagihan_kode_suboutput",function() {
+            $("#Tagihan_kode_mak").attr("disabled","disabled");
+            $o = $("#Tagihan_kode_output").val().split("-")[1];
+            $s = $(this).val().split('-')[1];            
+            $.get('<?php echo $this->createUrl('/tagihan/mak_dropdown?'); ?>' + "o=" + $o + "&s=" + $s,function(data) {
+                $("#Tagihan_kode_mak").replaceWith(data);
+            });
+        });
+        
+        
+        $(document).on("change","#Tagihan_kode_mak",function() {
+            $("#Tagihan_sumber_dana").val($(this).find(":selected").attr("sumber_dana"));
+        });
 
+        $("#Tagihan_kode_mak").change();
 
         $("#Tagihan_mata_uang").change(function() {
             if ($(this).val() == "IDR") {
