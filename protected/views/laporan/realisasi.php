@@ -12,6 +12,7 @@ $this->breadcrumbs = array(
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     'id' => 'laporan-filter-form',
     'enableAjaxValidation' => false,
+    'action' => "?",
     'method' => 'get'
         ));
 ?>
@@ -53,19 +54,19 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <div class="dipa-group pull-left" style="padding:10px 0px 5px 10px;">
     <label style="float:left;margin-right:10px;display:block">
-        <input type="checkbox" checked="checked" style="float:left;"/>
+        <input class="sumber_dana" data="wb" type="checkbox" checked="checked" style="float:left;"/>
         <div style="float:left;margin-left:2px;"><b>WB</b></div>
     </label>
     <label style="float:left;margin-right:10px;">
-        <input type="checkbox" checked="checked" style="float:left;"/>
+        <input class="sumber_dana" data="jc" type="checkbox" checked="checked" style="float:left;"/>
         <div style="float:left;margin-left:2px;"><b>JC</b></div>
     </label>
     <label style="float:left;margin-right:10px;">
-        <input type="checkbox" checked="checked" style="float:left;" /> 
+        <input class="sumber_dana" data="rm" type="checkbox" checked="checked" style="float:left;" /> 
         <div style="float:left;margin-left:2px;"><b>RM</b></div>
     </label>
     <label style="float:left;margin-right:10px;">
-        <input type="checkbox" checked="checked" style="float:left;" /> 
+        <input class="sumber_dana" data="rmp" type="checkbox" checked="checked" style="float:left;" /> 
         <div style="float:left;margin-left:2px;"><b>RMP</b></div>
     </label>
 </div>
@@ -127,35 +128,68 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 ?>
 
 <script type="text/javascript">
-    function ac(nStr) {
-        nStr += '';
-        var x = nStr.split('.');
-        var x1 = x[0];
-        var x2 = x.length > 1 ? '.' + x[1] : '';
-        var rgx = /(\d+)(\d{3})/;
-        while (rgx.test(x1)) {
-            x1 = x1.replace(rgx, '$1' + '.' + '$2');
+    $(function() {
+        function ac(nStr) {
+            nStr += '';
+            var x = nStr.split('.');
+            var x1 = x[0];
+            var x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + '.' + '$2');
+            }
+            return x1 + x2;
         }
-        return x1 + x2;
-    }
-    sum = [0, 0, 0, 0, 0, 0, 0];
-    $("#laporan-grid tr.odd, #laporan-grid td.even").each(function(i, item) {
-        sum[0] += $(this).find("td:eq(4)").text().replace(/\./g, "") * 1;
-        sum[1] += $(this).find("td:eq(5)").text().replace(/\./g, "") * 1;
-        sum[2] += $(this).find("td:eq(6)").text().replace(/\%/g, "") * 1;
-        sum[3] += $(this).find("td:eq(7)").text().replace(/\./g, "") * 1;
-        sum[4] += $(this).find("td:eq(8)").text().replace(/\%/g, "") * 1;
-        sum[5] += $(this).find("td:eq(9)").text().replace(/\./g, "") * 1;
-        sum[6] += $(this).find("td:eq(10)").text().replace(/\%/g, "") * 1;
+
+
+        function calculate() {
+            sum = [0, 0, 0, 0, 0, 0, 0];
+            $(".sum-tr").remove();
+            $("#laporan-grid tr.odd, #laporan-grid tr.even").each(function(i, item) {
+                if ($(this).css('display') != "none") {
+                    sum[0] += $(this).find("td:eq(4)").text().replace(/\./g, "") * 1;
+                    sum[1] += $(this).find("td:eq(5)").text().replace(/\./g, "") * 1;
+                    sum[2] += $(this).find("td:eq(6)").text().replace(/\%/g, "") * 1;
+                    sum[3] += $(this).find("td:eq(7)").text().replace(/\./g, "") * 1;
+                    sum[4] += $(this).find("td:eq(8)").text().replace(/\%/g, "") * 1;
+                    sum[5] += $(this).find("td:eq(9)").text().replace(/\./g, "") * 1;
+                    sum[6] += $(this).find("td:eq(10)").text().replace(/\%/g, "") * 1;
+                }
+            });
+            tr = $("#laporan-grid tr:last").clone().addClass("sum-tr");
+            tr.find("td").text("");
+            tr.find("td:eq(4)").addClass("sum").text(ac(sum[0]));
+            tr.find("td:eq(5)").addClass("sum").text(ac(sum[1]));
+            tr.find("td:eq(6)").addClass("sum").text(sum[2] + "%");
+            tr.find("td:eq(7)").addClass("sum").text(ac(sum[3]));
+            tr.find("td:eq(8)").addClass("sum").text(sum[4] + "%");
+            tr.find("td:eq(9)").addClass("sum").text(ac(sum[5]));
+            tr.find("td:eq(10)").addClass("sum").text(sum[6] + "%");
+            tr.insertAfter("#laporan-grid tr:last");
+        }
+
+        $(".sumber_dana").change(function() {
+            sd = $(this).attr("data").toUpperCase();
+            checked = $(this).is(':checked');
+            $("#laporan-grid tr.odd, #laporan-grid tr.even").each(function() {
+                if ($(this).find("td:eq(3)").text().trim() == sd) {
+                    if (checked)
+                        $(this).show();
+                    else
+                        $(this).hide();
+                }
+            });
+
+            $act = [];
+            $(".sumber_dana").each(function() {
+                if ($(this).is(":checked")) {
+                    $act.push($(this).attr('data'));
+                }
+            });
+            calculate();
+        });
+
+        calculate();
     });
-    tr = $("#laporan-grid tr:last").clone();
-    tr.find("td").text("");
-    tr.find("td:eq(4)").addClass("sum").text(ac(sum[0]));
-    tr.find("td:eq(5)").addClass("sum").text(ac(sum[1]));
-    tr.find("td:eq(6)").addClass("sum").text(sum[2] + "%");
-    tr.find("td:eq(7)").addClass("sum").text(ac(sum[3]));
-    tr.find("td:eq(8)").addClass("sum").text(sum[4] + "%");
-    tr.find("td:eq(9)").addClass("sum").text(ac(sum[5]));
-    tr.find("td:eq(10)").addClass("sum").text(sum[6] + "%");
-    tr.insertAfter("#laporan-grid tr:last");
+
 </script>

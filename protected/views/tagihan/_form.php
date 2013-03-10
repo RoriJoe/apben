@@ -1,10 +1,20 @@
 <div class="form">
     <?php echo CHtml::image($this->createUrl("/static/images/loading.gif"), 'loading', array('class' => 'loading', 'style' => 'position:absolute;')); ?>
 
-    <?php
+    <?php 
     $editable_raw = User::itemAlias('realisasi_edit', Yii::app()->user->role);
     $editable = $model->attributes;
 
+    $output =  Output::getDropDownList();
+    $output_pertama = explode(" - ",array_shift(array_values($output)));
+    $output_pertama = $output_pertama[0];
+    
+    $suboutput = Suboutput::getDropDownList($output_pertama);
+    $suboutput_pertama = explode(" - ",array_shift(array_values($suboutput)));
+    $suboutput_pertama = $suboutput_pertama[0];
+    var_dump($output_pertama,$suboutput_pertama);
+    
+    $mak = Mak::getDropDownList($output, $suboutput_pertama);
 
     foreach ($editable as $k => $e) {
         if (in_array($k, $editable_raw)) {
@@ -37,7 +47,7 @@
     <?php endif; ?>
 
     <?php if ($editable['kode_output']): ?>
-        <?php echo $form->dropDownListRow($model, 'kode_output', MasterOutput::getDropDownList(), array('class' => 'span5', 'maxlength' => 25)); ?>
+        <?php echo $form->dropDownListRow($model, 'kode_output', $output, array('class' => 'span5', 'maxlength' => 25)); ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>
@@ -49,7 +59,7 @@
     <?php endif; ?>
 
     <?php if ($editable['kode_suboutput']): ?>
-        <?php echo $form->dropDownListRow($model, 'kode_suboutput', MasterSuboutput::getDropDownList(), array('class' => 'span5', 'maxlength' => 25)); ?>
+        <?php echo $form->dropDownListRow($model, 'kode_suboutput', $suboutput, array('class' => 'span5', 'maxlength' => 25)); ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>
@@ -61,7 +71,7 @@
     <?php endif; ?>
 
     <?php if ($editable['kode_mak']): ?>
-        <?php echo $form->dropDownListRow($model, 'kode_mak', MasterMak::getDropDownList(), array('class' => 'span5', 'maxlength' => 25)); ?>
+        <?php echo $form->dropDownListRow($model, 'kode_mak', $mak, array('class' => 'span5', 'maxlength' => 25)); ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>

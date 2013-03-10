@@ -30,6 +30,22 @@ class Output extends CActiveRecord {
         return 'output';
     }
     
+    public static function getDropDownList() {
+        $sql = "(select b.dipa_uid,b.dipa_version,b.kode_output,a.kode_uid,c.uraian from master_output c,mak a
+INNER JOIN
+(select b.dipa_uid,b.dipa_version,b.kode as kode_output, a.kode as kode_suboutput, a.uid as uid_suboutput from suboutput a INNER JOIN
+( select a.dipa_uid,a.dipa_version, a.kode ,a.uid from output a, (select dipa_uid,dipa_version from output group by dipa_uid desc) b 
+where a.dipa_uid = b.dipa_uid && a.dipa_version = b. dipa_version) b 
+where a.output_uid = b.uid && a.dipa_version = b.dipa_version && a.dipa_uid = b.dipa_uid) b where a.suboutput_uid = b.uid_suboutput  && a.dipa_uid = b.dipa_uid && 
+a.dipa_version = b.dipa_version && c.kode = b.kode_output group by b.kode_output)";
+        $rawData = Yii::app()->db->createCommand($sql)->queryAll();
+        $dropdown = array();
+        foreach ($rawData as $k => $r) {
+            $dropdown[$r['kode_uid'] . "-" . $r['kode_output']] = "{$r['kode_output']} - {$r['uraian']}";
+        }
+        return $dropdown;
+    }
+    
     public function afterSave() {
         parent::afterSave();
         if ($this->uid == 0) {

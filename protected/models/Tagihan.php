@@ -49,7 +49,7 @@ class Tagihan extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-
+    
     public static function itemAlias($type, $code = NULL) {
         $_items = array(
             'KodeLPK' => array(

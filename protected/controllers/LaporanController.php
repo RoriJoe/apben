@@ -57,7 +57,7 @@ c.kode_output = f.kode_output && c.kode_suboutput = f.kode_suboutput && c.kode =
         $dataProvider = new CArrayDataProvider($rawData, array(
             'keyField' => 'row',
             'pagination' => array(
-                'pageSize' => 30,
+                'pageSize' => 300,
             ),
         ));
         $this->render('realisasi', array(
