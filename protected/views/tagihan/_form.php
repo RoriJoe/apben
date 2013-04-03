@@ -140,6 +140,17 @@
         </div>
     <?php endif; ?>
 
+    <?php if ($editable['id_p_ppk']): ?>
+        <?php echo $form->dropDownListRow($model, 'id_p_ppk', User::getListByRole("ppk"), array('class' => 'span5', 'maxlength' => 20)); ?>
+        <div class="clearfix"></div>
+    <?php else: ?>
+        <div class='row-tagihan'>
+            <span class='label-tagihan'>
+                <?php echo $model->getAttributeLabel('id_p_ppk'); ?>
+            </span> 
+            : <b><?php echo (isset($model->ppk) ? $model->ppk->nama : ""); ?></b>
+        </div>
+    <?php endif; ?>
 
     <?php if ($editable['nomor_spp']): ?>
         <?php echo $form->textFieldRow($model, 'nomor_spp', array('class' => 'span5', 'maxlength' => 20)); ?>
@@ -378,7 +389,7 @@
             : <b><?php echo $model->uraian_tagihan; ?></b>
         </div>
     <?php endif; ?>
-
+        
     <?php if ($editable['pihak_penerima']): ?>
         <?php echo $form->textFieldRow($model, 'pihak_penerima', array('class' => 'span5', 'maxlength' => 255)); ?>
         <div class="clearfix"></div>
@@ -390,6 +401,43 @@
             : <b><?php echo $model->pihak_penerima; ?></b>
         </div>
     <?php endif; ?>
+        
+    <?php if ($editable['jenis_penerima']): ?>
+        <?php echo $form->dropDownListRow($model, 'jenis_penerima', array(
+            '' => '---',
+            'BP' => 'BP',
+            'PIHAK KETIGA' => 'PIHAK KETIGA',
+            'PEGAWAI' => 'PEGAWAI',
+        ),  array('class' => 'span2', 'maxlength' => 255)); ?>
+        <div class="clearfix"></div>
+    <?php else: ?>
+        <div class='row-tagihan'>
+            <span class='label-tagihan'>
+                <?php echo $model->getAttributeLabel('jenis_penerima'); ?>
+            </span> 
+            : <b><?php echo $model->jenis_penerima; ?></b>
+        </div>
+    <?php endif; ?>
+
+
+    <?php if ($editable['dasar_tagihan']): ?>
+        <?php echo $form->dropDownListRow($model, 'dasar_tagihan', array(
+            '' => '---',
+            'ST' => 'ST',
+            'SK' => 'SK',
+            'SPK' => 'SPK',
+            'KONTRAK' => 'KONTRAK',
+        ), array('class' => 'span2', 'maxlength' => 25)); ?>
+        <div class="clearfix"></div>
+    <?php else: ?>
+        <div class='row-tagihan'>
+            <span class='label-tagihan'>
+                <?php echo $model->getAttributeLabel('dasar_tagihan'); ?>
+            </span> 
+            : <b><?php echo $model->dasar_tagihan; ?></b>
+        </div>
+    <?php endif; ?>
+
 
     <?php if ($editable['sumber_dana']): ?>
         <?php echo $form->textFieldRow($model, 'sumber_dana', array('class' => 'span1', 'maxlength' => 25, 'readonly' => 'readonly')); ?>
@@ -595,9 +643,9 @@
                 $(".pph,#Tagihan_ppn").val('0');
             }
         }).change();
-        
-        if ($("#berpajak").text().trim() == "Pajak") { 
-                $("#pajak_subcontainer").show();
+
+        if ($("#berpajak").text().trim() == "Pajak") {
+            $("#pajak_subcontainer").show();
         }
 
         $(".pph").each(function() {

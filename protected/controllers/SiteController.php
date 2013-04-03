@@ -19,16 +19,43 @@ class SiteController extends Controller {
             ),
         );
     }
-    
+
     /**
      * This is the default 'index' action that is invoked
      * when an action is not explicitly requested by users.
      */
     public function actionIndex() {
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
+        $sql = "
+select @row := @row + 1 as row ,a.* from (
 
-            $this->render('index');
+(select substr(kode_mak,1,2) as kode, sum(jumlah) as jumlah, sumber_dana 
+from (select kode_output, kode_suboutput, kode_mak, uraian_tagihan,(jumlah_tagihan *kurs ) as jumlah,sumber_dana from tagihan inner join (select * from dipa order by id desc limit 1) dipa on dipa_uid = dipa.uid
+where kode_mak like '51%') as b group by b.sumber_dana)
+UNION
+(select substr(kode_mak,1,2) as kode, sum(jumlah) as jumlah, sumber_dana 
+from (select kode_output, kode_suboutput, kode_mak, uraian_tagihan,(jumlah_tagihan *kurs ) as jumlah,sumber_dana from tagihan inner join (select * from dipa order by id desc limit 1) dipa on dipa_uid = dipa.uid
+where kode_mak like '52%') as b group by b.sumber_dana)
+UNION
+(select substr(kode_mak,1,2) as kode, sum(jumlah) as jumlah, sumber_dana 
+from (select kode_output, kode_suboutput, kode_mak, uraian_tagihan,(jumlah_tagihan *kurs ) as jumlah,sumber_dana from tagihan inner join (select * from dipa order by id desc limit 1) dipa on dipa_uid = dipa.uid
+where kode_mak like '53%') as b group by b.sumber_dana)
+
+) a,(SELECT @row := 0) r
+";
+        $rawData = Yii::app()->db->createCommand($sql)->queryAll();
+
+
+        $dipa = Dipa::model()->find(array('order' => 'uid desc, id desc'));
+        $dataProvider = new CArrayDataProvider($rawData, array(
+            'keyField' => 'row',
+            'pagination' => array(
+                'pageSize' => 300,
+            ),
+        ));
+        $this->render('index', array(
+            'dataProvider' => $dataProvider,
+            'dipa' => $dipa
+        ));
     }
 
     /**

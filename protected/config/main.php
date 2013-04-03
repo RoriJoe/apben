@@ -47,13 +47,7 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
-        'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=apben',
-            'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => 'okedeh',
-            'charset' => 'utf8',
-        ),
+        'db' => require("db/db.php"),
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',

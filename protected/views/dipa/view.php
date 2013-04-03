@@ -142,7 +142,7 @@ $up_icon = "icon-folder-open";
                 'htmlOptions' => array(
                     'class' => 'pull-left',
                     'style' => 'margin-left:3px;margin-top:2px;',
-                    'onclick' => 'return confirm("Apakah Anda yakin?")'
+                    'onclick' => 'return confirm("APAKAH ANDA BENAR BENAR YAKIN ?",confirm("Apakah Anda yakin?"))'
                 )
             ));
         }

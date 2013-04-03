@@ -106,7 +106,8 @@ class Tagihan extends CActiveRecord {
             return $this->jumlah_tagihan;
         }
     }
-
+    
+    
     /**
      * @return string the associated database table name
      */
@@ -132,7 +133,7 @@ class Tagihan extends CActiveRecord {
             array('id_p_ar, id_p_sptb, nomor_sptb, kode_lpk, nomor_spp, id_p_spm, id_p_sp2d, nomor_sp2d, jumlah_tagihan, ppn, pph_21, pph_22, pph_23, kurs', 'length', 'max' => 20),
             array('jenis_tagihan', 'length', 'max' => 10),
             array('uraian_tagihan, pihak_penerima', 'length', 'max' => 255),
-            array('tanggal_sptb, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, tanggal_deadline, tanggal_spm, tanggal_kirim, tanggal_sp2d, tanggal_tagihan,pph_21, pph_22, pph_23, pph_25, tanggal_trm_tagihan,kode_output_uid,kode_suboutput_uid,kode_mak_uid,dipa_uid', 'safe'),
+            array('tanggal_sptb, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, tanggal_deadline, tanggal_spm, tanggal_kirim, tanggal_sp2d, tanggal_tagihan,pph_21, pph_22, pph_23, pph_25, tanggal_trm_tagihan,kode_output_uid,kode_suboutput_uid,kode_mak_uid,dipa_uid,dasar_tagihan,pihak_penerima', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, kode_output, kode_suboutput, kode_mak, id_p_ar, tanggal_ar, id_p_sptb, tanggal_sptb, nomor_sptb, kode_lpk, nomor_spp, nomor_spm, tanggal_spp, tanggal_verifikasi, tanggal_ke_tu, id_p_spm, tanggal_spm, tanggal_kirim, id_p_sp2d, tanggal_sp2d, nomor_sp2d, jenis_tagihan, tanggal_tagihan, uraian_tagihan, pihak_penerima, sumber_dana, mata_uang, jumlah_tagihan, ppn, pph_21, pph_22, pph_23, kurs, jenis_kurs', 'safe', 'on' => 'search'),
@@ -146,7 +147,8 @@ class Tagihan extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'pembuat_tagihan' => array(self::BELONGS_TO, 'User', 'id_p_ar')
+            'pembuat_tagihan' => array(self::BELONGS_TO, 'User', 'id_p_ar'),
+            'ppk' => array(self::BELONGS_TO, 'User', 'id_p_ppk')
         );
     }
 
@@ -164,6 +166,7 @@ class Tagihan extends CActiveRecord {
             'id_p_sptb' => 'Pembuat SPTB',
             'tanggal_sptb' => 'Tanggal SPTB',
             'nomor_sptb' => 'Nomor SPTB',
+            'id_p_ppk' => 'Pejabat Pembuat Komitmen',
             'kode_lpk' => 'Kode LPK',
             'nomor_spp' => 'Nomor SPP',
             'nomor_spm' => 'Nomor SPM',
@@ -222,6 +225,7 @@ class Tagihan extends CActiveRecord {
         $this->tanggal_deadline = Format::date2sql($this->tanggal_deadline);
         $this->tanggal_verifikasi = Format::date2sql($this->tanggal_verifikasi);
 
+        
         if (strpos($this->kode_output, "-") !== false) {
             $this->kode_output_uid = Format::kode_uid($this->kode_output);
             $this->kode_output = Format::kode($this->kode_output);
@@ -235,6 +239,13 @@ class Tagihan extends CActiveRecord {
             $this->kode_mak = Format::kode($this->kode_mak);
         }
 
+        $this->kode_output = trim($this->kode_output);
+        $this->kode_output_uid = trim($this->kode_output_uid);
+        $this->kode_suboutput = trim($this->kode_suboutput);
+        $this->kode_suboutput_uid = trim($this->kode_suboutput_uid);
+        $this->kode_mak = trim($this->kode_mak);
+        $this->kode_mak_uid = trim($this->kode_mak_uid);
+        
         switch (Yii::app()->user->role) {
             case "bp":
                 $this->id_p_sp2d = Yii::app()->user->id;

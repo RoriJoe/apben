@@ -139,6 +139,9 @@ class User extends CActiveRecord {
                     'jenis_tagihan',
                     'sumber_dana',
                     'kode_lpk',
+                    'id_p_ppk',
+                    'dasar_tagihan',
+                    'jenis_penerima'
                 ),
                 "ar" => array(
                     'tanggal_trm_tagihan',
@@ -189,6 +192,18 @@ class User extends CActiveRecord {
         return true;
     }
 
+    public static function getListByRole($role) {
+        $user = User::model()->findAll(array('condition'=>'roles like "%ppk%"'));
+        $list = array();
+        $list[] = "---";
+        
+        foreach ($user as $u) {
+            $list[$u->id] = $u->nama . "({$u->nip})";
+        }
+        return $list;
+        
+    }
+    
     public function getRoles_menu() {
         $menu = array();
         foreach ($this->roles_arr as $r) {
