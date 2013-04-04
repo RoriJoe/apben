@@ -5,6 +5,18 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         ));
 ?>
 
+<script type="text/javascript" src="<?php echo $this->staticUrl . "/js/jquery.maskMoney.js"; ?>"></script>
+<?php $this->widget('ext.moneymask.MMask',array(
+    'element' => '#DetailInput_tarif',
+    'currency' => 'IDR',
+    'config' => array(
+        'showSymbol' => false,
+        'thousands' => '.',
+        'decimal' => ',',
+        'precision' => 0
+    )
+)); ?>
+
 <?php echo $form->textFieldRow($model, 'uraian', array('class' => 'span5', 'maxlength' => 255)); ?>
 
 <div style="float:left;">

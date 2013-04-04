@@ -1,16 +1,16 @@
 
-    <?php
-    $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType' => 'link',
-        'url' => array('/dipa/excel/' . $model->id),
-        'type' => '',
-        'label' => 'Unduh Excel',
-        'icon' => 'share',
-        'htmlOptions' => array(
-            'style' => 'float:right;margin-top:-53px;margin-right:3px;'
-        )
-    ));
-    ?>
+<?php
+$this->widget('bootstrap.widgets.TbButton', array(
+    'buttonType' => 'link',
+    'url' => array('/dipa/excel/' . $model->id),
+    'type' => '',
+    'label' => 'Unduh Excel',
+    'icon' => 'share',
+    'htmlOptions' => array(
+        'style' => 'float:right;margin-top:-53px;margin-right:3px;'
+    )
+));
+?>
 <?php
 $this->breadcrumbs = array(
     'DIPA' => array('admin'),
@@ -24,20 +24,26 @@ $up_icon = "icon-folder-open";
     <div id="dipa-versi">
         <div class="dipa-group pull-left">
             <div class="pull-left" style="margin:1px 0px 0px -7px;">
-                Revisi: <b><?php echo $model->version; ?></b>
+                <?php if ($model->version == 1): ?>
+                <b>ASLI (rev. 1)</b>
+                <?php else: ?>
+                    Revisi: <b><?php echo $model->version; ?></b>
+                <?php endif; ?>
             </div>
             <?php
-            $this->widget('bootstrap.widgets.TbButton', array(
-                'buttonType' => 'link',
-                'size' => 'mini',
-                'url' => array('/dipa/view/' . $model->uid . "?rev=" . ($model->version - 1)),
-                'icon' => 'chevron-left',
-                'htmlOptions' => array(
-                    'hide' => 'no',
-                    'class' => 'pull-left',
-                    'style' => 'margin:0px -10px 0px 15px;'
-                )
-            ));
+            if ($model->version > 1) {
+                $this->widget('bootstrap.widgets.TbButton', array(
+                    'buttonType' => 'link',
+                    'size' => 'mini',
+                    'url' => array('/dipa/view/' . $model->uid . "?rev=" . ($model->version - 1)),
+                    'icon' => 'chevron-left',
+                    'htmlOptions' => array(
+                        'hide' => 'no',
+                        'class' => 'pull-left',
+                        'style' => 'margin:0px -10px 0px 15px;'
+                    )
+                ));
+            }
             ?>
             <?php
             if ($model->version != $version) {
@@ -282,7 +288,6 @@ $up_icon = "icon-folder-open";
         </table>
     </div>
 
-
     <script type="text/javascript">
         window.data_id = "";
         window.data_table = "";
@@ -413,11 +418,11 @@ $up_icon = "icon-folder-open";
                 $("#sh-sub,#sh-mak").attr("hide", "no");
 
                 $hidden = $("#sh-out").attr("hide");
-                
+
                 if ($hidden == "yes") {
                     $(".item.suboutput,.item.mak,.item.detail-input").show();
                     $("#sh-out").attr("hide", "no");
-                    
+
                     $(".item.output .label,.item.suboutput .label,.item.mak .label")
                             .removeClass("always_show")
                             .find('i')
@@ -443,7 +448,7 @@ $up_icon = "icon-folder-open";
                 $(".item.suboutput").show();
 
                 $hidden = $("#sh-sub").attr("hide");
-                
+
                 if ($hidden == "yes") {
                     $(".item.mak,.item.detail-input").show();
                     $("#sh-sub").attr("hide", "no");

@@ -12,6 +12,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Tagihan</h1>
+<h1><?php if (isset($_GET['mode'])): ?>Lihat<?php else: ?>Update<?php endif; ?> Tagihan</h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

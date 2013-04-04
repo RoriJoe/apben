@@ -13,7 +13,7 @@ class Format {
         
         $time = Format::getTimestamp($timestamp);
 
-        if (date("Y", $time) == 1970) {
+        if (date("Y", $time) <= 1970) {
             return "";
         } else {
             return date('d F Y', $time);

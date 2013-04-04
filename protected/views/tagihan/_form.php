@@ -31,6 +31,21 @@
         )
     ));
     ?>
+
+    <script type="text/javascript" src="<?php echo $this->staticUrl . "/js/jquery.maskMoney.js"; ?>"></script>
+    <?php
+    $this->widget('ext.moneymask.MMask', array(
+        'element' => '#Tagihan_jumlah_tagihan,#Tagihan_ppn, #Tagihan_pph21, #Tagihan_pph22, #Tagihan_pph23, #Tagihan_pph25',
+        'currency' => 'IDR',
+        'config' => array(
+            'showSymbol' => false,
+            'thousands' => '.',
+            'decimal' => ',',
+            'precision' => 0
+        )
+    ));
+    ?>
+
     <br/>
 
     <?php echo $form->errorSummary($model); ?>
@@ -389,7 +404,7 @@
             : <b><?php echo $model->uraian_tagihan; ?></b>
         </div>
     <?php endif; ?>
-        
+
     <?php if ($editable['pihak_penerima']): ?>
         <?php echo $form->textFieldRow($model, 'pihak_penerima', array('class' => 'span5', 'maxlength' => 255)); ?>
         <div class="clearfix"></div>
@@ -401,14 +416,16 @@
             : <b><?php echo $model->pihak_penerima; ?></b>
         </div>
     <?php endif; ?>
-        
+
     <?php if ($editable['jenis_penerima']): ?>
-        <?php echo $form->dropDownListRow($model, 'jenis_penerima', array(
+        <?php
+        echo $form->dropDownListRow($model, 'jenis_penerima', array(
             '' => '---',
             'BP' => 'BP',
             'PIHAK KETIGA' => 'PIHAK KETIGA',
             'PEGAWAI' => 'PEGAWAI',
-        ),  array('class' => 'span2', 'maxlength' => 255)); ?>
+                ), array('class' => 'span2', 'maxlength' => 255));
+        ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>
@@ -421,13 +438,15 @@
 
 
     <?php if ($editable['dasar_tagihan']): ?>
-        <?php echo $form->dropDownListRow($model, 'dasar_tagihan', array(
+        <?php
+        echo $form->dropDownListRow($model, 'dasar_tagihan', array(
             '' => '---',
             'ST' => 'ST',
             'SK' => 'SK',
             'SPK' => 'SPK',
             'KONTRAK' => 'KONTRAK',
-        ), array('class' => 'span2', 'maxlength' => 25)); ?>
+                ), array('class' => 'span2', 'maxlength' => 25));
+        ?>
         <div class="clearfix"></div>
     <?php else: ?>
         <div class='row-tagihan'>
@@ -605,15 +624,17 @@
         <div class="clearfix"></div>
     </div>
 
-    <div class="form-actions">
-        <?php
-        $this->widget('bootstrap.widgets.TbButton', array(
-            'buttonType' => 'submit',
-            'type' => 'primary',
-            'label' => $model->isNewRecord ? 'Create' : 'Save',
-        ));
-        ?>
-    </div>
+    <?php if (!isset($_GET['mode'])): ?>
+        <div class="form-actions">
+            <?php
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'buttonType' => 'submit',
+                'type' => 'primary',
+                'label' => $model->isNewRecord ? 'Create' : 'Save',
+            ));
+            ?>
+        </div>
+    <?php endif; ?>
 </div>
 
 <?php $this->endWidget(); ?>

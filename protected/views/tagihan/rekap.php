@@ -16,27 +16,41 @@ $this->menu = array(
 $columns = User::itemAlias('realisasi_view', Yii::app()->user->role);
 
 if (Yii::app()->user->detail->menuMode('realisasi') == "edit") {
-    $template = (Yii::app()->user->role == "ar" ? "{update} {delete}" : "{update}");
     if (Yii::app()->user->role == "psptb") {
-        $columns = array_merge($columns, array(
-            array(
-                'type' => 'raw',
-                'header' => '',
-                'htmlOptions' => array(
-                    'style' => 'width:30px;'
-                ),
-                'value' => 'CHtml::link("<i class=\"icon-pencil\"></i>",array("/tagihan/update/" . $data->id),array("rel"=>"tooltip","data-original-title"=>"Update")) . CHtml::link("<i class=\"icon-file\"></i>",array("/tagihan/sptb/" . $data->id),array("rel"=>"tooltip","data-original-title"=>"Lihat SPTB"))',
+        $columns = array_merge($columns, array(array(
+                'class' => 'bootstrap.widgets.TbButtonColumn',
+                'template' => '{update} {view}',
+                'buttons' => array(
+                    'update' => array(
+                        'url' => 'Yii::app()->createUrl("tagihan/update/" . $data->id . "?redir=rekap")',
+                    ),
+                    'view' => array(
+                        'label' => 'Lihat SPTB',
+                        'url' => 'Yii::app()->createUrl("tagihan/sptb/" . $data->id . "?redir=rekap")',
+                    )
+                )
         )));
     } else {
+        $template = (Yii::app()->user->role == "ar" ? "{update} {delete}" : "{update}");
         $columns = array_merge($columns, array(array(
                 'class' => 'bootstrap.widgets.TbButtonColumn',
                 'template' => $template,
+                'buttons' => array(
+                    'update' => array(
+                        'url' => 'Yii::app()->createUrl("tagihan/update/" . $data->id . "?redir=rekap")',
+                    )
+                )
         )));
     }
 } else {
     $columns = array_merge($columns, array(array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
-            'template' => '{view}'
+            'template' => '{view}',
+            'buttons' => array(
+                'view' => array(
+                    'url' => 'Yii::app()->createUrl("tagihan/update/" . $data->id . "?redir=rekap")',
+                )
+            )
     )));
 }
 

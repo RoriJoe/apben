@@ -1,28 +1,32 @@
 
 <table >
-    <tr>
+    <tr style="vertical-align:top;">
         <td style="width:240px;"> 1. KODE KANTOR/SATUAN KERJA</td>
-        <td>: 675709</td>
+        <td>:&nbsp;</td>
+        <td>675709</td>
     </tr>
-    <tr>
+    <tr style="vertical-align:top;">
         <td>2. NAMA KANTOR/SATUAN KERJA</td>
-        <td>: <?php echo $dipa->satker; ?></td>
+        <td>:&nbsp;</td>
+        <td><?php echo $dipa->satker; ?></td>
     </tr>
-    <tr>
+    <tr style="vertical-align:top;">
         <td>3. TGL DAN NOMOR DIPA</td>
-        <td>:<?php echo $dipa->tanggal_dipa; ?>, <?php echo $dipa->nomor_dipa; ?></td>
+        <td>:&nbsp;</td>
+        <td><?php echo $dipa->tanggal_dipa; ?>, <?php echo $dipa->nomor_dipa; ?></td>
     </tr>
-    <tr>
+    <tr style="vertical-align:top;">
         <td>4. KLASIFIKASI ANGGARAN</td>
-        <td>: 01/01/04/<?php echo $dipa->kode_kegiatan; ?>/<?php echo Format::kode($tagihan->kode_output); ?>/<?php echo trim(substr(Format::kode($tagihan->kode_mak), 0, -2)); ?></td>
+        <td>:&nbsp;</td>
+        <td>01/01/04/<?php echo $dipa->kode_kegiatan; ?>/<?php echo Format::kode($tagihan->kode_output); ?>/<?php echo trim(substr(Format::kode($tagihan->kode_mak), 0, -2)); ?></td>
     </tr>
 </table>
 
 <hr style="margin:0px;border-top:1px solid #000;"/>
 <br/>
-<div style="font-size:13px;">
-    YANG BERTANDATANGAN DIBAWAH INI ATAS NAMA KUASA PENGGUNA ANGGARAN SATUAN KERJA PUSAT PENDIDIKAN DAN PELATIHAN PENGEMBANGAN SUMBER DAYA<br/>
-    MANUSIA - BPPK MENYATAKAN BAHWA SAYA BERTANGGUNG JAWAB SECARA FORMAL DAN MATERIAL DAN KEBENARAN PERHITUNGAN PEMUNGUTAN PAJAK ATAS SEGALA <br/>
+<div style="font-size:12px;">
+    YANG BERTANDATANGAN DIBAWAH INI ATAS NAMA KUASA PENGGUNA ANGGARAN SATUAN KERJA PUSAT PENDIDIKAN DAN PELATIHAN PENGEMBANGAN SUMBER DAYA
+    MANUSIA - BPPK MENYATAKAN BAHWA SAYA BERTANGGUNG JAWAB SECARA FORMAL DAN MATERIAL DAN KEBENARAN PERHITUNGAN PEMUNGUTAN PAJAK ATAS SEGALA 
     PEMBAYARAN TAGIHAN YANG TELAH KAMI PERINTAHKAN DALAM SPM INI DENGAN PERINCIAN SEBAGAI BERIKUT:
 </div>
 <?php
@@ -75,9 +79,11 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 ));
 ?>
 
-BUKTI-BUKTI PENGELUARAN ANGGARAN DAN ASLI SETORAN PAJAK (SSP/BPN) TERSEBUT DI ATAS DISIMPAN OLEH PENGGUNA ANGGARAN/KUASA PENGGUNA ANGGARAN UNTUK KELENGKAPAN ADMINISTRASI DAN PEMERIKSAAN PENGAWASAN FUNGSIONAL.
+<div style="font-size:12px;">
+    BUKTI-BUKTI PENGELUARAN ANGGARAN DAN ASLI SETORAN PAJAK (SSP/BPN) TERSEBUT DI ATAS DISIMPAN OLEH PENGGUNA ANGGARAN/KUASA PENGGUNA ANGGARAN UNTUK KELENGKAPAN ADMINISTRASI DAN PEMERIKSAAN PENGAWASAN FUNGSIONAL.
 
-DEMIKIAN SURAT PERNYATAAN INI DIBUAT DENGAN SEBENARNYA.
+    DEMIKIAN SURAT PERNYATAAN INI DIBUAT DENGAN SEBENARNYA.
+</div>
 <BR/><BR/>
 <div style="150px;margin-top:50px;margin-right:100px;float:right;text-align:center;">
     Jakarta, <?php echo $tagihan->tanggal_sptb; ?><br/>

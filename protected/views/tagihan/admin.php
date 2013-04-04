@@ -23,10 +23,12 @@ if (Yii::app()->user->detail->menuMode('realisasi') == "edit") {
             'template' => $template,
     )));
 } else {
-    $columns = array_merge($columns, array(array(
-            'class' => 'bootstrap.widgets.TbButtonColumn',
-            'template' => '{view}',
-    )));
+    $columns = array_merge($columns, array(
+        array(
+            'type' => 'raw',
+            'value' => "CHtml::link('<i class=\"icon-eye-open\"></i>',array('/tagihan/update/' . \$data->id . '?mode=view'),array(\"rel\"=>\"tooltip\",\"data-original-title\"=>\"Lihat Detail\"))"
+        )
+    ));
 }
 
 $this->widget('bootstrap.widgets.TbGridView', array(

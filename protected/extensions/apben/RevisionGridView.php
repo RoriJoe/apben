@@ -27,7 +27,7 @@ class RevisionGridView extends TbGridView {
     }
      */
 
-    public function init() {
+        public function init() {
 
         $this->type = "striped condensed";
         $this->emptyText = '<center><br><br><br>&mdash; Data masih kosong &mdash;<br><br><br><br></center> ';

@@ -72,7 +72,7 @@ $master['edit'] = array(
     ),
     array(
         'label' => 'Master Suboutput',
-        'url' => array('/masterSubOutput/admin')
+        'url' => array('/masterSuboutput/admin')
     ),
     array(
         'label' => 'Master MAK',

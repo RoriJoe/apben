@@ -44,16 +44,6 @@ class TagihanController extends Controller {
         echo CHtml::dropDownList('Tagihan[kode_mak]', null, Mak::getDropDownList($output, $suboutput), array('class' => 'span5', 'maxlength' => 25, 'options' => Mak::getDropDownListOptions($output, $suboutput)));
     }
 
-    /**
-     * Displays a particular model.
-     * @param integer $id the ID of the model to be displayed
-     */
-    public function actionView($id) {
-        $this->render('view', array(
-            'model' => $this->loadModel($id),
-        ));
-    }
-
     public function actionSptb($id) {
         $dataProvider = new CActiveDataProvider('Tagihan', array('criteria' => array(
                 'condition' => 'id = ' . $id
@@ -103,10 +93,20 @@ class TagihanController extends Controller {
 
         if (isset($_POST['Tagihan'])) {
             $model->attributes = $_POST['Tagihan'];
-            if ($model->save())
-                $this->redirect(array('/tagihan/sptb/' . $model->id));
+            if ($model->save()) {
+                if (Yii::app()->user->role == "psptb") {
+                    $this->redirect(array('/tagihan/sptb/' . $model->id));
+                } else {
+
+                    if (@$_GET['redir'] == "rekap") {
+                        $this->redirect(array('/tagihan/rekap'));
+                    } else {
+                        $this->redirect(array('/tagihan/admin'));
+                    }
+                }
+            }
         }
-        
+
         $this->render('update', array(
             'model' => $model,
         ));

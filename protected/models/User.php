@@ -21,6 +21,13 @@ class User extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
+    
+    private static function fjt($nama) {
+        return array(
+            'name' => $nama,
+            'value' => 'Format::currency($data->'.$nama.')'
+        );
+    }
 
     public static function itemAlias($type, $code = NULL) {
         $_items = array(
@@ -57,20 +64,20 @@ class User extends CActiveRecord {
                 "admin" => array('user' => 'edit'),
             ),
             "realisasi_view" => array(
-                "kpa" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "ppk" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "ptspm" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "bp" => array('uraian_tagihan', 'pihak_penerima',  'jumlah_tagihan', 'mata_uang', 'tanggal_sp2d', 'tanggal_deadline'),
-                "bpp" => array('uraian_tagihan', 'pihak_penerima',  'jumlah_tagihan', 'mata_uang', 'tanggal_sp2d', 'tanggal_deadline'),
-                "vrf" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "psppm" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "psptb" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan', 'mata_uang', 'tanggal_deadline', 'tanggal_sp2d'),
-                "ar" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan', 'mata_uang', 'jenis_kurs', 'tanggal_deadline', 'tanggal_sp2d'),
-                "pta" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "pst" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "plpk" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "ksbp" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline'),
-                "admin" => array('uraian_tagihan', 'pihak_penerima', 'jumlah_tagihan_rupiah', 'tanggal_sp2d', 'tanggal_deadline')
+                "kpa" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "ppk" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "ptspm" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "bp" => array('uraian_tagihan', 'pihak_penerima',  self::fjt('jumlah_tagihan'), 'mata_uang', 'tanggal_sp2d', 'tanggal_deadline'),
+                "bpp" => array('uraian_tagihan', 'pihak_penerima',  self::fjt('jumlah_tagihan'), 'mata_uang', 'tanggal_sp2d', 'tanggal_deadline'),
+                "vrf" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "psppm" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "psptb" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan'), 'mata_uang', 'tanggal_deadline', 'tanggal_sp2d'),
+                "ar" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan'), 'mata_uang', 'jenis_kurs', 'tanggal_deadline', 'tanggal_sp2d'),
+                "pta" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "pst" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "plpk" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "ksbp" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline'),
+                "admin" => array('uraian_tagihan', 'pihak_penerima', self::fjt('jumlah_tagihan_rupiah'), 'tanggal_sp2d', 'tanggal_deadline')
             ),
             "realisasi_hide" => array(
                 "kpa" => array(),

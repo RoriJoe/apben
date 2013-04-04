@@ -1,10 +1,10 @@
-
 <hr/>
 <?php
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     'id' => 'dipa-form',
     'enableAjaxValidation' => false,
-        ));
+));
+
 ?>
 
 <?php echo $form->errorSummary($model); ?>
@@ -20,14 +20,15 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         '2018' => '2018',
         '2019' => '2019',
         '2020' => '2020'
-            ), array('class' => 'span1'));
+    ), array('class' => 'span1'));
     ?>
 </div>
+
 <div class="row span2">
     <?php echo $form->textFieldRow($model, 'tanggal_dipa', array('class' => 'span2')); ?>
 </div>
 <div class="row span3">
-    <?php echo $form->textFieldRow($model, 'nomor_dipa', array('class' => 'span3', 'maxlength' => 30)); ?>
+    <?php echo $form->textFieldRow($model, 'nomor_dipa', array('classl' => 'span3', 'maxlength' => 30)); ?>
 </div>
 <div class="clearfix"></div>
 
@@ -36,11 +37,11 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 <div class="clearfix"></div>
 
 <div class="row span1" style="margin-left:0px;">
-<?php echo $form->textFieldRow($model, 'kode_kegiatan', array('class' => 'span1', 'maxlength' => 255)); ?>
+    <?php echo $form->textFieldRow($model, 'kode_kegiatan', array('class' => 'span1', 'maxlength' => 255)); ?>
 </div>
 
 <div class="row span6">
-<?php echo $form->textAreaRow($model, 'kegiatan', array('class' => 'span6', 'maxlength' => 255)); ?>
+    <?php echo $form->textAreaRow($model, 'kegiatan', array('class' => 'span6', 'maxlength' => 255)); ?>
 </div>
 
 <div class="clearfix"></div>
